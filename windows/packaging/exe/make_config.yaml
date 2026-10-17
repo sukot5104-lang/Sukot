@@ -1,0 +1,23 @@
+# The value of AppId uniquely identifies this application.
+# Do not use the same AppId value in installers for other applications.
+# TODO: Update this to add Sukot to Windows app store
+app_id: 5B599538-42C1-4026-A579-AF079F21A65E
+display_name: Sukot
+#app_name: Sukot
+publisher: getlantern
+publisher_url: https://github.com/getlantern/lantern
+executable_name: lantern.exe
+output_base_file_name: lantern.exe
+create_desktop_icon: true
+install_dir_name: Lantern
+script_template: inno_setup.iss
+#setup_icon_file: ..\windows\runner\resources\app_icon.ico
+# Installer languages (drives LOCALES in inno_setup.iss). en/ru use bundled
+# .isl files; zh/fa use the vendored isl/*.isl that CI copies into Inno's
+# Languages dir. ja is omitted — its unofficial .isl isn't provisioned, so it
+# stays dormant (English) as today; add it the same way if needed.
+locales:
+  - en
+  - zh
+  - ru
+  - fa

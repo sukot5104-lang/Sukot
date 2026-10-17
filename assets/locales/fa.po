@@ -1,0 +1,2203 @@
+# Translators:
+# Vaseto Nora <n.nouri67@gmail.com>, 2025
+# Mersen M, 2025
+# e2f_fa r1 <tx_e2f_fa_r1@ate2f.com>, 2026
+# Lantern, 2026
+# Pedram Azizallahi <pedram672004@yahoo.com>, 2026
+# Mary Sol <salar.adlparvar@gmail.com>, 2026
+# kian kamali <kian@tahgheegh.com>, 2026
+# b0b47d46632b78a09a40de799fda9a65, 2026
+# NoProfile, 2026
+# Amir Moezzi <amirreza.mz@yahoo.com>, 2026
+# Chip Stehr <chip@getlantern.org>, 2026
+# Mokah <unfilternet@getlantern.org>, 2026
+# Evan <alireza.firoozi68@gmail.com>, 2026
+# Jigar, 2026
+# Derek F <derek@getlantern.org>, 2026
+# 
+msgid ""
+msgstr ""
+"Last-Translator: Derek F <derek@getlantern.org>, 2026\n"
+"Language-Team: Persian (Iran) (https://app.transifex.com/lantern-1/teams/94371/fa_IR/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "app_name"
+msgstr "Sukot"
+
+msgid "upgrade_to_pro"
+msgstr "ارتقا به نسخه پرو"
+
+msgid "settings"
+msgstr "تنظیمات"
+
+msgid "report_an_issue"
+msgstr "گزارش مشکل"
+
+msgid "report_issue_add_screenshots"
+msgstr "افزودن اسکرین‌شات"
+
+msgid "report_issue_screenshot_helper"
+msgstr "PNG، JPG یا GIF — در مجموع حداکثر 15 مگابایت"
+
+msgid "report_issue_add_images"
+msgstr "افزودن تصاویر"
+
+msgid "report_issue_attachments_unsupported_type"
+msgstr "فقط تصاویر PNG، JPG و GIF پشتیبانی می‌شوند."
+
+msgid "report_issue_attachments_too_many"
+msgstr "می‌توانید حداکثر 3 تصویر پیوست کنید."
+
+msgid "report_issue_attachments_total_size_exceeded"
+msgstr "مجموع حجم پیوست‌ها باید کمتر از 15 مگابایت باشد."
+
+msgid "report_issue_attachments_duplicate"
+msgstr "این تصویر قبلاً پیوست شده است."
+
+msgid "report_issue_attachments_unreadable"
+msgstr "یکی از این فایل‌ها قابل خواندن نبود."
+
+msgid "send_without_email_title"
+msgstr "ارسال بدون ایمیل؟"
+
+msgid "send_without_email_body"
+msgstr ""
+"آدرس ایمیلی وارد نکرده‌اید، بنابراین نمی‌توانیم به این گزارش پاسخ دهیم یا آن"
+" را پیگیری کنیم."
+
+msgid "send_without_email"
+msgstr "ارسال بدون ایمیل"
+
+msgid "lantern_projects"
+msgstr "پروژه‌های Sukot:"
+
+msgid "invite_friends"
+msgstr "دعوت از دوستان"
+
+msgid "your_referral_code"
+msgstr "کد معرف شما"
+
+msgid "invite_friends_message"
+msgstr ""
+"کد معرف خود را با یک دوست به اشتراک بگذارید. وقتی آن‌ها Sukot Pro را "
+"خریداری کنند، هر دو زمان اضافی دریافت می‌کنید: "
+
+msgid "share_referral_code"
+msgstr "هم‌رسانی کد معرف"
+
+msgid "invite_friends_description"
+msgstr ""
+"وقتی دوستی با استفاده از کد معرف شما به Sukot Pro ارتقا دهد، هر دو 1 ماه "
+"رایگان دریافت می‌کنید."
+
+msgid "month_earned"
+msgstr "%s ماه به دست آمد"
+
+msgid "months_earned"
+msgstr "%s ماه به دست آمد"
+
+msgid "includes_free_month_from_referrals"
+msgstr "شامل %s ماه رایگان از معرفی‌ها"
+
+msgid "includes_free_months_from_referrals"
+msgstr "شامل %s ماه رایگان از معرفی‌ها"
+
+msgid "referral_converted_title"
+msgstr "یک دوست به نسخه پرو ارتقا داد"
+
+msgid "referral_converted_message"
+msgstr ""
+"هر دو %s از Sukot Pro را رایگان دریافت کردید. تاکنون %s به دست آورده‌اید. "
+"برای کسب بیشتر، به اشتراک‌گذاری کد خود ادامه دهید."
+
+msgid "month_count"
+msgstr "%s ماه"
+
+msgid "months_count"
+msgstr "%s ماه"
+
+msgid "done"
+msgstr "انجام شد"
+
+msgid "view_account"
+msgstr "مشاهده حساب"
+
+msgid "show_download_links"
+msgstr "نمایش لینک‌های دانلود"
+
+msgid "get_lantern"
+msgstr "دریافت لنترن"
+
+msgid "send_friend_download_link"
+msgstr "این لینک دانلود را برای دوست خود بفرستید:"
+
+msgid "scan_to_install"
+msgstr "برای نصب Sukot با برنامه دوربین خود اسکن کنید"
+
+msgid "remind_use_code"
+msgstr "به آن‌ها یادآوری کنید هنگام ارتقا از کد %s استفاده کنند!"
+
+msgid "unbounded"
+msgstr "Action Mode"
+
+# Tab label shown alongside the Unbounded tab on the Home screen when
+# the dual-tab strip is active.
+msgid "vpn"
+msgstr "فیلترشکن"
+
+msgid "help_fight_global_internet_censorship"
+msgstr "در مبارزه با سانسور جهانی اینترنت هم‌راه شوید"
+
+msgid "vpn_settings"
+msgstr "تنظیمات VPN"
+
+msgid "split_tunneling"
+msgstr "تونل‌سازی تفکیکی"
+
+msgid "server_locations"
+msgstr "مکان سرورها"
+
+msgid "lantern_pro_email"
+msgstr "ایمیل Sukot پرو:"
+
+msgid "pro_account_expiration"
+msgstr "انقضای حساب پرو"
+
+msgid "manage_subscription"
+msgstr "مدیریت اشتراک"
+
+msgid "lantern_pro_devices"
+msgstr "دستگاه‌های Sukot پرو"
+
+msgid "remove"
+msgstr "حذف"
+
+msgid "add_device"
+msgstr "افزودن دستگاه"
+
+msgid "danger_zone"
+msgstr "منطقه خطر:"
+
+msgid "delete_account"
+msgstr "حذف حساب کاربری"
+
+msgid "delete"
+msgstr "حذف"
+
+msgid "account"
+msgstr "حساب کاربری"
+
+msgid "delete_account_?"
+msgstr "می‌خواهید حساب کاربری خود را حذف کنید؟"
+
+msgid "delete_account_message"
+msgstr ""
+"حذف حساب کاربری برگشت‌ناپذیر است. دسترسی شما در تمام دستگاه‌ها از دست می‌رود"
+" و زمان باقی‌مانده اشتراک پرو نیز، بدون بازپرداخت از بین خواهد رفت."
+
+msgid "delete_account_message_two"
+msgstr "برای تأیید حذف، لطفاً رمز عبور خود را این پایین وارد کنید"
+
+msgid "Submit Issue Report"
+msgstr "رمز عبور را برای تأیید وارد کنید"
+
+msgid "confirm_deletion"
+msgstr "تأیید حذف"
+
+msgid "cancel"
+msgstr "لغو"
+
+msgid "daily_data_usage"
+msgstr "مصرف داده روزانه"
+
+msgid "mb"
+msgstr "مگابایت"
+
+msgid "vpn_status"
+msgstr "وضعیت VPN"
+
+msgid "telegram"
+msgstr "تلگرام"
+
+msgid "instagram"
+msgstr "اینستاگرام"
+
+msgid "x"
+msgstr "ایکس"
+
+msgid "follow_us"
+msgstr "ما را دنبال کنید"
+
+msgid "server_selection"
+msgstr "انتخاب سرور"
+
+msgid "smart_location"
+msgstr "مکان هوشمند"
+
+msgid "automatically_chooses_fastest_location"
+msgstr "انتخاب سریع‌ترین مکان را به طور خودکار"
+
+msgid "pro_locations"
+msgstr "مکان‌های پرو:"
+
+msgid "choose_your_location_with_lantern_pro"
+msgstr "مکان خود را با Sukot پرو انتخاب کنید:"
+
+msgid "language"
+msgstr "زبان"
+
+msgid "sign_in"
+msgstr "ورود"
+
+msgid "sign_out"
+msgstr "خروج"
+
+msgid "check_for_updates"
+msgstr "بررسی به‌روزرسانی"
+
+msgid "update_available"
+msgstr "به‌روزرسانی موجود است"
+
+msgid "android_sideload_update_available_message"
+msgstr ""
+"Sukot %s در دسترس است. Sukot قبل از باز کردن نصب‌کننده اندروید، فایل APK"
+" را دانلود و تأیید می‌کند."
+
+msgid "download_and_install_update"
+msgstr "دانلود و نصب"
+
+msgid "allow_unknown_app_installs"
+msgstr "اجازه نصب برنامه‌ها"
+
+msgid "android_sideload_install_permission_message"
+msgstr ""
+"اندروید برای نصب به‌روزرسانی‌ها از Sukot به اجازه نیاز دارد. گزینه «اجازه "
+"از این منبع» را فعال کنید و سپس دوباره به‌روزرسانی‌ها را بررسی کنید."
+
+msgid "error_install_update"
+msgstr "به‌روزرسانی نصب نشد"
+
+msgid "android_sideload_install_failed_message"
+msgstr ""
+"Sukot نتوانست این به‌روزرسانی را تأیید یا نصب کند. لطفاً بعداً دوباره تلاش"
+" کنید."
+
+msgid "lantern_is_up_to_date"
+msgstr "Sukot به‌روز است."
+
+msgid "support"
+msgstr "پشتیبانی"
+
+msgid "download_links"
+msgstr "لینک‌های دانلود"
+
+msgid "get_30_days_of_pro_free"
+msgstr "۳۰ روز پرو رایگان بگیرید"
+
+msgid "share_message_referral_code"
+msgstr ""
+"برای دریافت Sukot پرو یک‌ماههه رایگان، از این کد معرف استفاده کنید: %s ؛ "
+"آن را می‌توانید از اینجا دانلود کنید: https://lantern.io/download"
+
+msgid "submit_issue_report"
+msgstr "مشکل را گزارش دهید"
+
+msgid "select_an_issue"
+msgstr "مشکلی انتخاب کنید"
+
+msgid "cannot_access_blocked_sites"
+msgstr "دسترسی به سایت‌های مسدودشده ممکن نیست"
+
+msgid "cannot_complete_purchase"
+msgstr "تکمیل خرید ممکن نیست"
+
+msgid "discover_not_working"
+msgstr "بخش Discover کار نمی‌کند"
+
+msgid "cannot_sign_in"
+msgstr "ورود ممکن نیست"
+
+msgid "spinner_loads_endlessly"
+msgstr "مدت بارگذاری تمام‌نشدنی است"
+
+msgid "slow"
+msgstr "کند"
+
+msgid "cannot_link_devices"
+msgstr "امکان پیوند دستگاه‌ها وجود ندارد"
+
+msgid "split_tunnel"
+msgstr "تقسیم تونل کار نمی‌کند"
+
+msgid "smart_routing_not_working"
+msgstr "مسیریابی هوشمند کار نمی‌کند"
+
+msgid "server_selection_not_working"
+msgstr "انتخاب سرور کار نمی‌کند"
+
+msgid "upgrade_fail"
+msgstr "ارتقا به Sukot Pro ناموفق بود"
+
+msgid "wrong_device_linking_code"
+msgstr "کد پیوند دستگاه اشتباه یا نامعتبر"
+
+msgid "cannot_remove_device"
+msgstr "حذف دستگاه ممکن نیست"
+
+msgid "application_crashes"
+msgstr "برنامه ناگهان از کار می‌افتد"
+
+msgid "other"
+msgstr "سایر موارد"
+
+msgid "issue_description"
+msgstr "مشکل خود را توضیح دهید"
+
+msgid "enter_password_to_confirm"
+msgstr "برای تأیید، رمز عبور را وارد کنید"
+
+msgid "cannot_view_logs"
+msgstr ""
+"Sukot نمی‌تواند گزارش تشخیصی را ببیند مگر اینکه آن‌ها را برای‌مان بفرستید"
+
+msgid "split_tunneling_mode"
+msgstr "حالت تونل‌سازی تفکیکی"
+
+msgid "apps_split_tunneling"
+msgstr "تونل‌سازی تفکیکی برنامه‌ها"
+
+msgid "website_split_tunneling"
+msgstr "تونل‌سازی تفکیکی وب‌سایت‌ها"
+
+msgid "iran_optimized"
+msgstr "تونل‌سازی تفکیکی بهینه برای ایران"
+
+msgid "china_optimized"
+msgstr "تونل‌سازی تفکیکی بهینه برای چین"
+
+msgid "russia_optimized"
+msgstr "تونل‌سازی تفکیکی بهینه برای روسیه"
+
+msgid "global_optimized"
+msgstr "تونل‌سازی تفکیکی بهینه جهانی"
+
+msgid "enter_url"
+msgstr "آدرس وب را وارد کنید"
+
+msgid "add"
+msgstr "افزودن"
+
+msgid "enabled"
+msgstr "فعال"
+
+msgid "disabled"
+msgstr "غیرفعال"
+
+msgid "automatic"
+msgstr "خودکار"
+
+msgid "automatic_mode"
+msgstr "حالت خودکار"
+
+msgid "manual"
+msgstr "دستی"
+
+msgid "enter_url_or_ip"
+msgstr "آدرس وب یا IP را وارد کنید"
+
+msgid "installed_apps"
+msgstr "برنامه‌های نصب‌شده"
+
+msgid "search_apps"
+msgstr "جستجوی برنامه"
+
+msgid "search_websites"
+msgstr "جستجوی وب‌سایت"
+
+msgid "mode"
+msgstr "حالت"
+
+msgid "use_commas"
+msgstr "برای جدا کردن چند آدرس، از ویرگول یا کاما استفاده کنید"
+
+msgid "deep_link_expired"
+msgstr "این لینک منقضی شده است. لطفاً لینک جدیدی درخواست کنید."
+
+msgid "invalid_deep_link"
+msgstr "این لینک نامعتبر است. لطفاً لینک جدیدی درخواست کنید."
+
+msgid "default_bypass"
+msgstr "فهرست‌های دور زدن پیش‌فرض"
+
+msgid "global_bypass_list"
+msgstr "فهرست جهانی دور زدن"
+
+msgid "global_bypass_desc"
+msgstr "سایت‌های مورد اعتماد (HTTPS) با محتوای غیرحساس."
+
+msgid "china_bypass_list"
+msgstr "فهرست دور زدن چین"
+
+msgid "china_bypass_desc"
+msgstr "سایت‌هایی که آزادانه در چین در دسترسند. به‌روزرسانی منظم."
+
+msgid "iran_bypass_list"
+msgstr "فهرست دور زدن ایران"
+
+msgid "iran_bypass_desc"
+msgstr "سایت‌هایی که آزادانه در ایران در دسترسند. به‌روزرسانی منظم."
+
+msgid "russia_bypass_list"
+msgstr "فهرست دور زدن روسیه"
+
+msgid "russia_bypass_desc"
+msgstr "سایت‌هایی که آزادانه در روسیه در دسترسند. به‌روزرسانی منظم."
+
+msgid "see_sites_included"
+msgstr "سایت‌های موجود در "
+
+msgid "default_lists_here"
+msgstr "فهرست‌های پیش‌فرض در اینجا"
+
+msgid "when_connected"
+msgstr "هنگام اتصال، وب‌سایت‌هایی که انتخاب می‌کنید VPN را دور می‌زنند."
+
+msgid "lantern_automatic"
+msgstr ""
+"Sukot به طور خودکار انتخاب می‌کند که کدام برنامه‌ها و وب‌سایت‌ها به VPN "
+"نیازمندند تا بر اساس مکان شما، بهترین عملکرد را داشته باشد."
+
+msgid "apps_bypassing_vpn"
+msgstr "برنامه‌هایی که از VPN دور می‌زنند (%d)"
+
+msgid "websites_bypassing_vpn"
+msgstr "وب‌سایت‌هایی که از VPN دور می‌زنند (%d)"
+
+msgid "logs_share_message"
+msgstr "این لاگ‌های تشخیصی من از Sukot است."
+
+msgid "payment_options"
+msgstr "گزینه‌های پرداخت"
+
+msgid "add_your_email"
+msgstr "ایمیل خود را اضافه کنید"
+
+msgid "continue"
+msgstr "ادامه"
+
+msgid "continue_with_google"
+msgstr "ادامه با گوگل"
+
+msgid "continue_with_apple"
+msgstr "ادامه با اپل"
+
+msgid "continue_without_email"
+msgstr "ادامه بدون ایمیل"
+
+msgid "confirm_email"
+msgstr "تأیید ایمیل"
+
+msgid "add_your_email_message"
+msgstr ""
+"ایمیل خود را اضافه کنید تا از هر دستگاهی به اشتراک خود دسترسی داشته باشید."
+
+msgid "confirm_email_code"
+msgstr "کد تأیید"
+
+msgid "confirm_email_code_message_part_one"
+msgstr "یک کد ارسال کردیم به "
+
+msgid "confirm_email_code_message_part_two"
+msgstr ""
+" آن را در زیر وارد کنید. اگر در صندوق ورودی نیست، پوشه اسپم را بررسی کنید."
+
+msgid "resend_email"
+msgstr "ارسال دوباره ایمیل"
+
+msgid "create_password"
+msgstr "ایجاد رمز عبور"
+
+msgid "sign_in_to_lantern_pro"
+msgstr "ورود به Sukot"
+
+msgid "sign_in_with_email"
+msgstr "ورود با ایمیل"
+
+msgid "enter_your_lantern_pro_account_details"
+msgstr "جزئیات حساب Sukot خود را وارد کنید."
+
+msgid "email"
+msgstr "ایمیل"
+
+msgid "enter_password"
+msgstr "رمز عبور را وارد کنید"
+
+msgid "forgot_password"
+msgstr "رمز عبور خود را فراموش کرده‌اید؟"
+
+msgid "reset_your_password"
+msgstr "بازنشانی رمز عبور"
+
+msgid "enter_your_lantern_pro_account_email"
+msgstr "ایمیل حساب Sukot خود را وارد کنید."
+
+msgid "reset_password"
+msgstr "بازنشانی رمز عبور"
+
+msgid "confirm_new_password"
+msgstr "تأیید رمز عبور جدید"
+
+msgid "create_new_password"
+msgstr "ایجاد رمز عبور جدید"
+
+msgid "confirm_password"
+msgstr "تأیید رمز عبور"
+
+msgid "confirm_password_required"
+msgstr "تأیید رمز عبور الزامی است"
+
+msgid "passwords_do_not_match"
+msgstr "رمزهای عبور مطابقت ندارند"
+
+msgid "activation_code"
+msgstr "کد فعال‌سازی"
+
+msgid "activate_lantern_pro"
+msgstr "فعال‌سازی Sukot پرو"
+
+msgid "invalid_email"
+msgstr "آدرس ایمیل نامعتبر"
+
+msgid "purchase_already_owned"
+msgstr "شما قبلاً این خرید را انجام داده‌اید، بازیابی خرید را بیازمایید"
+
+msgid "stripe_payment"
+msgstr "پرداخت Stripe"
+
+msgid "split_tunneling_description"
+msgstr ""
+"Sukot به طور هوشمندانه ترافیک اینترنت را بر اساس مکان شما مسیریابی و "
+"دسترسی امن را تضمین می‌کند. و فقط در صورت نیاز از VPN استفاده می‌کند تا "
+"اتصال شما پرسرعت باقی بماند."
+
+msgid "region_specific_rules"
+msgstr "قوانین منطقه‌ای"
+
+msgid "location_based_rules"
+msgstr "Sukot بسته به مکان شما از قوانین مسیریابی مختلفی استفاده می‌کند:"
+
+msgid "censored_regions"
+msgstr "در مناطق سانسورشده:"
+
+msgid "blocked_sites_proxied"
+msgstr ""
+"وب‌سایت‌ها و برنامه‌های مسدودشده (اخبار، پیام‌رسانی، خدمات محدودشده) از طریق"
+" پروکسی ارسال می‌شوند."
+
+msgid "unblocked_sites_bypass"
+msgstr "اکثر وب‌سایت‌های مسدودنشده برای مرور سریع‌تر VPN را دور می‌زنند."
+
+msgid "uncensored_regions"
+msgstr "در مناطق سانسورنشده:"
+
+msgid "trusted_sites_bypass"
+msgstr ""
+"تنها وب‌سایت‌ها و خدمات مورد اعتماد به طور پیش‌فرض از VPN دور می‌زنند."
+
+msgid "examples_of_bypassed_sites"
+msgstr ""
+"این شامل سایت‌های رمزگذاری شده HTTPS با محتوای عمومی یا غیرحساس مانند خرید، "
+"آب و هوا و به‌روزرسانی نرم‌افزار است."
+
+msgid "routing_rules_vary"
+msgstr "این قوانین بر اساس کشور متفاوت است و به طور منظم به‌روزرسانی می‌شود."
+
+msgid "view_the_full_list"
+msgstr "مشاهده فهرست کامل قوانین مسیریابی."
+
+msgid "turn_on_split_tunneling"
+msgstr ""
+"تونل‌سازی تفکیکی را روشن کنید تا انتخاب کنید که کدام وب‌سایت‌ها از VPN "
+"استفاده کنند."
+
+msgid "welcome_to_lantern_pro"
+msgstr "به Sukot پرو خوش آمدید!"
+
+msgid "welcome_to_lantern"
+msgstr "به لنترن خوش آمدید!"
+
+msgid "lantern_pro_description"
+msgstr ""
+"امکانات پرو شما فعال شد. از داده نامحدود، سرعت بیشتر و سرورهای برتر لذت "
+"ببرید."
+
+msgid "purchase_restored_title"
+msgstr "خرید بازیابی شد"
+
+msgid "purchase_restored_description"
+msgstr "اشتراک Sukot Pro شما اکنون روی این دستگاه فعال است."
+
+msgid "no_purchase_found_title"
+msgstr "خریدی یافت نشد"
+
+msgid "no_purchase_found_body_ios"
+msgstr "هیچ اشتراک فعالی به این Apple ID متصل نیست."
+
+msgid "no_purchase_found_body_android"
+msgstr "هیچ اشتراک فعالی به این حساب Google متصل نیست."
+
+msgid "authorize_device_for_pro"
+msgstr "مجوز دستگاه برای Pro"
+
+msgid "device_linking_replaced_title"
+msgstr "کدهای اتصال دستگاه جایگزین شده‌اند"
+
+msgid "device_linking_replaced_body"
+msgstr "نسخه‌های 10 و جدیدتر Sukot از کدهای اتصال دستگاه استفاده نمی‌کنند. اکنون با ایمیل و رمز عبور خود وارد حساب Sukot Pro می‌شوید."
+
+msgid "device_linking_replaced_body_two"
+msgstr "اگر حساب Sukot Pro دارید و هنوز رمز عبور ندارید، همین حالا یکی اضافه کنید تا در این دستگاه وارد شوید."
+
+msgid "add_an_account_password"
+msgstr "افزودن رمز عبور حساب"
+
+msgid "have_a_password_sign_in"
+msgstr "رمز عبور دارید؟ ورود"
+
+msgid "plans_fetch_error"
+msgstr "خطا در دریافت طرح‌ها. بعداً دوباره امتحان کنید."
+
+msgid "best_value"
+msgstr "بهترین ارزش!"
+
+msgid "choose_payment_method"
+msgstr "روش پرداخت را انتخاب کنید"
+
+msgid "payment_information_encrypted"
+msgstr "اطلاعات پرداخت شما به طور کامل رمزگذاری شده است."
+
+msgid "purchase_not_completed"
+msgstr ""
+"خرید تکمیل نشد. می‌توانید دوباره تلاش کنید یا اگر به کمک نیاز دارید با "
+"پشتیبانی تماس بگیرید"
+
+msgid "are_you_sure"
+msgstr "مطمئنید؟"
+
+msgid "continue_without_email_message"
+msgstr ""
+"برای استفاده از اشتراک‌تان روی دستگاه‌های دیگر، یک آدرس ایمیل معتبر الزامی "
+"است."
+
+msgid "add_email"
+msgstr "افزودن ایمیل"
+
+msgid "block_ads"
+msgstr "مسدودسازی تبلیغات"
+
+msgid "only_active"
+msgstr "فقط هنگام اتصال VPN فعال است"
+
+msgid "share_my_connection"
+msgstr "اشتراک‌گذاری اتصال من"
+
+msgid "share_my_connection_subtitle"
+msgstr ""
+"به دیگر کاربران Sukot اجازه دهید برای دور زدن سانسور از طریق اتصال شما "
+"عبور کنند."
+
+# Unbounded tab — hero copy. Short variant for the tab embed; the
+# longer privacy explanation now lives in the welcome dialog
+# (showUnboundedWelcomeDialog) so the tab body stays scannable.
+msgid "smc_intro"
+msgstr "با اشتراک‌گذاری امن اتصال خود، به دیگران در دور زدن سانسور کمک کنید."
+
+# Info-bubble tooltip on the Unbounded tab header
+msgid "about_unbounded"
+msgstr "درباره Action Mode"
+
+# Status card — phase labels
+msgid "smc_status_label"
+msgstr "وضعیت"
+
+msgid "smc_status_off"
+msgstr "غیرفعال"
+
+msgid "smc_status_configuring"
+msgstr "در حال پیکربندی شبکه"
+
+msgid "smc_status_probing"
+msgstr "در حال بررسی شبکه شما…"
+
+msgid "smc_status_active_unbounded"
+msgstr "فعال"
+
+msgid "smc_status_active_smc"
+msgstr "در حال شروع…"
+
+msgid "smc_status_mapping_port"
+msgstr "در حال باز کردن پورت روی روتر شما…"
+
+msgid "smc_status_detecting_ip"
+msgstr "در حال شناسایی IP عمومی شما…"
+
+msgid "smc_status_registering"
+msgstr "در حال ثبت‌نام در Sukot…"
+
+msgid "smc_status_starting_proxy"
+msgstr "در حال راه‌اندازی پراکسی محلی…"
+
+msgid "smc_status_verifying"
+msgstr "در حال تأیید اتصال…"
+
+msgid "smc_status_serving"
+msgstr "فعال"
+
+msgid "smc_status_stopping"
+msgstr "در حال توقف…"
+
+msgid "smc_status_error_with_message"
+msgstr "اشتراک‌گذاری ممکن نبود: %s"
+
+msgid "smc_status_error_generic"
+msgstr "اشتراک‌گذاری ممکن نبود — دوباره خاموش و روشن کنید"
+
+# Status card — stats + tooltip. Counts the number of remote
+# clients currently routing through THIS device (people being
+# helped, not helpers); parallel framing to smc_stat_total_helped
+# (same semantics, lifetime).
+msgid "smc_stat_active_now"
+msgstr "افرادی که هم‌اکنون به آن‌ها کمک می‌کنید:"
+
+# Lifetime ("to date") rather than daily — backed by the persisted
+# unboundedTotalHelped setting so the count survives app restarts.
+msgid "smc_stat_total_helped"
+msgstr "مجموع افرادی که تاکنون کمک شده‌اند:"
+
+# Arrival toast surfaced when a censored user starts routing through
+# this peer. The "Helping a new person" framing is intentional —
+# emphasizes the user-impact framing the SmC tab leans into.
+msgid "smc_arrival_toast"
+msgstr "در حال کمک به فردی جدید در %s"
+
+# Pill shown beneath the globe when Unbounded is active but no peer is
+# currently routing through this device.
+msgid "unbounded_waiting_for_connections"
+msgstr "در انتظار اتصال‌ها..."
+
+# Welcome dialog shown the first time the Unbounded tab opens.
+msgid "unbounded_welcome_title"
+msgstr "به Action Mode خوش آمدید"
+
+msgid "unbounded_welcome_body_1"
+msgstr ""
+"وقتی Action Mode را فعال می‌کنید، دستگاه شما بخشی از شبکه‌ای از «پل‌های "
+"دیجیتال» به اینترنت آزاد می‌شود. کاربران تحت سانسور به این پل‌ها متصل "
+"می‌شوند و می‌توانند محدودیت‌های اعمال‌شده توسط دولت‌ها را دور بزنند و به "
+"اطلاعات مورد نیازشان دسترسی پیدا کنند."
+
+msgid "unbounded_welcome_body_2"
+msgstr ""
+"این تلاش جمعی اعمال سانسور را دشوارتر می‌کند و دسترسی به اینترنت آزاد را "
+"گسترش می‌دهد."
+
+msgid "unbounded_welcome_body_3"
+msgstr ""
+"می‌توانید هر زمان از طریق تنظیمات، Action Mode را از رابط کاربری حذف کنید."
+
+# Advanced section / manual port forward
+msgid "smc_advanced"
+msgstr "پیشرفته"
+
+msgid "smc_advanced_subtitle"
+msgstr "برای کاربرانی که روترشان از UPnP پشتیبانی نمی‌کند"
+
+msgid "smc_manual_port"
+msgstr "هدایت پورت دستی"
+
+msgid "smc_manual_port_description"
+msgstr ""
+"اگر روتر شما از UPnP پشتیبانی نمی‌کند، یک هدایت پورت روی روتر پیکربندی کنید "
+"و شماره پورت را اینجا وارد کنید. Sukot به جای بررسی UPnP از آن به عنوان "
+"پورت خارجی استفاده می‌کند. برای استفاده از UPnP (پیش‌فرض) خالی بگذارید."
+
+msgid "smc_manual_port_label"
+msgstr "پورت"
+
+msgid "smc_manual_port_hint"
+msgstr "مثلاً 5698"
+
+msgid "smc_manual_port_save"
+msgstr "ذخیره"
+
+msgid "smc_manual_port_currently_set"
+msgstr ""
+"در حال حاضر روی پورت %d تنظیم شده است. برای اعمال تغییر، Action Mode را "
+"خاموش و دوباره روشن کنید."
+
+msgid "smc_manual_port_out_of_range"
+msgstr "پورت باید بین 1 و 65535 باشد"
+
+msgid "smc_manual_port_cleared"
+msgstr "پورت دستی پاک شد — از UPnP استفاده می‌شود"
+
+msgid "smc_manual_port_saved"
+msgstr "پورت دستی روی %d تنظیم شد"
+
+# Unbounded Settings menu entry (Settings → Unbounded Settings)
+msgid "unbounded_settings_title"
+msgstr "تنظیمات Action Mode"
+
+# Auto-enable Unbounded toggle
+msgid "auto_enable_unbounded"
+msgstr "فعال‌سازی خودکار Action Mode"
+
+msgid "auto_enable_unbounded_subtitle"
+msgstr "با باز شدن Sukot روشن می‌شود"
+
+# Hide Unbounded toggle (collapses the Unbounded tab on the Home shell)
+msgid "hide_unbounded"
+msgstr "پنهان کردن Action Mode"
+
+msgid "hide_unbounded_subtitle"
+msgstr "Action Mode را از رابط کاربری حذف می‌کند"
+
+msgid "vpn_connected"
+msgstr "Sukot اکنون متصل است."
+
+msgid "vpn_disconnected"
+msgstr "Sukot اکنون قطع شده است."
+
+msgid "open_notification"
+msgstr "باز کردن اعلان"
+
+msgid "logout"
+msgstr "خروج"
+
+msgid "logout_message"
+msgstr ""
+"با خروج، Sukot به نسخه رایگان تغییر می‌کند. برای دسترسی دوباره به حساب "
+"خود، باید مجدداً وارد شوید."
+
+msgid "logout_message_expired"
+msgstr "آیا مطمئن هستید که می‌خواهید از حساب خود خارج شوید؟"
+
+msgid "not_now"
+msgstr "الان نه"
+
+msgid "billed_once"
+msgstr "یک بار حساب می‌شود"
+
+msgid "subscription"
+msgstr "اشتراک"
+
+msgid "subscribe"
+msgstr "اشتراک"
+
+msgid "checkout"
+msgstr "تسویه حساب"
+
+msgid "next_billing_date"
+msgstr "تاریخ صورت‌حساب بعدی"
+
+msgid "vpn_may_be_needed"
+msgstr "ممکن است لازم باشد از VPN استفاده کنید"
+
+msgid "google_and_apple_sign_in_blocked"
+msgstr ""
+"ممکن است ورود با گوگل و اپل در این منطقه مسدود باشد. برای تکمیل راه‌اندازی "
+"حساب خود، لطفاً اول VPN را روشن کنید."
+
+msgid "continue_without_vpn"
+msgstr "ادامه بدون VPN"
+
+msgid "turn_on_vpn"
+msgstr "روشن کردن VPN"
+
+msgid "server_setup_do"
+msgstr "راه‌اندازی با استفاده از DigitalOcean"
+
+msgid "server_setup_do_price"
+msgstr "فقط %s در ماه از طریق Digital Ocean"
+
+msgid "server_setup_gcp"
+msgstr "راه‌اندازی با استفاده از Google Cloud Platform"
+
+msgid "continue_with_do"
+msgstr "ادامه با Digital Ocean"
+
+msgid "do_allows"
+msgstr ""
+"Digital Ocean به شما امکان می‌دهد یک مکان سرور را از %d گزینه زیر انتخاب "
+"کنید"
+
+msgid "server_setup_gcp_price"
+msgstr "فقط %s در ماه از طریق GCP"
+
+msgid "continue_with_gcp"
+msgstr "ادامه با گوگل"
+
+msgid "gcp_allows"
+msgstr ""
+"Google Cloud Platform به شما امکان می‌دهد یک مکان سرور را از %d گزینه زیر "
+"انتخاب کنید:"
+
+msgid "server_setup_aws"
+msgstr "راه‌اندازی سرور خصوصی در AWS"
+
+msgid "server_setup_aws_price"
+msgstr "فقط %s در ماه از طریق AWS"
+
+msgid "server_setup_manual"
+msgstr "راه‌اندازی دستی"
+
+msgid "seamless_integration"
+msgstr "یکپارچگی یک‌دست با Sukot"
+
+msgid "easiest_setup"
+msgstr "ساده‌ترین فرآیند راه‌اندازی"
+
+msgid "multiple_location_options"
+msgstr "گزینه‌های متعدد برای مکان سرور"
+
+msgid "one_month_included"
+msgstr "%d ترابایت داده را در ماه شامل می‌شود"
+
+msgid "easiest_setup_process"
+msgstr "ساده‌ترین فرآیند راه‌اندازی"
+
+msgid "setup_a_private_server"
+msgstr "راه‌اندازی یک سرور خصوصی"
+
+msgid "setup_private_server"
+msgstr "راه‌اندازی سرور خصوصی"
+
+msgid "previous"
+msgstr "قبلی"
+
+msgid "next"
+msgstr "بعدی"
+
+msgid "error"
+msgstr "خطا"
+
+msgid "signup_error_user_exists"
+msgstr ""
+"به نظر می‌رسد مشکلی در ثبت‌نام پیش آمده است. لطفاً دوباره تلاش کنید یا اگر "
+"حساب دارید وارد شوید"
+
+msgid "user_not_found"
+msgstr ""
+"کاربر شناسایی نشد. لطفاً اطلاعات ورودی را بررسی کرده و دوباره آزمایش کنید. "
+"اگر همچنان مشکل دارید، لطفاً برای کمک با تیم پشتیبانی ما تماس بگیرید."
+
+msgid "invalid_code"
+msgstr "کد نادرست یا احتمالا منقضی شده است. لطفاً دوباره بفرستید"
+
+msgid "email_resend_message"
+msgstr "کد تأیید جدیدتان فرستاده شد"
+
+msgid "password_has_been_updated"
+msgstr "رمز عبور به‌روزرسانی شد"
+
+msgid "password_has_been_updated_message"
+msgstr "رمز عبور شما با موفقیت بازنشانی شد"
+
+msgid "update_pro_account"
+msgstr "به‌روزرسانی حساب پرو"
+
+msgid "update_pro_account_message"
+msgstr ""
+"برای مدیریت حساب خود یا ورود از دستگاه دیگر، لطفاً قبل از هر چیز یک ایمیل و "
+"رمز عبور به حساب خود بیفزایید."
+
+msgid "subscription_cancelled"
+msgstr "اشتراک شما لغو شد."
+
+msgid "subscription_updated"
+msgstr "اشتراک شما به‌روزرسانی شد."
+
+msgid "subscription_renewed"
+msgstr "اشتراک شما تمدید شد."
+
+msgid "got_it"
+msgstr "فهمیدم"
+
+msgid "server_location"
+msgstr "مکان سرور"
+
+msgid "choose"
+msgstr "انتخاب"
+
+msgid "choose_your_account"
+msgstr "حساب خود را برگزینید"
+
+msgid "choose_your_project"
+msgstr "پروژه خود را برگزینید"
+
+msgid "name_your_google_cloud_project"
+msgstr "پروژه Google Cloud خود را نام‌گذاری کنید"
+
+msgid "billing_account"
+msgstr "حساب صورت‌حساب"
+
+msgid "billing_account_placeholder"
+msgstr "حساب صورت‌حساب برای %s"
+
+msgid "server_name"
+msgstr "نام سرور"
+
+msgid "google_project"
+msgstr "پروژه گوگل"
+
+msgid "field_name_required"
+msgstr "نام الزامی است"
+
+msgid "choose_google_account"
+msgstr "حساب صورت‌حساب گوگل را برگزینید"
+
+msgid "server_name_placeholder"
+msgstr "سرور احسان"
+
+msgid "change"
+msgstr "تغییر"
+
+msgid "choose_location"
+msgstr "انتخاب مکان"
+
+msgid "choose_your_location"
+msgstr "مکان خود را انتخاب کنید"
+
+msgid "start_deployment"
+msgstr "شروع استقرار"
+
+msgid "server_name_description"
+msgstr "نحوه نمایش در فهرست انتخاب سرور."
+
+msgid "select_private_server_region"
+msgstr ""
+"یک منطقه برای سرور خصوصی خود انتخاب کنید. انتخاب نقاط نزدیک‌تر احتمالا در "
+"بهبودی سرعت و تأخیر مؤثرند."
+
+msgid "gcp_location_options"
+msgstr "گزینه‌های مکان Google Cloud Platform (%d):"
+
+msgid "australia_sydney"
+msgstr "استرالیا - سیدنی"
+
+msgid "belgium_stghislain"
+msgstr "بلژیک - سنت گیسلین"
+
+msgid "brazil_saopaulo"
+msgstr "سائوپائولو"
+
+msgid "us_los_angeles"
+msgstr "ایالات متحده - لس آنجلس"
+
+msgid "japan_tokyo"
+msgstr "ژاپن - توکیو"
+
+msgid "deploying_private_server"
+msgstr "در حال استقرار سرور خصوصی"
+
+msgid "deploying_server_status"
+msgstr ""
+"صبور باشید! سرور خصوصی شما در حال راه‌اندازی است. این کار ممکن است چند دقیقه"
+" طول بکشد."
+
+msgid "private_server_setup_in_progress"
+msgstr ""
+"صبور باشید! سرور خصوصی شما در حال راه‌اندازی است. این کار ممکن است چند دقیقه"
+" طول بکشد، لطفاً این صفحه را نبندید."
+
+msgid "cancel_server_deployment"
+msgstr "لغو استقرار سرور"
+
+msgid "server_ready_title"
+msgstr "سرور خصوصی آماده است"
+
+msgid "server_ready_message"
+msgstr ""
+"سرور خصوصی شما راه‌اندازی و به فهرست  سرورهای شما اضافه شد. شما آماده "
+"اتصالید!"
+
+msgid "server_failed_message"
+msgstr ""
+"در راه‌اندازی سرور خصوصی شما مشکلی پیش آمد. می‌توانید دوباره تلاش یا بعداً "
+"امتحان کنید."
+
+msgid "close"
+msgstr "بستن"
+
+msgid "connect_now"
+msgstr "اکنون متصل شوید"
+
+msgid "server_setup_failed"
+msgstr "راه‌اندازی سرور ناموفق بود"
+
+msgid "cancel_deployment"
+msgstr "لغو استقرار"
+
+msgid "server_setup_failed_message"
+msgstr ""
+"در راه‌اندازی سرور خصوصی شما مشکلی پیش آمد. می‌توانید دوباره تلاش یا بعداً "
+"امتحان کنید."
+
+msgid "exit"
+msgstr "خروج"
+
+msgid "retry"
+msgstr "تلاش مجدد"
+
+msgid "all_required_fields"
+msgstr "لطفاً تمام بخش‌های الزامی را پر کنید."
+
+msgid "private_server_ready"
+msgstr "سرور خصوصی آماده است!"
+
+msgid "private_server_ready_message"
+msgstr ""
+"سرور (%s) راه‌اندازی و به فهرست سرورهای شما اضافه شد. شما آماده اتصالید!"
+
+msgid "set_up_your_server"
+msgstr "سرور خود را راه‌اندازی کنید"
+
+msgid "view_instructions_github"
+msgstr "مشاهده دستورالعمل‌ها در GitHub"
+
+msgid "server_access_key"
+msgstr "کلید دسترسی سرور"
+
+msgid "access_key"
+msgstr "کلید دسترسی"
+
+msgid "name_your_server"
+msgstr "سرور خود را نام‌گذاری کنید"
+
+msgid "how_server_appears"
+msgstr "نحوه نمایش در فهرست انتخاب سرور"
+
+msgid "server_nickname"
+msgstr "نام مستعار سرور"
+
+msgid "verify_server"
+msgstr "تأیید سرور"
+
+msgid "vpn_client_not_setup"
+msgstr "لطفاً کلاینت VPN را روشن کنید."
+
+msgid "continue_with"
+msgstr "ادامه با"
+
+msgid "join_a_private_server"
+msgstr "پیوستن به یک سرور خصوصی"
+
+msgid "join_private_server"
+msgstr "پیوستن به سرور خصوصی"
+
+msgid "join_server"
+msgstr "پیوستن به سرور"
+
+msgid "private_server_usage_message"
+msgstr ""
+"استفاده از سرور خصوصی در محدودیت داده روزانه Sukot شما محاسبه نمی‌شود."
+
+msgid "manage_private_servers"
+msgstr "مدیریت سرورهای خصوصی"
+
+msgid "my_servers"
+msgstr "سرورهای من"
+
+msgid "joined_servers"
+msgstr "سرورهای پیوسته"
+
+msgid "access_key_expiration"
+msgstr ""
+"هر کلید دسترسی منحصر به فرد است و بعد از ۱ روز منقضی می‌شود. همیشه می‌توانید"
+" یک کلید جدید ایجاد کنید."
+
+msgid "share_access_key"
+msgstr "اشتراک‌گذاری کلید دسترسی"
+
+msgid "rename_server"
+msgstr "تغییر نام سرور"
+
+msgid "rename"
+msgstr "تغییر نام"
+
+msgid "selected_location"
+msgstr "مکان انتخاب شده"
+
+msgid "remove_server_?"
+msgstr "حذف سرور؟"
+
+msgid "remove_server_message"
+msgstr ""
+"حذف %s؟ این کار فقط آن را از برنامه حذف می‌کند، سرور از ارائه‌دهنده ابری شما"
+" حذف نمی‌شود."
+
+msgid "generate_access_key"
+msgstr "ایجاد کلید دسترسی"
+
+msgid "invite_name"
+msgstr "نام دعوت"
+
+msgid "trust_server_operator"
+msgstr "اعتماد به اپراتور سرور"
+
+msgid "trust_server_operator_message_one"
+msgstr ""
+"سرورهای خصوصی توسط افراد یا سازمان‌های خارج از Sukot میزبانی و اداره "
+"می‌شوند. وقتی به یکی از آنها متصل می‌شوید، در واقع به اداره‌کننده‌اش اعتماد "
+"می‌کنید تا آن را به طور ایمن مدیریت کند و مسئولانه به کار گیرد."
+
+msgid "trust_server_operator_message_two"
+msgstr ""
+"Sukot سرورهای خصوصی را مدیریت یا نظارت نمی‌کند. پیش از پیوستن به آن، مطمئن"
+" شوید که اداره‌کننده سرور را می‌شناسید و به او اعتماد دارید."
+
+msgid "trust_server_operator_message_three"
+msgstr ""
+"اگر مطمئن نیستید که چه کسی سرور را اداره می‌کند یا چگونه پیکربندی شده است، "
+"توصیه می‌کنیم از یکی از سرورهای پیش‌فرض Sukot موجود در فهرست سرور خود "
+"استفاده کنید."
+
+msgid "invalid_server_details"
+msgstr ""
+"جزئیات سرور نامعتبر. لطفاً کلید دسترسی را بررسی کرده و دوباره امتحان کنید."
+
+msgid "lantern_servers"
+msgstr "سرورهای Sukot"
+
+msgid "private_servers"
+msgstr "سرورهای خصوصی"
+
+msgid "fastest_server"
+msgstr "سریع‌ترین سرور"
+
+msgid "join_my_private_server"
+msgstr "به سرور خصوصی Sukot من بپیوندید"
+
+msgid "your_server"
+msgstr "سرورهای شما:"
+
+msgid "no_private_server_setup_yet"
+msgstr ""
+"شما هنوز سرور خصوصی راه‌اندازی نکرده‌اید. برای شروع روی دکمه زیر کلیک کنید."
+
+msgid "connect"
+msgstr "اتصال"
+
+msgid "disconnect"
+msgstr "قطع اتصال"
+
+msgid "show"
+msgstr "نمایش"
+
+msgid "status_on"
+msgstr "متصل"
+
+msgid "status_off"
+msgstr "قطع شده"
+
+msgid "select_location"
+msgstr "انتخاب موقعیت"
+
+msgid "select_your_server_location"
+msgstr "مکان سرور خود را انتخاب کنید"
+
+msgid "faster_speeds_unlimited_bandwidth"
+msgstr "سرعت بیشتر و پهنای باند نامحدود"
+
+msgid "premium_servers_less_congestion"
+msgstr "سرورهای ممتاز با ازدحام کمتر"
+
+msgid "advanced_anti_censorship"
+msgstr "فناوری پیشرفته ضدسانسور"
+
+msgid "exclusive_access_new_features"
+msgstr "دسترسی انحصاری به امکانات جدید"
+
+msgid "connect_up_to_five_devices"
+msgstr "اتصال تا ۵ دستگاه"
+
+msgid "built_in_ad_blocking"
+msgstr "مسدودسازی تبلیغات داخلی"
+
+msgid "get_lantern_pro"
+msgstr "دریافت Sukot پرو"
+
+msgid "connected_to_private_server"
+msgstr "به سرور خصوصی متصل شد"
+
+msgid "server_already_selected"
+msgstr "همین حالا هم به این سرور متصلید."
+
+msgid "device_limit_reached"
+msgstr "به محدودیت تعداد دستگاه رسیدید"
+
+msgid "device_limit_reached_message"
+msgstr ""
+"شما به محدودیت ۵ دستگاه خود رسیده‌اید. لطفاً یک دستگاه را حذف کنید تا ادامه "
+"دهید."
+
+msgid "remove_device_and_sign_in"
+msgstr "حذف دستگاه و ورود"
+
+msgid "cancel_sign_in"
+msgstr "لغو ورود"
+
+msgid "change_email"
+msgstr "تغییر ایمیل"
+
+msgid "change_email_message"
+msgstr ""
+"این ایمیل ورودی جدید شما خواهد شد. برای اعمال تغییرات باید آن را تأیید کنید."
+
+msgid "email_must_be_different"
+msgstr "لطفاً یک آدرس ایمیل دیگر وارد کنید."
+
+msgid "enter_new_email"
+msgstr "ایمیل جدید خود را وارد کنید"
+
+msgid "confirm_password_to_continue"
+msgstr "برای ادامه، لطفاً رمز عبور خود را تأیید کنید."
+
+msgid "email_updated"
+msgstr "ایمیل شما به‌روزرسانی شد."
+
+msgid "enable_network_extension"
+msgstr "فعال کردن افزونه شبکه"
+
+msgid "enable_network_extension_message"
+msgstr "برای استفاده از Sukot، باید یک افزونه شبکه برای مک خود نصب کنیم."
+
+msgid "install_now"
+msgstr "اکنون نصب کنید"
+
+msgid "learn_more"
+msgstr "بیشتر بدانید"
+
+msgid "network_extension_required"
+msgstr "افزونه شبکه مورد نیاز است"
+
+msgid "click"
+msgstr "کلیک کنید"
+
+msgid "open_system_settings"
+msgstr "باز کردن تنظیمات سیستم"
+
+msgid "when_prompted"
+msgstr "هنگام درخواست."
+
+msgid "activate_extension"
+msgstr "فعال‌سازی افزونه"
+
+msgid "email_optional"
+msgstr "ایمیل (اختیاری)"
+
+msgid "please_enter_valid_email"
+msgstr "لطفاً یک نشانی ایمیل معتبر وارد کنید"
+
+msgid "please_select_an_issue"
+msgstr "لطفاً یک مشکل را انتخاب کنید"
+
+msgid "please_enter_issue_description"
+msgstr "لطفاً توضیحات مشکل را وارد کنید"
+
+msgid "thanks_for_feedback"
+msgstr "سپاس از بازخورد شما!"
+
+msgid "no_apps_selected"
+msgstr "هیچ برنامه‌ای انتخاب نشده"
+
+msgid "deselect_all"
+msgstr "لغو همه گزینه‌ها"
+
+msgid "select_all"
+msgstr "انتخاب همه"
+
+msgid "no_websites_selected"
+msgstr "هیچ وب‌سایتی انتخاب نشده"
+
+msgid "enter_activation_code"
+msgstr "کد فعال‌سازی را وارد کنید"
+
+msgid "restore_purchase"
+msgstr "بازیابی خرید"
+
+msgid "already_purchased"
+msgstr "قبلاً خرید کرده‌اید؟"
+
+msgid "restore_purchase_success"
+msgstr "خرید با موفقیت بازیابی شد."
+
+msgid "restore_purchase_no_purchases"
+msgstr "خریدی برای بازیابی یافت نشد."
+
+msgid "do_private_server_setup"
+msgstr "راه‌اندازی سرور خصوصی DO"
+
+msgid "private_server_note"
+msgstr ""
+"یک منطقه برای سرور خصوصی خود انتخاب کنید. انتخاب نقاط نزدیک‌تر احتمالا در "
+"بهبودی سرعت و تأخیر مؤثرند."
+
+msgid "gcp_private_server_setup"
+msgstr "راه‌اندازی سرور خصوصی GCP"
+
+msgid "gcp_private_server_location"
+msgstr "مکان سرور خصوصی GCP"
+
+msgid "do_private_server_location"
+msgstr "مکان سرور خصوصی DO"
+
+msgid "confirm"
+msgstr "تأیید"
+
+msgid "private_server_warning"
+msgstr "فقط سرورهایی را بیفزایید که به دست افراد مورد اعتماد اداره می‌شوند"
+
+msgid "go_to_server_locations"
+msgstr "رفتن به مکان‌های سرور"
+
+msgid "lantern_io"
+msgstr "Lantern.io"
+
+msgid "alternative_download_links"
+msgstr "لینک‌های دانلود جایگزین"
+
+msgid "github_download_page"
+msgstr "صفحه دانلود GitHub"
+
+msgid "telegram_bot"
+msgstr "ربات تلگرام"
+
+msgid "if_you_cannot_access_website"
+msgstr ""
+"برای دسترسی به وب‌سایت ما مشکل دارید؟ می‌توانید Sukot را از لینک‌های بالا "
+"دریافت کنید."
+
+msgid "available_on"
+msgstr "در دسترس در:"
+
+msgid "subscription_renewal_date"
+msgstr "تاریخ تمدید اشتراک"
+
+msgid "pro_access_until"
+msgstr "دسترسی پرو تا %s"
+
+msgid "enabled_bypass_lists"
+msgstr "لیست‌های دور زدن فعال شده (%d):"
+
+msgid "diagnostic_logs"
+msgstr "لاگ‌های تشخیصی"
+
+msgid "lantern_user_forum"
+msgstr "انجمن کاربران Sukot"
+
+msgid "frequently_asked_questions"
+msgstr "سؤالات متداول"
+
+msgid "privacy_policy"
+msgstr "سیاست حفظ حریم خصوصی"
+
+msgid "terms_of_service"
+msgstr "شرایط خدمات"
+
+msgid "get_unlimited_data"
+msgstr "داده نامحدود و سرعت بیشتری دریافت کنید!"
+
+msgid "private_server_options"
+msgstr "گزینه‌های سرور خصوصی"
+
+msgid "lantern_version"
+msgstr "نسخه Sukot"
+
+msgid "quit"
+msgstr "خروج"
+
+msgid "device_removed"
+msgstr "دستگاه حذف شد"
+
+msgid "set_server_alias"
+msgstr "تنظیم نام مستعار سرور"
+
+msgid "this_name_pre_filled"
+msgstr ""
+"این نام برای کاربر دعوت‌شده یه صورت پیش‌فرض پُر می‌شود تا به او کمک کند که "
+"سرور را بیابد. او بعداً می‌تواند آن را تغییر دهد."
+
+msgid "server_alias"
+msgstr "نام مستعار سرور"
+
+msgid "add_referral_code"
+msgstr "افزودن کد معرف"
+
+msgid "referral_code"
+msgstr "کد معرف"
+
+msgid "update_fails"
+msgstr "به‌روزرسانی ناموفق است"
+
+msgid "scan_qr_code"
+msgstr "اسکن کد QR"
+
+msgid "choose_your_server_location"
+msgstr "مکان سرور خود را انتخاب کنید"
+
+msgid "we_handle_configuration"
+msgstr "ما پیکربندی را انجام می‌دهیم، فقط نام‌نویسی کنید."
+
+msgid "90_day_free_trial"
+msgstr "۹۰ روز آزمایش رایگان"
+
+msgid "identity_changed"
+msgstr "برای %s هویت تغییر کرد"
+
+msgid "identity_changed_message"
+msgstr ""
+"اثر انگشت امنیتی %s تغییر کرده است. این ممکن است نشان‌دهنده دستکاری یا "
+"پیکربندی نادرست باشد."
+
+msgid "recommendation"
+msgstr "توصیه:"
+
+msgid "recommendation_message"
+msgstr ""
+"توصیه می‌کنیم %s را از Sukot حذف کرده و آن را از حساب ارائه‌دهنده ابری خود"
+" پاک کنید، سپس یک سرور جدید راه‌اندازی کنید تا مطمئن شوید اتصال‌تان ایمن "
+"باقی می‌ماند."
+
+msgid "remove_server"
+msgstr "حذف سرور"
+
+msgid "server_alias_cannot_be_empty"
+msgstr "نام مستعار سرور نمی‌تواند خالی باشد"
+
+msgid "referral_code_applied"
+msgstr "کد ارجاع شما اعمال شد!"
+
+msgid "discount_applied"
+msgstr "تخفیف %s اعمال شد"
+
+msgid "referral_message_1m"
+msgstr "+ ۱۵ روز اضافی رایگان"
+
+msgid "referral_message_1y"
+msgstr "+ 1 ماه اضافی رایگان"
+
+msgid "referral_message_2y"
+msgstr "+ 2 ماه اضافی رایگان"
+
+msgid "referral_code_invalid"
+msgstr ""
+"کد معرف/تخفیفی که وارد کردید نامعتبر است. لطفاً کد را بررسی کنید و دوباره "
+"تلاش کنید."
+
+msgid "referral_code_own_invalid"
+msgstr ""
+"شما نمی‌توانید از کد ارجاع خودتان استفاده کنید. لطفاً کد دیگری وارد کنید."
+
+msgid "free"
+msgstr "رایگان"
+
+msgid "monthly_plan"
+msgstr "برنامه ماهانه:"
+
+msgid "15_days_each"
+msgstr "هر کدام +۱۵ روز"
+
+msgid "annual_plan"
+msgstr "برنامه سالانه:"
+
+msgid "1_month_each"
+msgstr "+۱ ماه برای هر یک"
+
+msgid "two_year_plan"
+msgstr "برنامه دو ساله:"
+
+msgid "2_month_each"
+msgstr "+۲ ماه برای هر یک"
+
+msgid "referral_code_info"
+msgstr ""
+"هنوز کاربر Sukot Pro نیستید؟ وقتی اولین معرف شما اشتراک بگیرد، شده‌اید."
+
+msgid "lantern_pro_license"
+msgstr "لایسنس لنترن پرو"
+
+msgid "lantern_pro_license_required"
+msgstr "لایسنس Sukot Pro مورد نیاز است"
+
+msgid "lantern_pro_license_invalid"
+msgstr "لایسنس Sukot Pro نامعتبر است"
+
+msgid "lantern_pro_license_invalid_length"
+msgstr "لایسنس Sukot Pro باید ۲۵ کاراکتر باشد"
+
+msgid "select_account"
+msgstr "انتخاب حساب کاربری"
+
+msgid "new_to_lantern"
+msgstr "تازه به Sukot پیوستید؟"
+
+msgid "create_an_account"
+msgstr "ایجاد حساب کاربری"
+
+msgid "no_projects_found"
+msgstr "پروژه‌ای یافت نشد"
+
+msgid "no_projects_found_desc"
+msgstr ""
+"پروژه‌ای یافت نشد. لطفاً ابتدا یک پروژه در حساب کاربری ارائه‌دهنده ابری خود "
+"ایجاد کنید."
+
+msgid "add_billing_details"
+msgstr "افزودن جزئیات صورتحساب"
+
+msgid "do_billing_details_message"
+msgstr "DigitalOcean برای ایجاد سرورها به اطلاعات پرداخت نیاز دارد."
+
+msgid "tap"
+msgstr "ضربه بزنید"
+
+msgid "below_to_go_to_do"
+msgstr "زیر برای رفتن به DigitalOcean"
+
+msgid "1"
+msgstr "۱"
+
+msgid "2"
+msgstr "۲"
+
+msgid "3"
+msgstr "۳"
+
+msgid "add_payment_method"
+msgstr "یک روش پرداخت اضافه کنید (کارت اعتباری یا PayPal)"
+
+msgid "return_to_lantern"
+msgstr "به Sukot برگردید و برای ادامه نصب، \"ادامه\" را بزنید"
+
+msgid "how_to_add_billing_details"
+msgstr "نحوه افزودن جزئیات صورتحساب:"
+
+msgid "add_payment_method_message"
+msgstr ""
+"لطفاً یک روش پرداخت به حساب DigitalOcean خود اضافه کنید. اگر قبلاً اضافه "
+"کرده‌اید، چند دقیقه صبر کنید و دوباره امتحان کنید."
+
+msgid "ok"
+msgstr "باشه"
+
+msgid "could_not_open_url"
+msgstr "نتوانست URL را باز کند"
+
+msgid "new_to_lantern_pro"
+msgstr "تازه وارد Sukot هستید؟"
+
+msgid "an_error_occurred"
+msgstr "خطایی رخ داد. لطفاً بعداً دوباره امتحان کنید."
+
+msgid "developer_mode"
+msgstr "حالت توسعه‌دهنده"
+
+msgid "developer_mode_note"
+msgstr ""
+"حالت توسعه‌دهنده به طور خاص برای توسعه‌دهندگان Sukot است تا هنگام توسعه، "
+"ویژگی‌ها را آزمایش کنند."
+
+msgid "invalid_activation_code"
+msgstr ""
+"کد فعال‌سازی نامعتبر است. لطفاً کد را بررسی کنید و دوباره امتحان کنید."
+
+msgid "invalid_activation_code_length"
+msgstr "کد فعال‌سازی باید ۲۵ کاراکتر باشد."
+
+msgid "error_while_vpn_connection"
+msgstr "هنگام برقراری اتصال VPN خطایی رخ داد. لطفاً دوباره امتحان کنید."
+
+msgid "help_improve_lantern"
+msgstr "کمک به بهبود Sukot"
+
+msgid "share_anonymous_usage_data"
+msgstr ""
+"اطلاعات استفاده ناشناس را به اشتراک بگذارید تا به بهبود سرعت و قابلیت "
+"اطمینان کمک کند."
+
+msgid "data_we_collect"
+msgstr ""
+"ما هرگز تاریخچه مرور، مقاصد ترافیک، درخواست‌های DNS یا گزارش‌های اتصال را "
+"جمع‌آوری نمی‌کنیم."
+
+msgid "you_can_change_anytime"
+msgstr "می‌توانید این را هر زمان در تنظیمات VPN تغییر دهید."
+
+msgid "dont_allow"
+msgstr "اجازه ندهید"
+
+msgid "allow"
+msgstr "اجازه دهید"
+
+msgid "anonymous_usage_data"
+msgstr "داده‌های استفاده ناشناس"
+
+msgid "helps_improve_lantern_performance"
+msgstr "به بهبود عملکرد Sukot کمک می‌کند"
+
+msgid "changes_applied_after_restart"
+msgstr "تغییرات پس از راه‌اندازی مجدد Sukot اعمال خواهند شد."
+
+msgid "email_deliverability_notice"
+msgstr "اطلاعیه تحویل ایمیل"
+
+msgid "email_deliverability_notice_message"
+msgstr ""
+"ایمیل‌های ارسالی به آدرس‌های 163.com، 126.com، qq.com و sina.com گاهی مسدود "
+"می‌شوند و ممکن است نرسند"
+
+msgid "email_deliverability_notice_message_two"
+msgstr ""
+"اگر کد تأیید خود را دریافت نکردید، استفاده از ارائه‌دهنده ایمیل جایگزین را "
+"در نظر بگیرید."
+
+msgid "continue_anyway"
+msgstr "به هر حال ادامه دهید"
+
+msgid "routing_mode"
+msgstr "حالت مسیریابی"
+
+msgid "smart_routing"
+msgstr "مسیریابی هوشمند"
+
+msgid "full_tunnel"
+msgstr "تونل کامل"
+
+msgid "region_optimized_routing"
+msgstr "مسیریابی مبتنی بر قانون بهینه‌شده برای منطقه شما"
+
+msgid "all_traffic_through_vpn"
+msgstr "تمام ترافیک از طریق VPN"
+
+msgid "smart_routing_description"
+msgstr ""
+"مسیریابی هوشمند از قوانین خاص منطقه استفاده می‌کند تا به‌طور خودکار ترافیکی "
+"که نیاز به VPN دارد را از طریق Sukot ارسال کند. سایر ترافیک برای سرعت و "
+"قابلیت اطمینان مستقیماً منتقل می‌شود."
+
+msgid "add_apps_websites_bypass_vpn"
+msgstr "برنامه‌ها و وب‌سایت‌ها را برای دور زدن VPN اضافه کنید"
+
+msgid "lantern_pro_license_applied"
+msgstr "مجوز Sukot Pro شما به حساب موجود شما اعمال خواهد شد"
+
+msgid "your_purchase_will_be_applied_to_your_existing_account"
+msgstr "خرید شما به حساب موجود شما اعمال خواهد شد"
+
+msgid "daily_data_cap_reached"
+msgstr "به سقف داده روزانه رسیدید"
+
+msgid "daily_data_cap_reached_message"
+msgstr "سرعت به 128 kb/s کاهش یافت - بازنشانی در %s."
+
+msgid "subscription_renewal_info"
+msgstr ""
+"مبلغ پرداخت هنگام خرید از Apple ID شما کسر می‌شود. اشتراک‌ها به‌طور خودکار "
+"تمدید می‌شوند مگر اینکه حداقل 24 ساعت قبل از پایان دوره فعلی لغو شوند."
+
+msgid "failed_to_update_routing_mode"
+msgstr "به‌روزرسانی حالت مسیریابی ناموفق بود. لطفاً دوباره تلاش کنید."
+
+msgid "apps"
+msgstr "برنامه‌ها"
+
+msgid "websites"
+msgstr "وب‌سایت‌ها"
+
+msgid "main_channel"
+msgstr "کانال اصلی"
+
+msgid "data_cap_channel"
+msgstr "هشدارهای مصرف داده"
+
+msgid "mb_free_data_remaining"
+msgstr "%d مگابایت داده رایگان باقی‌مانده"
+
+msgid "daily_data_cap_reached_notification_message"
+msgstr ""
+"داده‌های شما در %s بازنشانی می‌شود. برای داده پرسرعت نامحدود به Pro ارتقا "
+"دهید."
+
+msgid "if_you_have_not_set_password"
+msgstr ""
+"اگر قبلاً رمز عبور Sukot Pro تنظیم نکرده‌اید، گزینه «رمز عبور خود را "
+"فراموش کرده‌اید؟» را در زیر انتخاب کنید."
+
+msgid "pro_subscription_expired"
+msgstr "اشتراک Pro شما منقضی شده است"
+
+msgid "renew_pro_subscription"
+msgstr "تمدید اشتراک Pro"
+
+msgid "subscription_expired"
+msgstr "اشتراک منقضی شده"
+
+msgid "pro"
+msgstr "Pro"
+
+msgid "pro_subscription_expired_message"
+msgstr ""
+"اشتراک Sukot Pro منقضی شده است. برای بازیابی داده نامحدود و ویژگی‌های Pro "
+"تمدید کنید."
+
+msgid "last_subscription_renewal_date"
+msgstr "تاریخ آخرین تمدید اشتراک"
+
+msgid "set_account_password"
+msgstr "تنظیم رمز عبور حساب"
+
+msgid "set_password"
+msgstr "تنظیم رمز عبور"
+
+msgid "set_account_password_message"
+msgstr ""
+"برای مدیریت حساب خود یا ورود به دستگاه‌های دیگر، اکنون باید برای حساب Sukot Pro خود رمز عبور تنظیم کنید.\n"
+"\n"
+"ما یک کد تأیید را از طریق ایمیل برای شما ارسال می‌کنیم تا رمز عبور خود را ایجاد کنید."
+
+msgid "expired"
+msgstr "منقضی شده"
+
+msgid "lantern_pro_tagline"
+msgstr "دسترسی سریع، قابل اعتماد و خصوصی به اینترنت"
+
+msgid "what_makes_lantern_different"
+msgstr "چه چیزی Sukot را متفاوت می‌کند"
+
+msgid "built_for_privacy_speed_freedom"
+msgstr "طراحی شده برای حریم خصوصی، سرعت و آزادی"
+
+msgid "smart_routing_mode"
+msgstr "حالت مسیریابی هوشمند"
+
+msgid "region_specific_routing_description"
+msgstr ""
+"قوانین مخصوص هر منطقه فقط ترافیکی که به VPN نیاز دارد را مسیریابی می‌کنند و "
+"اتصال شما را سریع نگه می‌دارند."
+
+msgid "advanced_protocols"
+msgstr "پروتکل‌های پیشرفته"
+
+msgid "advanced_protocols_description"
+msgstr ""
+"پروتکل‌های بیشتر از سایر VPNها برای حداکثر قابلیت اطمینان. AnyTLS، "
+"Hysteria2، VLESS، Kindling، WATER و موارد دیگر."
+
+msgid "private_servers_description"
+msgstr "سرورهای خود را متصل کنید تا کنترل کامل بر اتصالتان داشته باشید."
+
+msgid "nonprofit_mission"
+msgstr "مأموریت غیرانتفاعی"
+
+msgid "built_by_nonprofit"
+msgstr ""
+"ساخته شده توسط یک سازمان غیرانتفاعی با بیش از ۱۲ سال تجربه در پیشبرد آزادی "
+"اینترنت"
+
+msgid "choose_your_routing_mode"
+msgstr "حالت مسیریابی خود را انتخاب کنید"
+
+msgid "fastest"
+msgstr "سریع‌ترین"
+
+msgid "traditional_vpn_mode"
+msgstr "حالت VPN سنتی"
+
+msgid "traditional_vpn_mode_description"
+msgstr ""
+"تمام ترافیک را از طریق Sukot مسیریابی می‌کند، چه نیاز باشد چه نباشد."
+
+msgid "change_anytime_in_routing_mode_settings"
+msgstr "هر زمان در تنظیمات حالت مسیریابی قابل تغییر است"
+
+msgid "get_started"
+msgstr "شروع کنید"
+
+msgid "skip_connect_now"
+msgstr "رد شدن - اتصال فوری"
+
+msgid "renew_pro"
+msgstr "تمدید Pro"
+
+msgid "payment"
+msgstr "پرداخت"
+
+msgid "it_looks_like_something_went_wrong"
+msgstr ""
+"به نظر می‌رسد مشکلی پیش آمده است. اگر پرداخت انجام داده‌اید اما اشتراکتان "
+"فعال نیست، لطفاً چند ساعت صبر کنید و دوباره بررسی کنید."
+
+msgid "manage_subscription_google_play"
+msgstr ""
+"اشتراک Pro شما از طریق Google Play خریداری شده است. لطفاً اشتراک خود را از "
+"تنظیمات حساب Google Play مدیریت کنید."
+
+msgid "manage_subscription_apple_app_store"
+msgstr ""
+"اشتراک Pro شما از طریق Apple App Store خریداری شده است. لطفاً اشتراک خود را "
+"از تنظیمات حساب Apple ID مدیریت کنید."
+
+msgid "create_account_error"
+msgstr "خطا در ایجاد حساب"
+
+msgid "appearance"
+msgstr "ظاهر"
+
+msgid "light"
+msgstr "روشن"
+
+msgid "dark"
+msgstr "تیره"
+
+msgid "system"
+msgstr "سیستم"
+
+msgid "lantern_email"
+msgstr "ایمیل Sukot"
+
+msgid "confirm_with_account"
+msgstr "برای تأیید حذف، لطفاً با حساب %s خود در زیر تأیید کنید:"
+
+msgid "oauth_different_account"
+msgstr ""
+"حسابی که می‌خواهید با آن وارد شوید با حساب مرتبط با این ایمیل مطابقت ندارد. "
+"لطفاً با حساب صحیح وارد شوید یا ایمیل دیگری انتخاب کنید."
+
+msgid "account_deleted"
+msgstr "حساب حذف شد"
+
+msgid "account_deleted_message"
+msgstr "حساب شما به طور دائمی حذف شده است."
+
+msgid "verify_with"
+msgstr "تأیید با %s"
+
+msgid "renew"
+msgstr "تمدید مجدد"
+
+msgid "vpn_conflict_title"
+msgstr "تداخل VPN شناسایی شد"
+
+msgid "vpn_conflict_body"
+msgstr ""
+"یک VPN دیگر روی دستگاه شما در حال اجراست. Sukot زمانی بهترین عملکرد را "
+"دارد که تنها VPN فعال شما باشد. برای بهترین نتیجه، لطفاً قبل از استفاده از "
+"Sukot آن را قطع کنید."
+
+msgid "vpn_conflict_dismiss"
+msgstr "فهمیدم/گرفتم"
+
+msgid "vpn_conflict_connect_anyway"
+msgstr "در هر صورت متصل شوید"
+
+msgid "err_check_connection"
+msgstr "اتصال برقرار نشد. اتصال اینترنت خود را بررسی کنید."
+
+msgid "err_service_unavailable"
+msgstr "سرویس موقتاً در دسترس نیست. در حال تلاش مجدد..."
+
+msgid "err_connection_failed"
+msgstr "اتصال ناموفق بود. لطفاً دوباره تلاش کنید."
+
+msgid "err_ruleset_failed"
+msgstr "پیکربندی مسیریابی بارگیری نشد. در حال تلاش مجدد..."
+
+msgid "update_now"
+msgstr "هم اکنون به‌روزرسانی کنید"
+
+msgid "later"
+msgstr "بعداً"
+
+msgid "update_ready_to_install"
+msgstr "Sukot %s آماده نصب است"
+
+msgid "up_to_date"
+msgstr "به‌روز"
+
+msgid "running_latest_version"
+msgstr "شما از آخرین نسخه Sukot %s استفاده می‌کنید"
+
+msgid "couldnt_check_for_updates"
+msgstr "بررسی به‌روزرسانی‌ها ممکن نبود"
+
+msgid "check_connection_and_retry"
+msgstr "اتصال خود را بررسی کنید و دوباره تلاش کنید"
+
+msgid "refresh_configuration"
+msgstr "تازه‌سازی پیکربندی"
+
+msgid "configuration_cleared"
+msgstr "پیکربندی پاک شد"
+
+msgid "turn_off_vpn"
+msgstr "خاموش کردن VPN"
+
+msgid "turn_off_vpn_message"
+msgstr ""
+"قبل از تازه‌سازی پیکربندی، VPN باید خاموش باشد. آن را خاموش کنید و دوباره "
+"تلاش کنید."
+
+msgid "configuration_message"
+msgstr ""
+"پیکربندی قدیمی شما پاک شد. VPN را روشن کنید تا جدیدترین نسخه به‌طور خودکار "
+"دانلود شود."
+
+msgid "promo_referral_code"
+msgstr "کد تخفیف / معرف"
+
+msgid "promo_code"
+msgstr "کد تخفیف"
+
+msgid "promo_code_with"
+msgstr "کد تخفیف (%s)"
+
+msgid "order_total"
+msgstr "جمع سفارش"
+
+msgid "smart_routing_mode_description"
+msgstr ""
+"مکان هوشمند سریع‌ترین سرور را انتخاب می‌کند و با یافتن مسیرهای بهتر، به‌طور "
+"خودکار تغییر می‌دهد."
+
+# Share consent dialog (shown once before any sharing starts, covers both
+# modes)
+msgid "share_consent_title"
+msgstr "اتصال خود را به اشتراک می‌گذارید؟"
+
+msgid "share_consent_body_what"
+msgstr ""
+"تا وقتی اشتراک‌گذاری روشن است، افراد در کشورهای تحت سانسور ترافیک خود را از "
+"طریق اتصال شما به اینترنت آزاد می‌رسانند."
+
+msgid "share_consent_body_ip"
+msgstr ""
+"اگر روتر شما از هدایت پورت پشتیبانی کند، اتصال خانگی شما به عنوان خروجی "
+"استفاده می‌شود و در مدت اشتراک‌گذاری، آدرس IP شما در گزارش‌های مقصد دیده "
+"خواهد شد. در غیر این صورت، آن ترافیک از طریق سرورهای Sukot منتقل می‌شود و "
+"IP شما از آن طریق افشا نمی‌شود."
+
+msgid "share_consent_body_safety"
+msgstr ""
+"در هر دو حالت، Sukot مقصدهای شناخته‌شده سوءاستفاده، محدوده‌های شبکه خصوصی "
+"و پورت‌های مستعد سوءاستفاده را مسدود می‌کند، اعتبارنامه‌ها را می‌چرخاند و "
+"طبق DMCA § 512(a) به عنوان «صرفاً مجرا» (mere conduit) عمل می‌کند."
+
+msgid "share_consent_decline"
+msgstr "الان نه"
+
+msgid "share_consent_accept"
+msgstr "روشن کردن اشتراک‌گذاری"
+
+msgid "bypass_browser_warning_title"
+msgstr "%s به فهرست عبور اضافه شود؟"
+
+msgid "bypass_browser_warning_body"
+msgstr ""
+"%s مستقیماً و بدون محافظت Sukot متصل می‌شود. در کشورهایی که وب‌سایت‌های "
+"خاصی را مسدود می‌کنند، برخی سایت‌ها دیگر بارگیری نمی‌شوند."
+
+msgid "add_anyway"
+msgstr "در هر صورت اضافه شود"
+
+msgid "bypass_all_warning_title"
+msgstr "همه برنامه‌ها به فهرست عبور اضافه شوند؟"
+
+msgid "bypass_all_warning_body"
+msgstr ""
+"این شامل مرورگرهایی مانند %s نیز می‌شود. برنامه‌های فهرست عبور مستقیماً و "
+"بدون محافظت Sukot متصل می‌شوند. در کشورهایی که وب‌سایت‌های خاصی را مسدود "
+"می‌کنند، برخی سایت‌ها دیگر بارگیری نمی‌شوند."
+
+msgid "add_all_except_browsers"
+msgstr "افزودن همه به‌جز مرورگرها"
+
+msgid "add_all_anyway"
+msgstr "در هر صورت همه اضافه شوند"
+
+msgid "bypass_app_first_time_title"
+msgstr "VPN برای این برنامه دور زده شود؟"
+
+msgid "bypass_app_first_time_body"
+msgstr ""
+"%s مستقیماً و بدون محافظت Sukot متصل می‌شود. اگر در کشور شما مسدود باشد، "
+"ممکن است از کار بیفتد."
+
+msgid "bypass_website_first_time_title"
+msgstr "VPN برای این وب‌سایت دور زده شود؟"
+
+msgid "bypass_website_first_time_body"
+msgstr ""
+"%s مستقیماً و بدون محافظت Sukot متصل می‌شود. اگر در کشور شما مسدود باشد، "
+"ممکن است از کار بیفتد."
+
+msgid "upsell_upgrade_suffix"
+msgstr "سریع‌تر، با داده نامحدود!"
+
+msgid "upsell_expired_suffix"
+msgstr "زمان Pro شما به پایان رسیده است"
+
+msgid "pro_expires_days_left"
+msgstr "Pro در %s منقضی می‌شود، %s روز باقی مانده"
+
+msgid "pro_expires_one_day_left"
+msgstr "Pro در %s منقضی می‌شود، 1 روز باقی مانده"
+
+msgid "renewing_adds_time"
+msgstr "تمدید، به تاریخ پایان فعلی شما زمان اضافه می‌کند"
+
+msgid "pro_ends_today"
+msgstr "زمان Pro امروز به پایان می‌رسد، %s"
+
+msgid "renew_now_keep_data"
+msgstr "برای حفظ داده نامحدود و امکانات Pro همین حالا تمدید کنید"
+
+msgid "pro_expired_on"
+msgstr "زمان Pro شما در %s به پایان رسید"
+
+msgid "renew_now_get_back_data"
+msgstr "برای بازگرداندن داده نامحدود همین حالا تمدید کنید"
+
+msgid "days_left"
+msgstr "%s روز باقی مانده"
+
+msgid "one_day_left"
+msgstr "1 روز باقی مانده"
+
+msgid "expires_today"
+msgstr "امروز منقضی می‌شود"
+
+msgid "pro_time_expired_message"
+msgstr ""
+"زمان Sukot Pro به پایان رسید. برای بازگرداندن داده نامحدود و امکانات Pro "
+"تمدید کنید."
+
+msgid "pro_expires_today_title"
+msgstr "Pro امروز منقضی می‌شود"
+
+msgid "pro_expires_today_popup_message"
+msgstr ""
+"حساب Pro شما امروز به پایان می‌رسد. برای حفظ دسترسی به Sukot Pro همین حالا"
+" تمدید کنید."
+
+msgid "renew_now"
+msgstr "همین حالا تمدید کنید"
+
+msgid "dismiss"
+msgstr "مرخص کن"
+
+msgid "unbounded_status_waiting"
+msgstr "در انتظار شروع"

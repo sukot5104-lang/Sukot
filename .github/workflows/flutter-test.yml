@@ -1,0 +1,58 @@
+name: Flutter Test
+
+# Analyze, compile, and test Dart changes without building native targets.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "lib/**"
+      - "test/**"
+      - "integration_test/**"
+      - "test_driver/**"
+      - "assets/**"
+      - "pubspec.yaml"
+      - "pubspec.lock"
+      - "analysis_options.yaml"
+      - "build.yaml"
+      - "Makefile"
+      - ".github/flutter-version.yaml"
+      - ".github/workflows/flutter-test.yml"
+      - ".github/actions/setup-flutter/**"
+
+concurrency:
+  group: flutter-test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  flutter-test:
+    permissions:
+      contents: "read"
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Flutter
+        uses: ./.github/actions/setup-flutter
+
+      # Regenerate committed sources so tests cannot pass against stale code.
+      - name: Flutter pub get + codegen
+        run: |
+          make pubget
+          make gen
+
+      # app.env is a required asset; these checks do not need its contents.
+      - name: Create placeholder app.env
+        run: touch app.env
+
+      # Fail on errors while allowing existing warnings and infos.
+      - name: Analyze Dart sources
+        run: flutter analyze --no-pub --no-fatal-infos --no-fatal-warnings
+
+      # Compile code that tests may not import and validate the app's assets.
+      - name: Compile app and bundle assets
+        run: flutter build bundle --debug --no-pub --target=lib/main.dart --target-platform=linux-x64 --asset-dir=build/ci/flutter-assets
+
+      - name: Run Flutter tests
+        run: flutter test

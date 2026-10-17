@@ -1,0 +1,236 @@
+//
+//  ExtensionProvider.swift
+//
+//  This file is sourced from Sing-Box (https://github.com/SagerNet/sing-box).
+//  Original source: sing-box/platform/NetworkUtils.swift
+//  Last synced: Commit ae5818ee (March 14, 2025)
+//
+//  Any modifications should be contributed upstream if possible.
+//  Local changes may be overwritten when syncing updates.
+//
+//  Copyright (c) SagerNet. Licensed under GPLv3.
+//
+
+import Foundation
+import Liblantern
+import NetworkExtension
+import OSLog
+
+#if os(iOS)
+  import WidgetKit
+#endif
+#if os(macOS)
+  import CoreLocation
+#endif
+
+public class ExtensionProvider: NEPacketTunnelProvider {
+  private var platformInterface: ExtensionPlatformInterface!
+
+  /// Whether a tunnel bring-up has been attempted and not yet torn down.
+  ///
+  /// The extension process outlives the app, so this survives an app quit —
+  /// unlike any state the app holds. Guarded because `startTunnel` and
+  /// `stopTunnel` arrive on NetworkExtension's queue while `restartService`
+  /// arrives on a libbox thread.
+  private let tunnelStateQueue = DispatchQueue(
+    label: "org.getlantern.lantern.PacketTunnel.tunnelState")
+  private var _tunnelIsRunning = false
+
+  /// Marks a bring-up as starting and reports whether one was already live.
+  /// Test and set are atomic so two starts cannot both see "nothing running".
+  private func claimTunnel() -> Bool {
+    tunnelStateQueue.sync {
+      let wasRunning = _tunnelIsRunning
+      _tunnelIsRunning = true
+      return wasRunning
+    }
+  }
+
+  private func setTunnelRunning(_ running: Bool) {
+    tunnelStateQueue.sync { _tunnelIsRunning = running }
+  }
+
+  override open func startTunnel(options: [String: NSObject]?) async throws {
+    if platformInterface == nil {
+      platformInterface = ExtensionPlatformInterface(self)
+    }
+
+    // The extension outlives the app. Replacing a session must also clean up a
+    // previous start that failed after applying network settings.
+    if claimTunnel() {
+      appLogger.info("(lantern-tunnel) start arrived with a live tunnel; stopping it first")
+      try stopService()
+    }
+
+    // Start the IPC server before any VPN operations
+    var ipcError: NSError?
+    MobileStartIPCServer(platformInterface, opts(), &ipcError)
+    if let ipcError {
+      appLogger.error("error starting IPC server: \(ipcError.localizedDescription)")
+      throw ipcError
+    }
+
+    // Bringing the VPN up now waits for the first config, which takes seconds
+    // on a censored network, so the connect is dispatched rather than awaited —
+    // it may begin before this returns, it just cannot hold the system's start
+    // call open (getlantern/engineering#3822). Nothing reached the system from
+    // here anyway: startVPN reports its own failures via cancelTunnel.
+    //
+    // Returning marks the provider started, but no tunnel settings exist until
+    // the connect below applies them, so the system claims no routes and
+    // traffic still egresses directly. Reassert until the connect finishes so
+    // the OS does not report a working VPN over that window.
+    reasserting = true
+
+    let tunnelType = options?["netEx.Type"] as? String
+    let serverName = options?["netEx.ServerName"] as? String
+    Task.detached { [weak self] in
+      guard let self else { return }
+      defer { self.reasserting = false }
+      switch tunnelType {
+      case "Lantern":
+        appLogger.info("(lantern-tunnel) user initiated connection")
+        self.startVPN()
+      case "PrivateServer":
+        guard let serverName else {
+          self.writeFatalError("Missing netEx.ServerName")
+          return
+        }
+        self.connectToServer(serverName: serverName)
+      default:
+        // Fallback or unknown type
+        appLogger.info("(lantern-tunnel) unknown tunnel type \(String(describing: tunnelType))")
+        self.startVPN()
+      }
+    }
+  }
+
+  public func writeFatalError(_ message: String) {
+    appLogger.error("\(message)")
+    let error = NSError(
+      domain: "org.getlantern.lantern.packettunnel",
+      code: 1,
+      userInfo: [NSLocalizedDescriptionKey: message]
+    )
+    cancelTunnel(error)
+  }
+
+  func startVPN(completion: ((Bool, String?) -> Void)? = nil) {
+    appLogger.log("(lantern-tunnel) quick connect")
+    var error: NSError?
+
+    MobileStartVPN(&error)
+    if let error {
+      appLogger.error("error while starting tunnel \(error.localizedDescription)")
+      cancelTunnel(error)
+      completion?(false, error.localizedDescription)
+
+      return
+    }
+    appLogger.log("(lantern-tunnel) tunnel started successfully")
+    completion?(true, nil)  // optional call
+
+  }
+
+  func connectToServer(
+    serverName: String, completion: ((Bool, String?) -> Void)? = nil
+  ) {
+    appLogger.log("(lantern-tunnel) connecting to server")
+    var error: NSError?
+    MobileConnectToServer(serverName, &error)
+    if let error {
+      appLogger.error("error while connecting to server \(error.localizedDescription)")
+      cancelTunnel(error)
+      completion?(false, error.localizedDescription)
+
+      return
+    }
+    appLogger.log("(lantern-tunnel) connected to server successfully")
+    completion?(true, nil)  // optional call
+
+  }
+
+  override open func stopTunnel(with reason: NEProviderStopReason) async {
+    appLogger.log("(lantern-tunnel) stopping, reason:\(String(describing: reason))")
+    closeTunnel()
+  }
+
+  private func cancelTunnel(_ error: Error) {
+    // Cancellation may skip stopTunnel. Close IPC so reconnect cannot reuse this
+    // provider, and run teardown off the Go callback thread to avoid blocking it.
+    DispatchQueue.global().async {
+      self.closeTunnel()
+      self.cancelTunnelWithError(error)
+    }
+  }
+
+  private func closeTunnel() {
+    var error: NSError?
+    MobileStopVPN(&error)
+    if error != nil {
+      appLogger.log("error while stopping tunnel \(error?.localizedDescription ?? "")")
+    }
+    error = nil
+    MobileCloseIPCServer(&error)
+    if error != nil {
+      appLogger.log("error closing IPC server \(error?.localizedDescription ?? "")")
+    }
+    appLogger.log("(lantern-tunnel) tunnel closed")
+    setTunnelRunning(false)
+    platformInterface?.reset()
+  }
+
+  private func stopService() throws {
+    appLogger.info("ExtensionProvider stopService")
+    var error: NSError?
+    MobileStopVPN(&error)
+    if let error {
+      // A timed-out stop may still be closing the old tunnel. Do not start over it.
+      appLogger.error("error while stopping tunnel \(error.localizedDescription)")
+      cancelTunnel(error)
+      throw error
+    }
+    // Keep ownership while replacing a session; closeTunnel releases it on exit.
+    postServiceClose()
+  }
+
+  func restartService() throws {
+    appLogger.log("(lantern-tunnel) restarting service")
+    reasserting = true
+    defer {
+      reasserting = false
+    }
+    try stopService()
+
+    var error: NSError?
+    MobileStartVPN(&error)
+    if let error {
+      appLogger.error("(lantern-tunnel) restart failed: \(error.localizedDescription)")
+      // A failed (re)start must tear the tunnel down so on-demand/the app can recover
+      // rather than leaving a dead-but-"connected" tunnel; the throw propagates the
+      // failure to radiance's Restart so it reports ErrorStatus instead of success.
+      cancelTunnel(error)
+      throw error
+    }
+    setTunnelRunning(true)
+    appLogger.log("(lantern-tunnel) tunnel restarted successfully")
+  }
+
+  func postServiceClose() {
+    platformInterface.reset()
+  }
+
+  func opts() -> UtilsOpts {
+    let opts = UtilsOpts()
+    opts.dataDir = FilePath.dataDirectory.relativePath
+    // opts.deviceid = DeviceIdentifier.getUDID()
+    opts.appVersion =
+      Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    opts.locale = Locale.current.identifier
+    opts.timeZone = TimeZone.current.identifier
+    opts.logLevel = "trace"
+    opts.logDir = FilePath.logsDirectory.relativePath
+    appLogger.info("logging to \(opts.logDir)")
+    return opts
+  }
+}

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Sukot
+GenericName=Sukot
+Comment=Sukot Internet Freedom Tool
+Icon=lantern
+Exec=lantern %U
+Categories=Network;
+Keywords=Sukot;VPN;Proxy;Privacy;
+StartupNotify=true

@@ -1,0 +1,2201 @@
+# Translators:
+# Lantern, 2026
+# code smite <codesmite@gmail.com>, 2026
+# Al Shahrior Hasan Sagor <shahrior3814@gmail.com>, 2026
+# tx_e2f_bn c3 <tx_e2f_bn_c3@ate2f.com>, 2026
+# Derek F <derek@getlantern.org>, 2026
+# 
+msgid ""
+msgstr ""
+"Last-Translator: Derek F <derek@getlantern.org>, 2026\n"
+"Language-Team: Bengali (https://app.transifex.com/lantern-1/teams/94371/bn/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bn\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "app_name"
+msgstr "Sukot"
+
+msgid "upgrade_to_pro"
+msgstr "প্রো-তে আপগ্রেড করুন"
+
+msgid "settings"
+msgstr "সেটিংস"
+
+msgid "report_an_issue"
+msgstr "সমস্যা রিপোর্ট করুন"
+
+msgid "report_issue_add_screenshots"
+msgstr "স্ক্রিনশট যোগ করুন"
+
+msgid "report_issue_screenshot_helper"
+msgstr "PNG, JPG বা GIF — মোট সর্বোচ্চ 15 MB"
+
+msgid "report_issue_add_images"
+msgstr "ছবি যোগ করুন"
+
+msgid "report_issue_attachments_unsupported_type"
+msgstr "শুধুমাত্র PNG, JPG এবং GIF ছবি সমর্থিত।"
+
+msgid "report_issue_attachments_too_many"
+msgstr "আপনি সর্বোচ্চ 3টি ছবি সংযুক্ত করতে পারবেন।"
+
+msgid "report_issue_attachments_total_size_exceeded"
+msgstr "সংযুক্তিগুলির মোট আকার 15 MB-এর কম হতে হবে।"
+
+msgid "report_issue_attachments_duplicate"
+msgstr "এই ছবিটি ইতিমধ্যে সংযুক্ত করা হয়েছে।"
+
+msgid "report_issue_attachments_unreadable"
+msgstr "আমরা এই ফাইলগুলির একটি পড়তে পারিনি।"
+
+msgid "send_without_email_title"
+msgstr "ইমেইল ছাড়া পাঠাবেন?"
+
+msgid "send_without_email_body"
+msgstr ""
+"আপনি কোনো ইমেইল ঠিকানা দেননি, তাই আমরা এই রিপোর্টের উত্তর দিতে বা ফলো-আপ "
+"করতে পারব না।"
+
+msgid "send_without_email"
+msgstr "ইমেইল ছাড়া পাঠান"
+
+msgid "lantern_projects"
+msgstr "Sukot প্রজেক্টস:"
+
+msgid "invite_friends"
+msgstr "বন্ধুদের আমন্ত্রণ জানান"
+
+msgid "your_referral_code"
+msgstr "আপনার রেফারেল কোড"
+
+msgid "invite_friends_message"
+msgstr ""
+"আপনার রেফারেল কোডটি একটি বন্ধুর সাথে শেয়ার করুন। যখন তারা Sukot Pro "
+"কিনবে, তখন আপনি দুজনেই অতিরিক্ত সময় পাবেন: "
+
+msgid "share_referral_code"
+msgstr "রেফারেল কোড শেয়ার করুন"
+
+msgid "invite_friends_description"
+msgstr ""
+"কোনো বন্ধু আপনার রেফারেল কোড ব্যবহার করে Sukot Pro-তে আপগ্রেড করলে, আপনারা"
+" দুজনেই 1 মাস ফ্রি পাবেন।"
+
+msgid "month_earned"
+msgstr "%s মাস অর্জিত"
+
+msgid "months_earned"
+msgstr "%s মাস অর্জিত"
+
+msgid "includes_free_month_from_referrals"
+msgstr "রেফারেল থেকে %s ফ্রি মাস অন্তর্ভুক্ত"
+
+msgid "includes_free_months_from_referrals"
+msgstr "রেফারেল থেকে %s ফ্রি মাস অন্তর্ভুক্ত"
+
+msgid "referral_converted_title"
+msgstr "এক বন্ধু Pro-তে আপগ্রেড করেছেন"
+
+msgid "referral_converted_message"
+msgstr ""
+"আপনারা দুজনেই %s Sukot Pro ফ্রি অর্জন করেছেন। এখন পর্যন্ত আপনি %s অর্জন "
+"করেছেন। আরও পেতে আপনার কোড শেয়ার করতে থাকুন।"
+
+msgid "month_count"
+msgstr "%s মাস"
+
+msgid "months_count"
+msgstr "%s মাস"
+
+msgid "done"
+msgstr "সম্পন্ন"
+
+msgid "view_account"
+msgstr "অ্যাকাউন্ট দেখুন"
+
+msgid "show_download_links"
+msgstr "ডাউনলোড লিঙ্ক দেখান"
+
+msgid "get_lantern"
+msgstr "Sukot নিন"
+
+msgid "send_friend_download_link"
+msgstr "আপনার বন্ধুকে এই ডাউনলোড লিঙ্কটি পাঠান:"
+
+msgid "scan_to_install"
+msgstr "Sukot ইনস্টল করতে আপনার ক্যামেরা অ্যাপ দিয়ে স্ক্যান করুন"
+
+msgid "remind_use_code"
+msgstr "আপগ্রেড করার সময় %s কোডটি ব্যবহার করতে তাদের মনে করিয়ে দিন!"
+
+msgid "unbounded"
+msgstr "Action Mode"
+
+# Tab label shown alongside the Unbounded tab on the Home screen when
+# the dual-tab strip is active.
+msgid "vpn"
+msgstr "VPN"
+
+msgid "help_fight_global_internet_censorship"
+msgstr "বিশ্বব্যাপী ইন্টারনেট সেন্সরশিপের বিরুদ্ধে লড়াইয়ে সাহায্য করুন"
+
+msgid "vpn_settings"
+msgstr "ভিপিএন সেটিংস"
+
+msgid "split_tunneling"
+msgstr "স্প্লিট টানেলিং"
+
+msgid "server_locations"
+msgstr "সার্ভার লোকেশন"
+
+msgid "lantern_pro_email"
+msgstr "Sukot Pro ইমেইল:"
+
+msgid "pro_account_expiration"
+msgstr "প্রো অ্যাকাউন্ট মেয়াদ শেষ"
+
+msgid "manage_subscription"
+msgstr "সাবস্ক্রিপশন পরিচালনা করুন"
+
+msgid "lantern_pro_devices"
+msgstr "Sukot Pro ডিভাইস"
+
+msgid "remove"
+msgstr "সরান"
+
+msgid "add_device"
+msgstr "ডিভাইস যোগ করুন"
+
+msgid "danger_zone"
+msgstr "ঝুঁকিপূর্ণ এলাকা:"
+
+msgid "delete_account"
+msgstr "অ্যাকাউন্ট মুছে দিন"
+
+msgid "delete"
+msgstr "মুছুন"
+
+msgid "account"
+msgstr "অ্যাকাউন্ট"
+
+msgid "delete_account_?"
+msgstr "আপনার অ্যাকাউন্ট মুছে দিতে চান?"
+
+msgid "delete_account_message"
+msgstr ""
+"অ্যাকাউন্ট মুছে ফেলা স্থায়ী। আপনি সমস্ত ডিভাইসে অ্যাক্সেস হারাবেন এবং "
+"অবশিষ্ট প্রো সাবস্ক্রিপশনের সময় কোনো রিফান্ড ছাড়াই বাতিল হয়ে যাবে।"
+
+msgid "delete_account_message_two"
+msgstr "মুছে ফেলা নিশ্চিত করতে অনুগ্রহ করে নিচে আপনার পাসওয়ার্ড লিখুন"
+
+msgid "Submit Issue Report"
+msgstr "নিশ্চিত করতে পাসওয়ার্ড দিন"
+
+msgid "confirm_deletion"
+msgstr "মুছে ফেলা নিশ্চিত করুন"
+
+msgid "cancel"
+msgstr "বাতিল করুন"
+
+msgid "daily_data_usage"
+msgstr "দৈনিক ডেটা ব্যবহার"
+
+msgid "mb"
+msgstr "MB"
+
+msgid "vpn_status"
+msgstr "ভিপিএন স্ট্যাটাস"
+
+msgid "telegram"
+msgstr "Telegram"
+
+msgid "instagram"
+msgstr "Instagram"
+
+msgid "x"
+msgstr "X"
+
+msgid "follow_us"
+msgstr "আমাদের ফলো করুন"
+
+msgid "server_selection"
+msgstr "সার্ভার নির্বাচন"
+
+msgid "smart_location"
+msgstr "স্মার্ট লোকেশন"
+
+msgid "automatically_chooses_fastest_location"
+msgstr "স্বয়ংক্রিয়ভাবে দ্রুততম লোকেশন বেছে নেয়"
+
+msgid "pro_locations"
+msgstr "প্রো লোকেশনস:"
+
+msgid "choose_your_location_with_lantern_pro"
+msgstr "Sukot Pro দিয়ে আপনার লোকেশন বেছে নিন:"
+
+msgid "language"
+msgstr "ভাষা"
+
+msgid "sign_in"
+msgstr "সাইন ইন করুন"
+
+msgid "sign_out"
+msgstr "সাইন আউট করুন"
+
+msgid "check_for_updates"
+msgstr "আপডেট চেক করুন"
+
+msgid "update_available"
+msgstr "আপডেট উপলব্ধ"
+
+msgid "android_sideload_update_available_message"
+msgstr ""
+"Sukot %s উপলব্ধ। Android-এর ইনস্টলার খোলার আগে Sukot APK ডাউনলোড করে "
+"যাচাই করবে।"
+
+msgid "download_and_install_update"
+msgstr "ডাউনলোড করে ইনস্টল করুন"
+
+msgid "allow_unknown_app_installs"
+msgstr "অ্যাপ ইনস্টলের অনুমতি দিন"
+
+msgid "android_sideload_install_permission_message"
+msgstr ""
+"Sukot থেকে আপডেট ইনস্টল করতে Android-এর অনুমতি প্রয়োজন। 'এই উৎস থেকে "
+"অনুমতি দিন' চালু করুন, তারপর আবার আপডেটের জন্য চেক করুন।"
+
+msgid "error_install_update"
+msgstr "আপডেট ইনস্টল করা যায়নি"
+
+msgid "android_sideload_install_failed_message"
+msgstr ""
+"Sukot এই আপডেটটি যাচাই বা ইনস্টল করতে পারেনি। অনুগ্রহ করে পরে আবার চেষ্টা "
+"করুন।"
+
+msgid "lantern_is_up_to_date"
+msgstr "Sukot আপ টু ডেট আছে।"
+
+msgid "support"
+msgstr "সহায়তা"
+
+msgid "download_links"
+msgstr "ডাউনলোড লিংক"
+
+msgid "get_30_days_of_pro_free"
+msgstr "৩০ দিন প্রো বিনামূল্যে পান"
+
+msgid "share_message_referral_code"
+msgstr ""
+"Sukot Pro এর এক মাস বিনামূল্যে পেতে এই রেফারেল কোড ব্যবহার করুন: %s ; আপনি"
+" এটি এখান থেকে ডাউনলোড করতে পারেন: https://lantern.io/download"
+
+msgid "submit_issue_report"
+msgstr "সমস্যা রিপোর্ট জমা দিন"
+
+msgid "select_an_issue"
+msgstr "একটি সমস্যা নির্বাচন করুন"
+
+msgid "cannot_access_blocked_sites"
+msgstr "ব্লক করা সাইটে প্রবেশ করতে পারছি না"
+
+msgid "cannot_complete_purchase"
+msgstr "ক্রয় সম্পূর্ণ করতে পারছি না"
+
+msgid "discover_not_working"
+msgstr "ডিসকভার কাজ করছে না"
+
+msgid "cannot_sign_in"
+msgstr "সাইন ইন করতে পারছি না"
+
+msgid "spinner_loads_endlessly"
+msgstr "স্পিনার অনবরত লোড হচ্ছে"
+
+msgid "slow"
+msgstr "ধীর গতি"
+
+msgid "cannot_link_devices"
+msgstr "ডিভাইস লিংক করতে পারছি না"
+
+msgid "split_tunnel"
+msgstr "স্প্লিট টানেলিং কাজ করছে না"
+
+msgid "smart_routing_not_working"
+msgstr "স্মার্ট রাউটিং কাজ করছে না"
+
+msgid "server_selection_not_working"
+msgstr "সার্ভার নির্বাচন কাজ করছে না"
+
+msgid "upgrade_fail"
+msgstr "Sukot Pro আপগ্রেড ব্যর্থ হয়েছে"
+
+msgid "wrong_device_linking_code"
+msgstr "ভুল বা অবৈধ ডিভাইস লিংকিং কোড"
+
+msgid "cannot_remove_device"
+msgstr "ডিভাইস সরাতে পারছি না"
+
+msgid "application_crashes"
+msgstr "অ্যাপ্লিকেশন ক্র্যাশ হচ্ছে"
+
+msgid "other"
+msgstr "অন্যান্য"
+
+msgid "issue_description"
+msgstr "আপনার সমস্যা বর্ণনা করুন"
+
+msgid "enter_password_to_confirm"
+msgstr "নিশ্চিত করতে পাসওয়ার্ড লিখুন"
+
+msgid "cannot_view_logs"
+msgstr ""
+"আপনি আমাদের কাছে না পাঠালে Sukot আপনার ডায়াগনস্টিক লগ দেখতে পারে না।"
+
+msgid "split_tunneling_mode"
+msgstr "স্প্লিট টানেলিং মোড"
+
+msgid "apps_split_tunneling"
+msgstr "অ্যাপস স্প্লিট টানেলিং"
+
+msgid "website_split_tunneling"
+msgstr "ওয়েবসাইট স্প্লিট টানেলিং"
+
+msgid "iran_optimized"
+msgstr "ইরান-অপটিমাইজড স্প্লিট টানেলিং"
+
+msgid "china_optimized"
+msgstr "চীন-অপটিমাইজড স্প্লিট টানেলিং"
+
+msgid "russia_optimized"
+msgstr "রাশিয়া-অপটিমাইজড স্প্লিট টানেলিং"
+
+msgid "global_optimized"
+msgstr "গ্লোবাল-অপটিমাইজড স্প্লিট টানেলিং"
+
+msgid "enter_url"
+msgstr "URL লিখুন"
+
+msgid "add"
+msgstr "যোগ করুন"
+
+msgid "enabled"
+msgstr "চালু আছে"
+
+msgid "disabled"
+msgstr "বন্ধ আছে"
+
+msgid "automatic"
+msgstr "স্বয়ংক্রিয়"
+
+msgid "automatic_mode"
+msgstr "স্বয়ংক্রিয় মোড"
+
+msgid "manual"
+msgstr "ম্যানুয়াল"
+
+msgid "enter_url_or_ip"
+msgstr "URL বা IP ঠিকানা লিখুন"
+
+msgid "installed_apps"
+msgstr "ইনস্টল করা অ্যাপস"
+
+msgid "search_apps"
+msgstr "অ্যাপস খুঁজুন"
+
+msgid "search_websites"
+msgstr "ওয়েবসাইট খুঁজুন"
+
+msgid "mode"
+msgstr "মোড"
+
+msgid "use_commas"
+msgstr "একাধিক URL আলাদা করতে কমা ব্যবহার করুন"
+
+msgid "deep_link_expired"
+msgstr ""
+"এই লিঙ্কের মেয়াদ শেষ হয়ে গেছে। অনুগ্রহ করে একটি নতুন লিঙ্ক অনুরোধ করুন।"
+
+msgid "invalid_deep_link"
+msgstr "এই লিঙ্কটি অবৈধ। অনুগ্রহ করে একটি নতুন লিঙ্ক অনুরোধ করুন।"
+
+msgid "default_bypass"
+msgstr "ডিফল্ট বাইপাস লিস্ট"
+
+msgid "global_bypass_list"
+msgstr "গ্লোবাল বাইপাস লিস্ট"
+
+msgid "global_bypass_desc"
+msgstr "বিশ্বস্ত সাইট (HTTPS) যেগুলোতে সংবেদনশীল কন্টেন্ট নেই।"
+
+msgid "china_bypass_list"
+msgstr "চীন বাইপাস লিস্ট"
+
+msgid "china_bypass_desc"
+msgstr "চীনে অবাধে অ্যাক্সেস করা যায় এমন সাইট। নিয়মিত আপডেট করা হয়।"
+
+msgid "iran_bypass_list"
+msgstr "ইরান বাইপাস লিস্ট"
+
+msgid "iran_bypass_desc"
+msgstr "ইরানে অবাধে অ্যাক্সেস করা যায় এমন সাইট। নিয়মিত আপডেট করা হয়।"
+
+msgid "russia_bypass_list"
+msgstr "রাশিয়া বাইপাস লিস্ট"
+
+msgid "russia_bypass_desc"
+msgstr "রাশিয়ায় অবাধে অ্যাক্সেস করা যায় এমন সাইট। নিয়মিত আপডেট করা হয়।"
+
+msgid "see_sites_included"
+msgstr "অন্তর্ভুক্ত সাইট দেখুন "
+
+msgid "default_lists_here"
+msgstr "ডিফল্ট লিস্ট এখানে"
+
+msgid "when_connected"
+msgstr "সংযুক্ত থাকলে, আপনার নির্বাচিত ওয়েবসাইটগুলো ভিপিএন বাইপাস করবে।"
+
+msgid "lantern_automatic"
+msgstr ""
+"Sukot স্বয়ংক্রিয়ভাবে নির্ধারণ করে কোন অ্যাপস এবং ওয়েবসাইট সেরা "
+"পারফরম্যান্সের জন্য আপনার লোকেশনের ভিত্তিতে ভিপিএন বাইপাস করবে। "
+
+msgid "apps_bypassing_vpn"
+msgstr "ভিপিএন বাইপাস করছে এমন অ্যাপস (%d)"
+
+msgid "websites_bypassing_vpn"
+msgstr "ভিপিএন বাইপাস করছে এমন ওয়েবসাইট (%d)"
+
+msgid "logs_share_message"
+msgstr "এগুলো Sukot থেকে আমার ডায়াগনস্টিক লগ।"
+
+msgid "payment_options"
+msgstr "পেমেন্ট অপশন"
+
+msgid "add_your_email"
+msgstr "আপনার ইমেইল যোগ করুন"
+
+msgid "continue"
+msgstr "চালিয়ে যান"
+
+msgid "continue_with_google"
+msgstr "Google দিয়ে চালিয়ে যান"
+
+msgid "continue_with_apple"
+msgstr "Apple দিয়ে চালিয়ে যান"
+
+msgid "continue_without_email"
+msgstr "ইমেইল ছাড়াই চালিয়ে যান"
+
+msgid "confirm_email"
+msgstr "ইমেইল নিশ্চিত করুন"
+
+msgid "add_your_email_message"
+msgstr ""
+"যেকোনো ডিভাইসে আপনার সাবস্ক্রিপশন অ্যাক্সেস করতে আপনার ইমেইল যোগ করুন।"
+
+msgid "confirm_email_code"
+msgstr "নিশ্চিতকরণ কোড"
+
+msgid "confirm_email_code_message_part_one"
+msgstr "আমরা একটি কোড পাঠিয়েছি: "
+
+msgid "confirm_email_code_message_part_two"
+msgstr " নিচে এটি লিখুন। ইনবক্সে না থাকলে স্প্যাম ফোল্ডার দেখুন।"
+
+msgid "resend_email"
+msgstr "ইমেইল আবার পাঠান"
+
+msgid "create_password"
+msgstr "পাসওয়ার্ড তৈরি করুন"
+
+msgid "sign_in_to_lantern_pro"
+msgstr "Sukot-এ সাইন ইন করুন"
+
+msgid "sign_in_with_email"
+msgstr "ইমেইল দিয়ে সাইন ইন করুন"
+
+msgid "enter_your_lantern_pro_account_details"
+msgstr "আপনার Sukot অ্যাকাউন্টের বিবরণ লিখুন।"
+
+msgid "email"
+msgstr "ইমেইল"
+
+msgid "enter_password"
+msgstr "পাসওয়ার্ড লিখুন"
+
+msgid "forgot_password"
+msgstr "পাসওয়ার্ড ভুলে গেছেন?"
+
+msgid "reset_your_password"
+msgstr "আপনার পাসওয়ার্ড রিসেট করুন"
+
+msgid "enter_your_lantern_pro_account_email"
+msgstr "আপনার Sukot অ্যাকাউন্টের ইমেল লিখুন।"
+
+msgid "reset_password"
+msgstr "পাসওয়ার্ড রিসেট করুন"
+
+msgid "confirm_new_password"
+msgstr "নতুন পাসওয়ার্ড নিশ্চিত করুন"
+
+msgid "create_new_password"
+msgstr "নতুন পাসওয়ার্ড তৈরি করুন"
+
+msgid "confirm_password"
+msgstr "পাসওয়ার্ড নিশ্চিত করুন"
+
+msgid "confirm_password_required"
+msgstr "পাসওয়ার্ড নিশ্চিতকরণ প্রয়োজন"
+
+msgid "passwords_do_not_match"
+msgstr "পাসওয়ার্ড মিলছে না"
+
+msgid "activation_code"
+msgstr "অ্যাক্টিভেশন কোড"
+
+msgid "activate_lantern_pro"
+msgstr "Sukot Pro সক্রিয় করুন"
+
+msgid "invalid_email"
+msgstr "অবৈধ ইমেইল ঠিকানা"
+
+msgid "purchase_already_owned"
+msgstr "আপনি ইতিমধ্যে এই ক্রয়ের মালিক, রিস্টোর পারচেজ করার চেষ্টা করুন"
+
+msgid "stripe_payment"
+msgstr "Stripe পেমেন্ট"
+
+msgid "split_tunneling_description"
+msgstr ""
+"Sukot আপনার লোকেশনের উপর ভিত্তি করে বুদ্ধিমত্তার সাথে ইন্টারনেট ট্রাফিক "
+"রাউট করে, শুধুমাত্র প্রয়োজনে ভিপিএন ব্যবহার করে আপনার সংযোগ দ্রুত রেখে "
+"নিরাপদ অ্যাক্সেস নিশ্চিত করে।"
+
+msgid "region_specific_rules"
+msgstr "অঞ্চল-নির্দিষ্ট নিয়ম"
+
+msgid "location_based_rules"
+msgstr ""
+"Sukot আপনার লোকেশনের উপর নির্ভর করে বিভিন্ন রাউটিং নিয়ম ব্যবহার করে:"
+
+msgid "censored_regions"
+msgstr "সেন্সর করা অঞ্চলে:"
+
+msgid "blocked_sites_proxied"
+msgstr ""
+"ব্লক করা ওয়েবসাইট এবং অ্যাপস (নিউজ, মেসেজিং, সীমাবদ্ধ সেবা) প্রক্সি করা "
+"হয়।"
+
+msgid "unblocked_sites_bypass"
+msgstr ""
+"বেশিরভাগ আনব্লক করা ওয়েবসাইট দ্রুত ব্রাউজিংয়ের জন্য ভিপিএন বাইপাস করে।"
+
+msgid "uncensored_regions"
+msgstr "অ-সেন্সর করা অঞ্চলে:"
+
+msgid "trusted_sites_bypass"
+msgstr ""
+"শুধুমাত্র বিশ্বস্ত ওয়েবসাইট এবং সেবাগুলি ডিফল্টভাবে ভিপিএন বাইপাস করে।"
+
+msgid "examples_of_bypassed_sites"
+msgstr ""
+"এর মধ্যে রয়েছে HTTPS-এনক্রিপ্টেড সাইট যেগুলোতে পাবলিক বা অ-সংবেদনশীল "
+"কন্টেন্ট আছে যেমন শপিং, আবহাওয়া এবং সফটওয়্যার আপডেট।"
+
+msgid "routing_rules_vary"
+msgstr "এই নিয়মগুলি দেশ অনুযায়ী পরিবর্তিত হয় এবং নিয়মিত আপডেট করা হয়।"
+
+msgid "view_the_full_list"
+msgstr "রাউটিং নিয়মের সম্পূর্ণ তালিকা দেখুন।"
+
+msgid "turn_on_split_tunneling"
+msgstr ""
+"কোন ওয়েবসাইট ভিপিএন ব্যবহার করবে তা কাস্টমাইজ করতে স্প্লিট টানেলিং চালু "
+"করুন।"
+
+msgid "welcome_to_lantern_pro"
+msgstr "Sukot Pro তে স্বাগতম!"
+
+msgid "welcome_to_lantern"
+msgstr "Sukot-এ স্বাগতম!"
+
+msgid "lantern_pro_description"
+msgstr ""
+"আপনার প্রো ফিচারগুলি আনলক হয়েছে—আনলিমিটেড ডেটা, দ্রুত গতি এবং প্রিমিয়াম "
+"সার্ভার উপভোগ করুন।"
+
+msgid "purchase_restored_title"
+msgstr "ক্রয় পুনরুদ্ধার হয়েছে"
+
+msgid "purchase_restored_description"
+msgstr "আপনার Sukot Pro সাবস্ক্রিপশন এখন এই ডিভাইসে সক্রিয়।"
+
+msgid "no_purchase_found_title"
+msgstr "কোনো ক্রয় পাওয়া যায়নি"
+
+msgid "no_purchase_found_body_ios"
+msgstr "এই Apple ID-এর সাথে কোনো সক্রিয় সাবস্ক্রিপশন যুক্ত নেই।"
+
+msgid "no_purchase_found_body_android"
+msgstr "এই Google অ্যাকাউন্টের সাথে কোনো সক্রিয় সাবস্ক্রিপশন যুক্ত নেই।"
+
+msgid "authorize_device_for_pro"
+msgstr "Pro-এর জন্য ডিভাইস অনুমোদন করুন"
+
+msgid "device_linking_replaced_title"
+msgstr "ডিভাইস লিঙ্কিং কোড প্রতিস্থাপিত হয়েছে"
+
+msgid "device_linking_replaced_body"
+msgstr "Sukot সংস্করণ 10 এবং নতুন সংস্করণগুলি ডিভাইস লিঙ্কিং কোড ব্যবহার করে না। এখন আপনি আপনার ইমেল এবং একটি পাসওয়ার্ড দিয়ে আপনার Sukot Pro অ্যাকাউন্টে সাইন ইন করবেন।"
+
+msgid "device_linking_replaced_body_two"
+msgstr "আপনার যদি Sukot Pro অ্যাকাউন্ট থাকে এবং এখনও পাসওয়ার্ড না থাকে, তাহলে এই ডিভাইসে সাইন ইন করতে এখনই একটি পাসওয়ার্ড যোগ করুন।"
+
+msgid "add_an_account_password"
+msgstr "অ্যাকাউন্টের পাসওয়ার্ড যোগ করুন"
+
+msgid "have_a_password_sign_in"
+msgstr "পাসওয়ার্ড আছে? সাইন ইন করুন"
+
+msgid "plans_fetch_error"
+msgstr "প্ল্যান আনতে ত্রুটি। পরে আবার চেষ্টা করুন।"
+
+msgid "best_value"
+msgstr "সেরা মূল্য!"
+
+msgid "choose_payment_method"
+msgstr "পেমেন্ট মেথড বেছে নিন"
+
+msgid "payment_information_encrypted"
+msgstr "আপনার পেমেন্ট তথ্য সম্পূর্ণরূপে এনক্রিপ্টেড।"
+
+msgid "purchase_not_completed"
+msgstr ""
+"ক্রয় সম্পূর্ণ হয়নি। আপনি যেকোনো সময় আবার চেষ্টা করতে পারেন, বা সাহায্যের "
+"প্রয়োজন হলে সাপোর্টের সাথে যোগাযোগ করুন"
+
+msgid "are_you_sure"
+msgstr "আপনি কি নিশ্চিত?"
+
+msgid "continue_without_email_message"
+msgstr ""
+"অন্য ডিভাইসে আপনার সাবস্ক্রিপশন ব্যবহার করতে একটি বৈধ ইমেইল ঠিকানা প্রয়োজন।"
+
+msgid "add_email"
+msgstr "ইমেইল যোগ করুন"
+
+msgid "block_ads"
+msgstr "বিজ্ঞাপন ব্লক করুন"
+
+msgid "only_active"
+msgstr "শুধুমাত্র ভিপিএন সংযুক্ত থাকলে সক্রিয়"
+
+msgid "share_my_connection"
+msgstr "আমার সংযোগ শেয়ার করুন"
+
+msgid "share_my_connection_subtitle"
+msgstr ""
+"সেন্সরশিপ এড়াতে অন্য Sukot ব্যবহারকারীদের আপনার সংযোগের মাধ্যমে রুট করতে "
+"দিন।"
+
+# Unbounded tab — hero copy. Short variant for the tab embed; the
+# longer privacy explanation now lives in the welcome dialog
+# (showUnboundedWelcomeDialog) so the tab body stays scannable.
+msgid "smc_intro"
+msgstr "নিরাপদে আপনার সংযোগ শেয়ার করে অন্যদের সেন্সরশিপ এড়াতে সাহায্য করুন।"
+
+# Info-bubble tooltip on the Unbounded tab header
+msgid "about_unbounded"
+msgstr "Action Mode সম্পর্কে"
+
+# Status card — phase labels
+msgid "smc_status_label"
+msgstr "অবস্থা"
+
+msgid "smc_status_off"
+msgstr "বন্ধ আছে"
+
+msgid "smc_status_configuring"
+msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে"
+
+msgid "smc_status_probing"
+msgstr "আপনার নেটওয়ার্ক পরীক্ষা করা হচ্ছে…"
+
+msgid "smc_status_active_unbounded"
+msgstr "চালু আছে"
+
+msgid "smc_status_active_smc"
+msgstr "শুরু হচ্ছে…"
+
+msgid "smc_status_mapping_port"
+msgstr "আপনার রাউটারে পোর্ট খোলা হচ্ছে…"
+
+msgid "smc_status_detecting_ip"
+msgstr "আপনার পাবলিক IP শনাক্ত করা হচ্ছে…"
+
+msgid "smc_status_registering"
+msgstr "Sukot-এ নিবন্ধন করা হচ্ছে…"
+
+msgid "smc_status_starting_proxy"
+msgstr "লোকাল প্রক্সি চালু করা হচ্ছে…"
+
+msgid "smc_status_verifying"
+msgstr "সংযোগ যাচাই করা হচ্ছে…"
+
+msgid "smc_status_serving"
+msgstr "চালু আছে"
+
+msgid "smc_status_stopping"
+msgstr "বন্ধ করা হচ্ছে…"
+
+msgid "smc_status_error_with_message"
+msgstr "শেয়ার করা যায়নি: %s"
+
+msgid "smc_status_error_generic"
+msgstr "শেয়ার করা যায়নি — আবার টগল করে দেখুন"
+
+# Status card — stats + tooltip. Counts the number of remote
+# clients currently routing through THIS device (people being
+# helped, not helpers); parallel framing to smc_stat_total_helped
+# (same semantics, lifetime).
+msgid "smc_stat_active_now"
+msgstr "আপনি এই মুহূর্তে যাদের সাহায্য করছেন:"
+
+# Lifetime ("to date") rather than daily — backed by the persisted
+# unboundedTotalHelped setting so the count survives app restarts.
+msgid "smc_stat_total_helped"
+msgstr "এ পর্যন্ত মোট সাহায্যপ্রাপ্ত মানুষ:"
+
+# Arrival toast surfaced when a censored user starts routing through
+# this peer. The "Helping a new person" framing is intentional —
+# emphasizes the user-impact framing the SmC tab leans into.
+msgid "smc_arrival_toast"
+msgstr "%s-এ একজন নতুন ব্যক্তিকে সাহায্য করা হচ্ছে"
+
+# Pill shown beneath the globe when Unbounded is active but no peer is
+# currently routing through this device.
+msgid "unbounded_waiting_for_connections"
+msgstr "সংযোগের জন্য অপেক্ষা করা হচ্ছে..."
+
+# Welcome dialog shown the first time the Unbounded tab opens.
+msgid "unbounded_welcome_title"
+msgstr "Action Mode-এ স্বাগতম"
+
+msgid "unbounded_welcome_body_1"
+msgstr ""
+"আপনি Action Mode চালু করলে, আপনার ডিভাইস উন্মুক্ত ইন্টারনেটের 'ডিজিটাল "
+"সেতু'র একটি নেটওয়ার্কের অংশ হয়ে ওঠে। সেন্সরশিপের শিকার ব্যবহারকারীরা এই "
+"সেতুগুলিতে সংযোগ করেন, ফলে তারা সরকার-আরোপিত বিধিনিষেধ এড়িয়ে প্রয়োজনীয় "
+"তথ্যে পৌঁছাতে পারেন।"
+
+msgid "unbounded_welcome_body_2"
+msgstr ""
+"এই সম্মিলিত প্রচেষ্টা সেন্সরশিপ প্রয়োগ কঠিন করে তোলে এবং উন্মুক্ত "
+"ইন্টারনেটে প্রবেশাধিকার বাড়ায়।"
+
+msgid "unbounded_welcome_body_3"
+msgstr "আপনি সেটিংস থেকে যেকোনো সময় ইন্টারফেস থেকে Action Mode সরাতে পারেন।"
+
+# Advanced section / manual port forward
+msgid "smc_advanced"
+msgstr "উন্নত"
+
+msgid "smc_advanced_subtitle"
+msgstr "যাদের রাউটার UPnP সমর্থন করে না তাদের জন্য"
+
+msgid "smc_manual_port"
+msgstr "ম্যানুয়াল পোর্ট ফরওয়ার্ড"
+
+msgid "smc_manual_port_description"
+msgstr ""
+"আপনার রাউটার UPnP সমর্থন না করলে, রাউটারে একটি পোর্ট ফরওয়ার্ড কনফিগার করুন "
+"এবং এখানে পোর্ট নম্বরটি লিখুন। Sukot UPnP পরীক্ষার পরিবর্তে এটিকে "
+"এক্সটার্নাল পোর্ট হিসেবে ব্যবহার করবে। UPnP (ডিফল্ট) ব্যবহার করতে খালি "
+"রাখুন।"
+
+msgid "smc_manual_port_label"
+msgstr "পোর্ট"
+
+msgid "smc_manual_port_hint"
+msgstr "যেমন 5698"
+
+msgid "smc_manual_port_save"
+msgstr "সংরক্ষণ করুন"
+
+msgid "smc_manual_port_currently_set"
+msgstr ""
+"বর্তমানে পোর্ট %d সেট করা আছে। পরিবর্তন কার্যকর করতে Action Mode বন্ধ করে "
+"আবার চালু করুন।"
+
+msgid "smc_manual_port_out_of_range"
+msgstr "পোর্ট অবশ্যই 1 থেকে 65535-এর মধ্যে হতে হবে"
+
+msgid "smc_manual_port_cleared"
+msgstr "ম্যানুয়াল পোর্ট মুছে ফেলা হয়েছে — UPnP ব্যবহার করা হচ্ছে"
+
+msgid "smc_manual_port_saved"
+msgstr "ম্যানুয়াল পোর্ট %d-এ সেট করা হয়েছে"
+
+# Unbounded Settings menu entry (Settings → Unbounded Settings)
+msgid "unbounded_settings_title"
+msgstr "Action Mode সেটিংস"
+
+# Auto-enable Unbounded toggle
+msgid "auto_enable_unbounded"
+msgstr "Action Mode স্বয়ংক্রিয়ভাবে চালু করুন"
+
+msgid "auto_enable_unbounded_subtitle"
+msgstr "Sukot খুললে চালু হয়"
+
+# Hide Unbounded toggle (collapses the Unbounded tab on the Home shell)
+msgid "hide_unbounded"
+msgstr "Action Mode লুকান"
+
+msgid "hide_unbounded_subtitle"
+msgstr "UI থেকে Action Mode সরিয়ে দেয়"
+
+msgid "vpn_connected"
+msgstr "Sukot এখন সংযুক্ত।"
+
+msgid "vpn_disconnected"
+msgstr "Sukot এখন সংযোগ বিচ্ছিন্ন।"
+
+msgid "open_notification"
+msgstr "নোটিফিকেশন খুলুন"
+
+msgid "logout"
+msgstr "লগ আউট"
+
+msgid "logout_message"
+msgstr ""
+"লগ আউট করলে Sukot ফ্রি ভার্সনে পরিবর্তিত হবে। আবার আপনার অ্যাকাউন্ট "
+"অ্যাক্সেস করতে আপনাকে সাইন ইন করতে হবে।"
+
+msgid "logout_message_expired"
+msgstr "আপনি কি নিশ্চিত যে আপনি আপনার অ্যাকাউন্ট থেকে লগ আউট করতে চান?"
+
+msgid "not_now"
+msgstr "এখন নয়"
+
+msgid "billed_once"
+msgstr "একবার বিল করা হয়"
+
+msgid "subscription"
+msgstr "সাবস্ক্রিপশন"
+
+msgid "subscribe"
+msgstr "সাবস্ক্রাইব করুন"
+
+msgid "checkout"
+msgstr "চেকআউট"
+
+msgid "next_billing_date"
+msgstr "পরবর্তী বিলিং তারিখ"
+
+msgid "vpn_may_be_needed"
+msgstr "ভিপিএন প্রয়োজন হতে পারে"
+
+msgid "google_and_apple_sign_in_blocked"
+msgstr ""
+"Google এবং Apple সাইন-ইন এই অঞ্চলে ব্লক করা থাকতে পারে। আপনার অ্যাকাউন্ট "
+"সেটআপ সম্পূর্ণ করতে, প্রথমে ভিপিএন চালু করুন।"
+
+msgid "continue_without_vpn"
+msgstr "ভিপিএন ছাড়া চালিয়ে যান"
+
+msgid "turn_on_vpn"
+msgstr "ভিপিএন চালু করুন"
+
+msgid "server_setup_do"
+msgstr "DigitalOcean ব্যবহার করে সেটআপ করুন"
+
+msgid "server_setup_do_price"
+msgstr "DigitalOcean এর মাধ্যমে মাসে মাত্র %s"
+
+msgid "server_setup_gcp"
+msgstr "Google Cloud Platform ব্যবহার করে সেটআপ করুন"
+
+msgid "continue_with_do"
+msgstr "DigitalOcean দিয়ে চালিয়ে যান"
+
+msgid "do_allows"
+msgstr ""
+"DigitalOcean আপনাকে নিচের %d অপশন থেকে একটি সার্ভার লোকেশন বেছে নিতে দেয়"
+
+msgid "server_setup_gcp_price"
+msgstr "GCP এর মাধ্যমে মাত্র %s মাস"
+
+msgid "continue_with_gcp"
+msgstr "Google দিয়ে চালিয়ে যান"
+
+msgid "gcp_allows"
+msgstr ""
+"Google Cloud Platform আপনাকে নিচের %d অপশন থেকে একটি সার্ভার লোকেশন বেছে "
+"নিতে দেয়:"
+
+msgid "server_setup_aws"
+msgstr "AWS-এ একটি প্রাইভেট সার্ভার সেটআপ করুন"
+
+msgid "server_setup_aws_price"
+msgstr "AWS এর মাধ্যমে মাত্র %s মাস"
+
+msgid "server_setup_manual"
+msgstr "ম্যানুয়ালি সেটআপ করুন"
+
+msgid "seamless_integration"
+msgstr "Sukot এর সাথে নিরবচ্ছিন্ন ইন্টিগ্রেশন"
+
+msgid "easiest_setup"
+msgstr "সবচেয়ে সহজ সেটআপ প্রক্রিয়া"
+
+msgid "multiple_location_options"
+msgstr "একাধিক সার্ভার লোকেশন অপশন"
+
+msgid "one_month_included"
+msgstr "%d TB/মাস ডেটা অন্তর্ভুক্ত"
+
+msgid "easiest_setup_process"
+msgstr "সবচেয়ে সহজ সেটআপ প্রক্রিয়া"
+
+msgid "setup_a_private_server"
+msgstr "একটি প্রাইভেট সার্ভার সেটআপ করুন"
+
+msgid "setup_private_server"
+msgstr "প্রাইভেট সার্ভার সেটআপ করুন"
+
+msgid "previous"
+msgstr "পূর্ববর্তী"
+
+msgid "next"
+msgstr "পরবর্তী"
+
+msgid "error"
+msgstr "ত্রুটি"
+
+msgid "signup_error_user_exists"
+msgstr ""
+"নিবন্ধনে কিছু সমস্যা হয়েছে বলে মনে হচ্ছে। অনুগ্রহ করে আবার চেষ্টা করুন অথবা"
+" ইতিমধ্যে অ্যাকাউন্ট থাকলে সাইন ইন করুন"
+
+msgid "user_not_found"
+msgstr ""
+"ব্যবহারকারী চেনা যাচ্ছে না। আপনার লগইন তথ্য চেক করুন এবং আবার চেষ্টা করুন। "
+"সমস্যা অব্যাহত থাকলে, সহায়তার জন্য আমাদের সাপোর্ট টিমের সাথে যোগাযোগ করুন।"
+
+msgid "invalid_code"
+msgstr "কোড ভুল বা মেয়াদ শেষ হয়ে গেছে। আবার পাঠানোর চেষ্টা করুন"
+
+msgid "email_resend_message"
+msgstr "আপনার নতুন নিশ্চিতকরণ কোড পাঠানো হয়েছে"
+
+msgid "password_has_been_updated"
+msgstr "পাসওয়ার্ড আপডেট করা হয়েছে"
+
+msgid "password_has_been_updated_message"
+msgstr "আপনার পাসওয়ার্ড সফলভাবে রিসেট করা হয়েছে"
+
+msgid "update_pro_account"
+msgstr "প্রো অ্যাকাউন্ট আপডেট করুন"
+
+msgid "update_pro_account_message"
+msgstr ""
+"আপনার অ্যাকাউন্ট পরিচালনা করতে বা অন্য ডিভাইসে সাইন ইন করতে, প্রথমে আপনার "
+"অ্যাকাউন্টে একটি ইমেইল এবং পাসওয়ার্ড যোগ করুন।"
+
+msgid "subscription_cancelled"
+msgstr "আপনার সাবস্ক্রিপশন বাতিল করা হয়েছে।"
+
+msgid "subscription_updated"
+msgstr "আপনার সাবস্ক্রিপশন আপডেট করা হয়েছে।"
+
+msgid "subscription_renewed"
+msgstr "আপনার সাবস্ক্রিপশন পুনর্নবীকরণ করা হয়েছে।"
+
+msgid "got_it"
+msgstr "বুঝেছি"
+
+msgid "server_location"
+msgstr "সার্ভার লোকেশন"
+
+msgid "choose"
+msgstr "বেছে নিন"
+
+msgid "choose_your_account"
+msgstr "আপনার অ্যাকাউন্ট বেছে নিন"
+
+msgid "choose_your_project"
+msgstr "আপনার প্রজেক্ট বেছে নিন"
+
+msgid "name_your_google_cloud_project"
+msgstr "আপনার Google Cloud প্রজেক্টের নাম দিন"
+
+msgid "billing_account"
+msgstr "বিলিং অ্যাকাউন্ট"
+
+msgid "billing_account_placeholder"
+msgstr "%s এর জন্য বিলিং অ্যাকাউন্ট"
+
+msgid "server_name"
+msgstr "সার্ভারের নাম"
+
+msgid "google_project"
+msgstr "Google প্রজেক্ট"
+
+msgid "field_name_required"
+msgstr "নাম প্রয়োজন"
+
+msgid "choose_google_account"
+msgstr "Google বিলিং অ্যাকাউন্ট বেছে নিন"
+
+msgid "server_name_placeholder"
+msgstr "ডেরেকের সার্ভার"
+
+msgid "change"
+msgstr "পরিবর্তন করুন"
+
+msgid "choose_location"
+msgstr "লোকেশন বেছে নিন"
+
+msgid "choose_your_location"
+msgstr "আপনার লোকেশন বেছে নিন"
+
+msgid "start_deployment"
+msgstr "ডিপ্লয়মেন্ট শুরু করুন"
+
+msgid "server_name_description"
+msgstr "সার্ভার নির্বাচন তালিকায় সার্ভারটি যেভাবে প্রদর্শিত হবে।"
+
+msgid "select_private_server_region"
+msgstr ""
+"আপনার প্রাইভেট সার্ভারের জন্য একটি অঞ্চল নির্বাচন করুন। কাছাকাছি লোকেশন গতি "
+"এবং লেটেন্সি উন্নত করতে পারে।"
+
+msgid "gcp_location_options"
+msgstr "Google Cloud Platform লোকেশন অপশন (%d):"
+
+msgid "australia_sydney"
+msgstr "অস্ট্রেলিয়া - সিডনি"
+
+msgid "belgium_stghislain"
+msgstr "বেলজিয়াম - সেন্ট গিসলেন"
+
+msgid "brazil_saopaulo"
+msgstr "সাও পাওলো"
+
+msgid "us_los_angeles"
+msgstr "US - লস অ্যাঞ্জেলেস"
+
+msgid "japan_tokyo"
+msgstr "জাপান - টোকিও"
+
+msgid "deploying_private_server"
+msgstr "প্রাইভেট সার্ভার ডিপ্লয় করা হচ্ছে"
+
+msgid "deploying_server_status"
+msgstr ""
+"অপেক্ষা করুন! আপনার প্রাইভেট সার্ভার সেটআপ করা হচ্ছে। এতে কয়েক মিনিট সময় "
+"লাগতে পারে।"
+
+msgid "private_server_setup_in_progress"
+msgstr ""
+"অপেক্ষা করুন! আপনার প্রাইভেট সার্ভার সেটআপ করা হচ্ছে। এতে কয়েক মিনিট সময় "
+"লাগতে পারে, এই স্ক্রিন খোলা রাখুন।"
+
+msgid "cancel_server_deployment"
+msgstr "সার্ভার ডিপ্লয়মেন্ট বাতিল করুন"
+
+msgid "server_ready_title"
+msgstr "প্রাইভেট সার্ভার প্রস্তুত"
+
+msgid "server_ready_message"
+msgstr ""
+"আপনার প্রাইভেট সার্ভার সেটআপ করা হয়েছে এবং আপনার সার্ভার তালিকায় যোগ করা "
+"হয়েছে। আপনি সংযোগ করতে প্রস্তুত!"
+
+msgid "server_failed_message"
+msgstr ""
+"আপনার প্রাইভেট সার্ভার সেটআপ করার সময় কিছু ভুল হয়েছে। আপনি পুনরায় চেষ্টা "
+"করতে পারেন বা পরে আবার চেষ্টা করতে পারেন।"
+
+msgid "close"
+msgstr "বন্ধ করুন"
+
+msgid "connect_now"
+msgstr "এখনই সংযোগ করুন"
+
+msgid "server_setup_failed"
+msgstr "সার্ভার সেটআপ ব্যর্থ হয়েছে"
+
+msgid "cancel_deployment"
+msgstr "ডিপ্লয়মেন্ট বাতিল করুন"
+
+msgid "server_setup_failed_message"
+msgstr ""
+"আপনার প্রাইভেট সার্ভার সেটআপ করার সময় কিছু ভুল হয়েছে। আপনি পুনরায় চেষ্টা "
+"করতে পারেন বা পরে আবার চেষ্টা করতে পারেন।"
+
+msgid "exit"
+msgstr "প্রস্থান করুন"
+
+msgid "retry"
+msgstr "পুনরায় চেষ্টা করুন"
+
+msgid "all_required_fields"
+msgstr "অনুগ্রহ করে সমস্ত প্রয়োজনীয় ফিল্ড পূরণ করুন।"
+
+msgid "private_server_ready"
+msgstr "প্রাইভেট সার্ভার প্রস্তুত!"
+
+msgid "private_server_ready_message"
+msgstr ""
+"(%s) সার্ভার সেটআপ করা হয়েছে এবং আপনার সার্ভার তালিকায় যোগ করা হয়েছে। "
+"আপনি সংযোগ করতে প্রস্তুত!"
+
+msgid "set_up_your_server"
+msgstr "আপনার সার্ভার সেটআপ করুন"
+
+msgid "view_instructions_github"
+msgstr "GitHub এ নির্দেশাবলী দেখুন"
+
+msgid "server_access_key"
+msgstr "সার্ভার অ্যাক্সেস কী"
+
+msgid "access_key"
+msgstr "অ্যাক্সেস কী"
+
+msgid "name_your_server"
+msgstr "আপনার সার্ভারের নাম দিন"
+
+msgid "how_server_appears"
+msgstr "সার্ভার নির্বাচন তালিকায় সার্ভারটি যেভাবে প্রদর্শিত হবে"
+
+msgid "server_nickname"
+msgstr "সার্ভার নিকনেম"
+
+msgid "verify_server"
+msgstr "সার্ভার যাচাই করুন"
+
+msgid "vpn_client_not_setup"
+msgstr "অনুগ্রহ করে ভিপিএন ক্লায়েন্ট চালু করুন।"
+
+msgid "continue_with"
+msgstr "এর সাথে চালিয়ে যান"
+
+msgid "join_a_private_server"
+msgstr "একটি প্রাইভেট সার্ভারে যোগ দিন"
+
+msgid "join_private_server"
+msgstr "প্রাইভেট সার্ভারে যোগ দিন"
+
+msgid "join_server"
+msgstr "সার্ভারে যোগ দিন"
+
+msgid "private_server_usage_message"
+msgstr ""
+"প্রাইভেট সার্ভার ব্যবহার আপনার Sukot দৈনিক ডেটা ক্যাপে গণনা করা হয় না।"
+
+msgid "manage_private_servers"
+msgstr "প্রাইভেট সার্ভার পরিচালনা করুন"
+
+msgid "my_servers"
+msgstr "আমার সার্ভার"
+
+msgid "joined_servers"
+msgstr "যোগদান করা সার্ভার"
+
+msgid "access_key_expiration"
+msgstr ""
+"প্রতিটি অ্যাক্সেস কী অনন্য এবং ১ দিন পর মেয়াদ শেষ হয়। আপনি যেকোনো সময় "
+"একটি নতুন তৈরি করতে পারেন।"
+
+msgid "share_access_key"
+msgstr "অ্যাক্সেস কী শেয়ার করুন"
+
+msgid "rename_server"
+msgstr "সার্ভারের নাম পরিবর্তন করুন"
+
+msgid "rename"
+msgstr "নাম পরিবর্তন করুন"
+
+msgid "selected_location"
+msgstr "নির্বাচিত লোকেশন"
+
+msgid "remove_server_?"
+msgstr "সার্ভার সরাতে চান?"
+
+msgid "remove_server_message"
+msgstr ""
+"%s সরাতে চান? এটি শুধুমাত্র আপনার অ্যাপ থেকে সরবে, এটি আপনার ক্লাউড "
+"প্রোভাইডার থেকে সার্ভার মুছবে না।"
+
+msgid "generate_access_key"
+msgstr "অ্যাক্সেস কী তৈরি করুন"
+
+msgid "invite_name"
+msgstr "আমন্ত্রণের নাম"
+
+msgid "trust_server_operator"
+msgstr "সার্ভার অপারেটরকে বিশ্বাস করুন"
+
+msgid "trust_server_operator_message_one"
+msgstr ""
+"প্রাইভেট সার্ভারগুলি Sukot এর বাইরের ব্যক্তি বা সংস্থা দ্বারা হোস্ট এবং "
+"পরিচালিত হয়। যখন আপনি একটিতে সংযোগ করেন, আপনি যে ব্যক্তি এটি চালাচ্ছেন তাকে"
+" বিশ্বাস করছেন যে তারা এটি নিরাপদে পরিচালনা করবে এবং দায়িত্বশীলভাবে ব্যবহার"
+" করবে।"
+
+msgid "trust_server_operator_message_two"
+msgstr ""
+"Sukot প্রাইভেট সার্ভার পরিচালনা বা নজরদারি করে না। একটিতে যোগদান করার আগে "
+"নিশ্চিত করুন যে আপনি সার্ভার অপারেটরকে জানেন এবং বিশ্বাস করেন।"
+
+msgid "trust_server_operator_message_three"
+msgstr ""
+"আপনি যদি নিশ্চিত না হন যে সার্ভারটি কে চালাচ্ছে বা এটি কীভাবে কনফিগার করা "
+"হয়েছে, তাহলে আমরা আপনার সার্ভার তালিকায় উপলব্ধ ডিফল্ট Sukot সার্ভারগুলির"
+" একটি ব্যবহার করার পরামর্শ দিই।"
+
+msgid "invalid_server_details"
+msgstr ""
+"অবৈধ সার্ভার বিস্তারিত। অনুগ্রহ করে অ্যাক্সেস কী চেক করুন এবং আবার চেষ্টা "
+"করুন।"
+
+msgid "lantern_servers"
+msgstr "Sukot সার্ভার"
+
+msgid "private_servers"
+msgstr "প্রাইভেট সার্ভার"
+
+msgid "fastest_server"
+msgstr "দ্রুততম সার্ভার"
+
+msgid "join_my_private_server"
+msgstr "আমার Sukot প্রাইভেট সার্ভারে যোগ দিন"
+
+msgid "your_server"
+msgstr "আপনার সার্ভার:"
+
+msgid "no_private_server_setup_yet"
+msgstr ""
+"আপনি এখনও একটি প্রাইভেট সার্ভার সেটআপ করেননি। শুরু করতে নিচের বাটনে ক্লিক "
+"করুন।"
+
+msgid "connect"
+msgstr "সংযোগ করুন"
+
+msgid "disconnect"
+msgstr "সংযোগ বিচ্ছিন্ন করুন"
+
+msgid "show"
+msgstr "দেখান"
+
+msgid "status_on"
+msgstr "সংযুক্ত"
+
+msgid "status_off"
+msgstr "সংযোগ বিচ্ছিন্ন"
+
+msgid "select_location"
+msgstr "অবস্থান নির্বাচন করুন"
+
+msgid "select_your_server_location"
+msgstr "আপনার সার্ভার লোকেশন নির্বাচন করুন"
+
+msgid "faster_speeds_unlimited_bandwidth"
+msgstr "দ্রুত গতি এবং আনলিমিটেড ব্যান্ডউইথ"
+
+msgid "premium_servers_less_congestion"
+msgstr "কম যানজট সহ প্রিমিয়াম সার্ভার"
+
+msgid "advanced_anti_censorship"
+msgstr "উন্নত অ্যান্টি-সেন্সরশিপ প্রযুক্তি"
+
+msgid "exclusive_access_new_features"
+msgstr "নতুন ফিচারে এক্সক্লুসিভ অ্যাক্সেস"
+
+msgid "connect_up_to_five_devices"
+msgstr "সর্বোচ্চ ৫টি ডিভাইস সংযোগ করুন"
+
+msgid "built_in_ad_blocking"
+msgstr "বিল্ট-ইন বিজ্ঞাপন ব্লকিং"
+
+msgid "get_lantern_pro"
+msgstr "Sukot Pro পান"
+
+msgid "connected_to_private_server"
+msgstr "প্রাইভেট সার্ভারে সংযুক্ত"
+
+msgid "server_already_selected"
+msgstr "আপনি ইতিমধ্যে এই সার্ভারে সংযুক্ত আছেন।"
+
+msgid "device_limit_reached"
+msgstr "ডিভাইস সীমা পৌঁছেছে"
+
+msgid "device_limit_reached_message"
+msgstr "আপনি আপনার ৫-ডিভাইস সীমায় পৌঁছেছেন। চালিয়ে যেতে একটি ডিভাইস সরান।"
+
+msgid "remove_device_and_sign_in"
+msgstr "ডিভাইস সরান এবং সাইন ইন করুন"
+
+msgid "cancel_sign_in"
+msgstr "সাইন ইন বাতিল করুন"
+
+msgid "change_email"
+msgstr "ইমেইল পরিবর্তন করুন"
+
+msgid "change_email_message"
+msgstr ""
+"এটি আপনার নতুন লগইন ইমেইল হবে। পরিবর্তন কার্যকর হওয়ার আগে আপনাকে এটি যাচাই "
+"করতে হবে।"
+
+msgid "email_must_be_different"
+msgstr "অনুগ্রহ করে একটি ভিন্ন ইমেইল ঠিকানা লিখুন।"
+
+msgid "enter_new_email"
+msgstr "আপনার নতুন ইমেইল লিখুন"
+
+msgid "confirm_password_to_continue"
+msgstr "চালিয়ে যেতে, অনুগ্রহ করে আপনার পাসওয়ার্ড নিশ্চিত করুন।"
+
+msgid "email_updated"
+msgstr "আপনার ইমেইল আপডেট করা হয়েছে।"
+
+msgid "enable_network_extension"
+msgstr "নেটওয়ার্ক এক্সটেনশন সক্ষম করুন"
+
+msgid "enable_network_extension_message"
+msgstr ""
+"Sukot ব্যবহার করতে, আমাদের আপনার Mac এর জন্য একটি নেটওয়ার্ক এক্সটেনশন "
+"ইনস্টল করতে হবে।"
+
+msgid "install_now"
+msgstr "এখনই ইনস্টল করুন"
+
+msgid "learn_more"
+msgstr "আরও জানুন"
+
+msgid "network_extension_required"
+msgstr "নেটওয়ার্ক এক্সটেনশন প্রয়োজন"
+
+msgid "click"
+msgstr "ক্লিক করুন"
+
+msgid "open_system_settings"
+msgstr "সিস্টেম সেটিংস খুলুন"
+
+msgid "when_prompted"
+msgstr "যখন অনুরোধ করা হয়।"
+
+msgid "activate_extension"
+msgstr "এক্সটেনশন সক্রিয় করুন"
+
+msgid "email_optional"
+msgstr "ইমেইল (ঐচ্ছিক)"
+
+msgid "please_enter_valid_email"
+msgstr "অনুগ্রহ করে একটি বৈধ ইমেইল লিখুন"
+
+msgid "please_select_an_issue"
+msgstr "অনুগ্রহ করে একটি সমস্যা নির্বাচন করুন"
+
+msgid "please_enter_issue_description"
+msgstr "অনুগ্রহ করে সমস্যার বর্ণনা লিখুন"
+
+msgid "thanks_for_feedback"
+msgstr "আপনার মতামতের জন্য ধন্যবাদ!"
+
+msgid "no_apps_selected"
+msgstr "কোনো অ্যাপ নির্বাচন করা হয়নি"
+
+msgid "deselect_all"
+msgstr "সব বাতিল করুন"
+
+msgid "select_all"
+msgstr "সব নির্বাচন করুন"
+
+msgid "no_websites_selected"
+msgstr "কোনো ওয়েবসাইট নির্বাচন করা হয়নি"
+
+msgid "enter_activation_code"
+msgstr "একটি অ্যাক্টিভেশন কোড লিখুন"
+
+msgid "restore_purchase"
+msgstr "ক্রয় পুনরুদ্ধার করুন"
+
+msgid "already_purchased"
+msgstr "ইতিমধ্যে কিনেছেন?"
+
+msgid "restore_purchase_success"
+msgstr "ক্রয় সফলভাবে পুনরুদ্ধার হয়েছে।"
+
+msgid "restore_purchase_no_purchases"
+msgstr "পুনরুদ্ধার করার মতো কোনো ক্রয় পাওয়া যায়নি।"
+
+msgid "do_private_server_setup"
+msgstr "DO প্রাইভেট সার্ভার সেটআপ"
+
+msgid "private_server_note"
+msgstr ""
+"আপনার প্রাইভেট সার্ভারের জন্য একটি অঞ্চল নির্বাচন করুন। কাছাকাছি লোকেশন গতি "
+"এবং লেটেন্সি উন্নত করতে পারে।"
+
+msgid "gcp_private_server_setup"
+msgstr "GCP প্রাইভেট সার্ভার সেটআপ"
+
+msgid "gcp_private_server_location"
+msgstr "GCP প্রাইভেট সার্ভার লোকেশন"
+
+msgid "do_private_server_location"
+msgstr "DO প্রাইভেট সার্ভার লোকেশন"
+
+msgid "confirm"
+msgstr "নিশ্চিত করুন"
+
+msgid "private_server_warning"
+msgstr "শুধুমাত্র যাদের আপনি বিশ্বাস করেন, তাদের পরিচালিত সার্ভার যোগ করুন"
+
+msgid "go_to_server_locations"
+msgstr "সার্ভার লোকেশনে যান"
+
+msgid "lantern_io"
+msgstr "Lantern.io"
+
+msgid "alternative_download_links"
+msgstr "বিকল্প ডাউনলোড লিংক"
+
+msgid "github_download_page"
+msgstr "GitHub ডাউনলোড পেজ"
+
+msgid "telegram_bot"
+msgstr "Telegram বট"
+
+msgid "if_you_cannot_access_website"
+msgstr ""
+"আপনি যদি আমাদের ওয়েবসাইট অ্যাক্সেস করতে কোনো সমস্যার সম্মুখীন হন, তাহলে "
+"উপরের লিংক থেকে Sukot ডাউনলোড করতে পারেন।"
+
+msgid "available_on"
+msgstr "এখানে উপলব্ধ:"
+
+msgid "subscription_renewal_date"
+msgstr "সাবস্ক্রিপশন পুনর্নবীকরণের তারিখ"
+
+msgid "pro_access_until"
+msgstr "%s পর্যন্ত Pro অ্যাক্সেস"
+
+msgid "enabled_bypass_lists"
+msgstr "সক্রিয় বাইপাস লিস্ট (%d):"
+
+msgid "diagnostic_logs"
+msgstr "ডায়াগনস্টিক লগ"
+
+msgid "lantern_user_forum"
+msgstr "Sukot ব্যবহারকারী ফোরাম"
+
+msgid "frequently_asked_questions"
+msgstr "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী"
+
+msgid "privacy_policy"
+msgstr "গোপনীয়তা নীতি"
+
+msgid "terms_of_service"
+msgstr "সেবার শর্তাবলী"
+
+msgid "get_unlimited_data"
+msgstr "আনলিমিটেড ডেটা এবং দ্রুত গতি পান!"
+
+msgid "private_server_options"
+msgstr "প্রাইভেট সার্ভার অপশন"
+
+msgid "lantern_version"
+msgstr "Sukot ভার্সন"
+
+msgid "quit"
+msgstr "প্রস্থান করুন"
+
+msgid "device_removed"
+msgstr "ডিভাইস সরানো হয়েছে"
+
+msgid "set_server_alias"
+msgstr "সার্ভার এলিয়াস সেট করুন"
+
+msgid "this_name_pre_filled"
+msgstr ""
+"আমন্ত্রিত ব্যবহারকারীকে সার্ভার চিনতে সাহায্য করতে এই নাম প্রি-ফিল করা হবে। "
+"তারা পরে এটি পরিবর্তন করতে পারে।"
+
+msgid "server_alias"
+msgstr "সার্ভার এলিয়াস"
+
+msgid "add_referral_code"
+msgstr "একটি রেফারেল কোড যোগ করুন"
+
+msgid "referral_code"
+msgstr "রেফারেল কোড"
+
+msgid "update_fails"
+msgstr "আপডেট ব্যর্থ হয়"
+
+msgid "scan_qr_code"
+msgstr "QR কোড স্ক্যান করুন"
+
+msgid "choose_your_server_location"
+msgstr "আপনার সার্ভারের লোকেশন বেছে নিন"
+
+msgid "we_handle_configuration"
+msgstr "আমরা কনফিগারেশন পরিচালনা করি, শুধু সাইন আপ করুন।"
+
+msgid "90_day_free_trial"
+msgstr "৯০-দিনের বিনামূল্যে ট্রায়াল"
+
+msgid "identity_changed"
+msgstr "%s এর জন্য পরিচয় পরিবর্তিত হয়েছে"
+
+msgid "identity_changed_message"
+msgstr ""
+"%s এর নিরাপত্তা ফিঙ্গারপ্রিন্ট পরিবর্তিত হয়েছে। এটি টেম্পারিং বা ভুল "
+"কনফিগারেশন নির্দেশ করতে পারে।"
+
+msgid "recommendation"
+msgstr "সুপারিশ:"
+
+msgid "recommendation_message"
+msgstr ""
+"আমরা Sukot থেকে %s সরানো এবং আপনার ক্লাউড প্রোভাইডার অ্যাকাউন্ট থেকে মুছে "
+"ফেলার পরামর্শ দিই, তারপর আপনার সংযোগ নিরাপদ রাখতে একটি নতুন সার্ভার সেটআপ "
+"করুন।"
+
+msgid "remove_server"
+msgstr "সার্ভার সরান"
+
+msgid "server_alias_cannot_be_empty"
+msgstr "সার্ভার এলিয়াস খালি রাখা যাবে না"
+
+msgid "referral_code_applied"
+msgstr "আপনার রেফারেল কোড প্রয়োগ করা হয়েছে!"
+
+msgid "discount_applied"
+msgstr "%s ছাড় প্রয়োগ করা হয়েছে"
+
+msgid "referral_message_1m"
+msgstr "+ ১৫ অতিরিক্ত দিন বিনামূল্যে"
+
+msgid "referral_message_1y"
+msgstr "+ ১ অতিরিক্ত মাস বিনামূল্যে"
+
+msgid "referral_message_2y"
+msgstr "+ অতিরিক্ত 2 মাস ফ্রি"
+
+msgid "referral_code_invalid"
+msgstr ""
+"আপনার দেওয়া রেফারেল/প্রোমো কোডটি অবৈধ। অনুগ্রহ করে কোডটি যাচাই করে আবার "
+"চেষ্টা করুন।"
+
+msgid "referral_code_own_invalid"
+msgstr ""
+"আপনি আপনার নিজস্ব রেফারেল কোড ব্যবহার করতে পারবেন না। অনুগ্রহ করে একটি ভিন্ন"
+" কোড প্রবেশ করুন।"
+
+msgid "free"
+msgstr "বিনামূল্যে"
+
+msgid "monthly_plan"
+msgstr "মাসিক পরিকল্পনা:"
+
+msgid "15_days_each"
+msgstr "+১৫ দিন করে"
+
+msgid "annual_plan"
+msgstr "বার্ষিক পরিকল্পনা:"
+
+msgid "1_month_each"
+msgstr "প্রতিটিতে +১ মাস"
+
+msgid "two_year_plan"
+msgstr "দুই বছরের পরিকল্পনা:"
+
+msgid "2_month_each"
+msgstr "প্রতিটিতে +২ মাস"
+
+msgid "referral_code_info"
+msgstr ""
+"আপনি কি এখনও Sukot Pro ব্যবহারকারী নন? আপনার প্রথম রেফারেল সাবস্ক্রাইব "
+"করলে আপনি একজন হয়ে যাবেন।"
+
+msgid "lantern_pro_license"
+msgstr "ল্যান্টার্ন প্রো লাইসেন্স"
+
+msgid "lantern_pro_license_required"
+msgstr "Sukot Pro লাইসেন্স প্রয়োজন"
+
+msgid "lantern_pro_license_invalid"
+msgstr "অবৈধ Sukot Pro লাইসেন্স"
+
+msgid "lantern_pro_license_invalid_length"
+msgstr "Sukot Pro লাইসেন্স অবশ্যই ২৫টি অক্ষরের হতে হবে"
+
+msgid "select_account"
+msgstr "অ্যাকাউন্ট নির্বাচন করুন"
+
+msgid "new_to_lantern"
+msgstr "ল্যান্টার্নে নতুন?"
+
+msgid "create_an_account"
+msgstr "অ্যাকাউন্ট তৈরি করুন"
+
+msgid "no_projects_found"
+msgstr "কোনো প্রকল্প পাওয়া যায়নি"
+
+msgid "no_projects_found_desc"
+msgstr ""
+"কোনো প্রকল্প পাওয়া যায়নি। প্রথমে আপনার ক্লাউড প্রদানকারী অ্যাকাউন্টে একটি "
+"প্রকল্প তৈরি করুন।"
+
+msgid "add_billing_details"
+msgstr "বিলিং বিবরণ যোগ করুন"
+
+msgid "do_billing_details_message"
+msgstr "সার্ভার তৈরি করতে DigitalOcean পেমেন্ট তথ্য প্রয়োজন।"
+
+msgid "tap"
+msgstr "ট্যাপ "
+
+msgid "below_to_go_to_do"
+msgstr "DigitalOcean-এ যেতে নিচে"
+
+msgid "1"
+msgstr "১"
+
+msgid "2"
+msgstr "२"
+
+msgid "3"
+msgstr "३"
+
+msgid "add_payment_method"
+msgstr "একটি পেমেন্ট পদ্ধতি যোগ করুন (ক্রেডিট কার্ড বা PayPal)"
+
+msgid "return_to_lantern"
+msgstr "Sukot-এ ফিরে যান এবং সেটআপ চালিয়ে যেতে \"চালিয়ে যান\" ট্যাপ করুন"
+
+msgid "how_to_add_billing_details"
+msgstr "বিলিং বিবরণ কীভাবে যোগ করবেন:"
+
+msgid "add_payment_method_message"
+msgstr ""
+"আপনার DigitalOcean অ্যাকাউন্টে একটি পেমেন্ট পদ্ধতি যোগ করুন। যদি ইতিমধ্যে "
+"যোগ করে থাকেন, কয়েক মিনিট অপেক্ষা করুন এবং আবার চেষ্টা করুন।"
+
+msgid "ok"
+msgstr "ঠিক আছে"
+
+msgid "could_not_open_url"
+msgstr "URL খুলতে পারেনি"
+
+msgid "new_to_lantern_pro"
+msgstr "Sukot-এ নতুন?"
+
+msgid "an_error_occurred"
+msgstr "একটি ত্রুটি ঘটেছে। পরে আবার চেষ্টা করুন।"
+
+msgid "developer_mode"
+msgstr "ডেভেলপার মোড"
+
+msgid "developer_mode_note"
+msgstr ""
+"ডেভেলপার মোড শুধুমাত্র Sukot ডেভেলপারদের জন্য ডেভেলপমেন্টের সময় ফিচার "
+"পরীক্ষা করার জন্য।"
+
+msgid "invalid_activation_code"
+msgstr "অবৈধ অ্যাক্টিভেশন কোড। কোডটি চেক করুন এবং আবার চেষ্টা করুন।"
+
+msgid "invalid_activation_code_length"
+msgstr "অ্যাক্টিভেশন কোড অবশ্যই ২৫টি অক্ষরের হতে হবে।"
+
+msgid "error_while_vpn_connection"
+msgstr "VPN সংযোগ স্থাপনের সময় একটি ত্রুটি ঘটেছে। আবার চেষ্টা করুন।"
+
+msgid "help_improve_lantern"
+msgstr "Sukot উন্নত করতে সাহায্য করুন"
+
+msgid "share_anonymous_usage_data"
+msgstr ""
+"গতি এবং নির্ভরযোগ্যতা উন্নত করতে সাহায্য করার জন্য বেনামী ব্যবহার ডেটা "
+"শেয়ার করুন।"
+
+msgid "data_we_collect"
+msgstr ""
+"আমরা কখনো ব্রাউজিং ইতিহাস, ট্রাফিক গন্তব্য, DNS কোয়েরি বা সংযোগ লগ সংগ্রহ "
+"করি না।"
+
+msgid "you_can_change_anytime"
+msgstr "আপনি যেকোনো সময় VPN সেটিংসে এটি পরিবর্তন করতে পারেন।"
+
+msgid "dont_allow"
+msgstr "অনুমতি দেবেন না"
+
+msgid "allow"
+msgstr "অনুমতি দিন"
+
+msgid "anonymous_usage_data"
+msgstr "বেনামী ব্যবহার ডেটা"
+
+msgid "helps_improve_lantern_performance"
+msgstr "Sukot এর পারফরম্যান্স উন্নত করতে সাহায্য করে"
+
+msgid "changes_applied_after_restart"
+msgstr "Sukot পুনরায় চালু করার পরে পরিবর্তনগুলি প্রয়োগ করা হবে।"
+
+msgid "email_deliverability_notice"
+msgstr "ইমেইল ডেলিভারির নোটিশ"
+
+msgid "email_deliverability_notice_message"
+msgstr ""
+"163.com, 126.com, qq.com, এবং sina.com ঠিকানায় পাঠানো ইমেইল কখনো কখনো ব্লক "
+"হয় এবং নাও পৌঁছাতে পারে"
+
+msgid "email_deliverability_notice_message_two"
+msgstr ""
+"আপনি যদি আপনার কনফার্মেশন কোড না পান, একটি বিকল্প ইমেইল প্রদানকারী ব্যবহার "
+"করার কথা বিবেচনা করুন।"
+
+msgid "continue_anyway"
+msgstr "যাই হোক চালিয়ে যান"
+
+msgid "routing_mode"
+msgstr "রাউটিং মোড"
+
+msgid "smart_routing"
+msgstr "স্মার্ট রাউটিং"
+
+msgid "full_tunnel"
+msgstr "সম্পূর্ণ টানেল"
+
+msgid "region_optimized_routing"
+msgstr "আপনার অঞ্চলের জন্য অপ্টিমাইজ করা নিয়ম-ভিত্তিক রাউটিং"
+
+msgid "all_traffic_through_vpn"
+msgstr "সমস্ত ট্রাফিক VPN-এর মাধ্যমে"
+
+msgid "smart_routing_description"
+msgstr ""
+"স্মার্ট রাউটিং অঞ্চল-নির্দিষ্ট নিয়ম ব্যবহার করে স্বয়ংক্রিয়ভাবে VPN "
+"প্রয়োজন এমন ট্রাফিক Sukot-এর মাধ্যমে পাঠায়। অন্যান্য সমস্ত ট্রাফিক গতি "
+"এবং নির্ভরযোগ্যতার জন্য সরাসরি যায়।"
+
+msgid "add_apps_websites_bypass_vpn"
+msgstr "VPN বাইপাস করতে অ্যাপ এবং ওয়েবসাইট যোগ করুন"
+
+msgid "lantern_pro_license_applied"
+msgstr "আপনার Sukot Pro লাইসেন্স আপনার বর্তমান অ্যাকাউন্টে প্রয়োগ করা হবে"
+
+msgid "your_purchase_will_be_applied_to_your_existing_account"
+msgstr "আপনার ক্রয় আপনার বর্তমান অ্যাকাউন্টে প্রয়োগ করা হবে"
+
+msgid "daily_data_cap_reached"
+msgstr "দৈনিক ডেটা সীমা পৌঁছেছে"
+
+msgid "daily_data_cap_reached_message"
+msgstr "গতি 128 kb/s-এ হ্রাস করা হয়েছে - %s-এ রিসেট হবে।"
+
+msgid "subscription_renewal_info"
+msgstr ""
+"কেনার সময় আপনার Apple ID-তে পেমেন্ট চার্জ করা হয়। বর্তমান মেয়াদ শেষ "
+"হওয়ার কমপক্ষে 24 ঘণ্টা আগে বাতিল না করলে সাবস্ক্রিপশন স্বয়ংক্রিয়ভাবে "
+"নবায়ন হয়।"
+
+msgid "failed_to_update_routing_mode"
+msgstr "রাউটিং মোড আপডেট করতে ব্যর্থ। অনুগ্রহ করে আবার চেষ্টা করুন।"
+
+msgid "apps"
+msgstr "অ্যাপস"
+
+msgid "websites"
+msgstr "ওয়েবসাইট"
+
+msgid "main_channel"
+msgstr "প্রধান চ্যানেল"
+
+msgid "data_cap_channel"
+msgstr "ডেটা ব্যবহারের সতর্কতা"
+
+msgid "mb_free_data_remaining"
+msgstr "%d MB বিনামূল্যে ডেটা বাকি আছে"
+
+msgid "daily_data_cap_reached_notification_message"
+msgstr ""
+"আপনার ডেটা %s-এ রিসেট হবে। সীমাহীন উচ্চ-গতির ডেটার জন্য Pro-তে আপগ্রেড করুন।"
+
+msgid "if_you_have_not_set_password"
+msgstr ""
+"আপনি যদি আগে Sukot Pro পাসওয়ার্ড সেট না করে থাকেন, তাহলে নিচের 'আপনার "
+"পাসওয়ার্ড ভুলে গেছেন?' অপশনটি নির্বাচন করুন।"
+
+msgid "pro_subscription_expired"
+msgstr "আপনার Pro সাবস্ক্রিপশনের মেয়াদ শেষ হয়ে গেছে"
+
+msgid "renew_pro_subscription"
+msgstr "Pro সাবস্ক্রিপশন নবায়ন করুন"
+
+msgid "subscription_expired"
+msgstr "সাবস্ক্রিপশনের মেয়াদ শেষ"
+
+msgid "pro"
+msgstr "প্রো"
+
+msgid "pro_subscription_expired_message"
+msgstr ""
+"Sukot Pro সাবস্ক্রিপশনের মেয়াদ শেষ হয়েছে। আনলিমিটেড ডেটা এবং Pro "
+"বৈশিষ্ট্য পুনরুদ্ধার করতে নবায়ন করুন।"
+
+msgid "last_subscription_renewal_date"
+msgstr "শেষ সাবস্ক্রিপশন নবায়নের তারিখ"
+
+msgid "set_account_password"
+msgstr "অ্যাকাউন্ট পাসওয়ার্ড সেট করুন"
+
+msgid "set_password"
+msgstr "পাসওয়ার্ড সেট করুন"
+
+msgid "set_account_password_message"
+msgstr ""
+"আপনার অ্যাকাউন্ট পরিচালনা করতে বা অন্যান্য ডিভাইসে সাইন ইন করতে, আপনাকে এখন আপনার Sukot Pro অ্যাকাউন্টের জন্য একটি পাসওয়ার্ড সেট করতে হবে।\n"
+"\n"
+"আমরা আপনার পাসওয়ার্ড তৈরি করতে একটি যাচাইকরণ কোড ইমেল করব।"
+
+msgid "expired"
+msgstr "মেয়াদোত্তীর্ণ"
+
+msgid "lantern_pro_tagline"
+msgstr "দ্রুত, নির্ভরযোগ্য এবং ব্যক্তিগত ইন্টারনেট অ্যাক্সেস"
+
+msgid "what_makes_lantern_different"
+msgstr "Sukot-কে কী আলাদা করে"
+
+msgid "built_for_privacy_speed_freedom"
+msgstr "গোপনীয়তা, গতি এবং স্বাধীনতার জন্য তৈরি"
+
+msgid "smart_routing_mode"
+msgstr "স্মার্ট রাউটিং মোড"
+
+msgid "region_specific_routing_description"
+msgstr ""
+"অঞ্চল-নির্দিষ্ট নিয়ম শুধুমাত্র VPN প্রয়োজনীয় ট্রাফিক রাউট করে, আপনার "
+"সংযোগ দ্রুত রাখে।"
+
+msgid "advanced_protocols"
+msgstr "উন্নত প্রোটোকল"
+
+msgid "advanced_protocols_description"
+msgstr ""
+"সর্বোচ্চ নির্ভরযোগ্যতার জন্য অন্যান্য VPN-এর চেয়ে বেশি প্রোটোকল। AnyTLS, "
+"Hysteria2, VLESS, Kindling, WATER এবং আরও অনেক।"
+
+msgid "private_servers_description"
+msgstr ""
+"আপনার সংযোগের উপর সম্পূর্ণ নিয়ন্ত্রণের জন্য নিজের সার্ভার সংযুক্ত করুন।"
+
+msgid "nonprofit_mission"
+msgstr "অলাভজনক মিশন"
+
+msgid "built_by_nonprofit"
+msgstr ""
+"১২ বছরের বেশি ইন্টারনেট স্বাধীনতা প্রসারের অভিজ্ঞতাসম্পন্ন একটি অলাভজনক "
+"সংস্থা দ্বারা নির্মিত"
+
+msgid "choose_your_routing_mode"
+msgstr "আপনার রাউটিং মোড নির্বাচন করুন"
+
+msgid "fastest"
+msgstr "দ্রুততম"
+
+msgid "traditional_vpn_mode"
+msgstr "প্রথাগত VPN মোড"
+
+msgid "traditional_vpn_mode_description"
+msgstr "প্রয়োজন হোক বা না হোক, সমস্ত ট্রাফিক Sukot-এর মাধ্যমে রাউট করে।"
+
+msgid "change_anytime_in_routing_mode_settings"
+msgstr "রাউটিং মোড সেটিংস থেকে যেকোনো সময় পরিবর্তন করুন"
+
+msgid "get_started"
+msgstr "শুরু করুন"
+
+msgid "skip_connect_now"
+msgstr "এড়িয়ে যান - এখনই সংযোগ করুন"
+
+msgid "renew_pro"
+msgstr "Pro নবায়ন করুন"
+
+msgid "payment"
+msgstr "পেমেন্ট"
+
+msgid "it_looks_like_something_went_wrong"
+msgstr ""
+"কিছু সমস্যা হয়েছে বলে মনে হচ্ছে। আপনি পেমেন্ট করে থাকলেও যদি সাবস্ক্রিপশন "
+"সক্রিয় না দেখেন, অনুগ্রহ করে কয়েক ঘণ্টা অপেক্ষা করে আবার দেখুন।"
+
+msgid "manage_subscription_google_play"
+msgstr ""
+"আপনার Pro প্ল্যান Google Play-এর মাধ্যমে কেনা হয়েছে। অনুগ্রহ করে আপনার "
+"Google Play অ্যাকাউন্ট সেটিংস থেকে সাবস্ক্রিপশন পরিচালনা করুন।"
+
+msgid "manage_subscription_apple_app_store"
+msgstr ""
+"আপনার Pro প্ল্যান Apple App Store-এর মাধ্যমে কেনা হয়েছে। অনুগ্রহ করে আপনার "
+"Apple ID অ্যাকাউন্ট সেটিংস থেকে সাবস্ক্রিপশন পরিচালনা করুন।"
+
+msgid "create_account_error"
+msgstr "অ্যাকাউন্ট তৈরিতে ত্রুটি"
+
+msgid "appearance"
+msgstr "অ্যাপিয়ারেন্স"
+
+msgid "light"
+msgstr "লাইট"
+
+msgid "dark"
+msgstr "ডার্ক"
+
+msgid "system"
+msgstr "সিস্টেম"
+
+msgid "lantern_email"
+msgstr "Sukot এর ইমেল"
+
+msgid "confirm_with_account"
+msgstr ""
+"মুছে ফেলা নিশ্চিত করতে অনুগ্রহ করে নিচে আপনার %s অ্যাকাউন্ট দিয়ে যাচাই "
+"করুন:"
+
+msgid "oauth_different_account"
+msgstr ""
+"আপনি যে অ্যাকাউন্ট দিয়ে সাইন ইন করতে চাইছেন তা এই ইমেলের সাথে সংযুক্ত "
+"অ্যাকাউন্টের সাথে মিলছে না। অনুগ্রহ করে সঠিক অ্যাকাউন্ট দিয়ে সাইন ইন করুন "
+"অথবা ভিন্ন ইমেল নির্বাচন করুন।"
+
+msgid "account_deleted"
+msgstr "অ্যাকাউন্ট মুছে ফেলা হয়েছে "
+
+msgid "account_deleted_message"
+msgstr "আপনার অ্যাকাউন্ট স্থায়ীভাবে মুছে ফেলা হয়েছে। "
+
+msgid "verify_with"
+msgstr "%s দিয়ে যাচাই করুন"
+
+msgid "renew"
+msgstr "হালনাগাদ"
+
+msgid "vpn_conflict_title"
+msgstr "VPN দ্বন্দ্ব শনাক্ত হয়েছে"
+
+msgid "vpn_conflict_body"
+msgstr ""
+"আপনার ডিভাইসে আরেকটি VPN চলছে। Sukot একমাত্র সক্রিয় VPN হিসেবে সবচেয়ে "
+"ভালো কাজ করে। সেরা ফলাফলের জন্য, Sukot ব্যবহারের আগে সেটি বিচ্ছিন্ন করুন।"
+
+msgid "vpn_conflict_dismiss"
+msgstr "পেয়েছি"
+
+msgid "vpn_conflict_connect_anyway"
+msgstr "তবুও সংযোগ করুন"
+
+msgid "err_check_connection"
+msgstr "সংযোগ করা যাচ্ছে না। আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন।"
+
+msgid "err_service_unavailable"
+msgstr "পরিষেবা সাময়িকভাবে অনুপলব্ধ। আবার চেষ্টা করা হচ্ছে..."
+
+msgid "err_connection_failed"
+msgstr "সংযোগ ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।"
+
+msgid "err_ruleset_failed"
+msgstr "রাউটিং কনফিগারেশন লোড করা যায়নি। পুনরায় চেষ্টা করা হচ্ছে..."
+
+msgid "update_now"
+msgstr "এখনি আপডেট করুন"
+
+msgid "later"
+msgstr "পরে"
+
+msgid "update_ready_to_install"
+msgstr "Sukot %s ইনস্টলের জন্য প্রস্তুত"
+
+msgid "up_to_date"
+msgstr "আপ টু ডেট"
+
+msgid "running_latest_version"
+msgstr "আপনি Sukot-এর সর্বশেষ সংস্করণ %s ব্যবহার করছেন"
+
+msgid "couldnt_check_for_updates"
+msgstr "আপডেট চেক করা যায়নি"
+
+msgid "check_connection_and_retry"
+msgstr "আপনার সংযোগ পরীক্ষা করে আবার চেষ্টা করুন"
+
+msgid "refresh_configuration"
+msgstr "কনফিগারেশন রিফ্রেশ করুন"
+
+msgid "configuration_cleared"
+msgstr "কনফিগারেশন মুছে ফেলা হয়েছে"
+
+msgid "turn_off_vpn"
+msgstr "VPN বন্ধ করুন"
+
+msgid "turn_off_vpn_message"
+msgstr ""
+"কনফিগারেশন রিফ্রেশ করার আগে VPN বন্ধ থাকতে হবে। এটি বন্ধ করে আবার চেষ্টা "
+"করুন।"
+
+msgid "configuration_message"
+msgstr ""
+"আপনার পুরনো কনফিগারেশন মুছে ফেলা হয়েছে। সর্বশেষটি স্বয়ংক্রিয়ভাবে ডাউনলোড "
+"করতে VPN চালু করুন।"
+
+msgid "promo_referral_code"
+msgstr "প্রোমো / রেফারেল কোড"
+
+msgid "promo_code"
+msgstr "প্রোমো কোড"
+
+msgid "promo_code_with"
+msgstr "প্রোমো কোড (%s)"
+
+msgid "order_total"
+msgstr "অর্ডারের মোট"
+
+msgid "smart_routing_mode_description"
+msgstr ""
+"স্মার্ট লোকেশন দ্রুততম সার্ভার বেছে নেয় এবং আরও ভালো রুট পেলে "
+"স্বয়ংক্রিয়ভাবে পরিবর্তন করে।"
+
+# Share consent dialog (shown once before any sharing starts, covers both
+# modes)
+msgid "share_consent_title"
+msgstr "আপনার সংযোগ শেয়ার করবেন?"
+
+msgid "share_consent_body_what"
+msgstr ""
+"শেয়ারিং চালু থাকাকালীন, সেন্সর করা দেশের মানুষ উন্মুক্ত ইন্টারনেটে পৌঁছাতে "
+"তাদের ট্র্যাফিক আপনার সংযোগের মাধ্যমে রুট করে।"
+
+msgid "share_consent_body_ip"
+msgstr ""
+"আপনার রাউটার পোর্ট ফরওয়ার্ডিং সমর্থন করলে, আপনার বাড়ির সংযোগ এক্সিট হিসেবে"
+" ব্যবহৃত হয় এবং শেয়ার করার সময় গন্তব্যের লগে আপনার IP ঠিকানা দেখা যাবে। "
+"অন্যথায় সেই ট্র্যাফিক Sukot-এর সার্ভারের মাধ্যমে রিলে করা হয়, এবং সেভাবে"
+" আপনার IP প্রকাশ পায় না।"
+
+msgid "share_consent_body_safety"
+msgstr ""
+"উভয় ক্ষেত্রেই Sukot পরিচিত-অপব্যবহারের গন্তব্য, প্রাইভেট নেটওয়ার্ক রেঞ্জ"
+" এবং অপব্যবহার-প্রবণ পোর্ট ব্লক করে, শংসাপত্র রোটেট করে, এবং DMCA § 512(a) "
+"অনুযায়ী \"নিছক বাহক\" (mere conduit) হিসেবে কাজ করে।"
+
+msgid "share_consent_decline"
+msgstr "এখন নয়"
+
+msgid "share_consent_accept"
+msgstr "শেয়ারিং চালু করুন"
+
+msgid "bypass_browser_warning_title"
+msgstr "%s-কে বাইপাস তালিকায় যোগ করবেন?"
+
+msgid "bypass_browser_warning_body"
+msgstr ""
+"%s সরাসরি সংযোগ করবে, Sukot-এর সুরক্ষা ছাড়া। যেসব দেশে নির্দিষ্ট "
+"ওয়েবসাইট ব্লক করা হয়, সেখানে কিছু সাইট লোড হওয়া বন্ধ হয়ে যাবে।"
+
+msgid "add_anyway"
+msgstr "তবুও যোগ করুন"
+
+msgid "bypass_all_warning_title"
+msgstr "সব অ্যাপ বাইপাস তালিকায় যোগ করবেন?"
+
+msgid "bypass_all_warning_body"
+msgstr ""
+"এর মধ্যে %s-এর মতো ব্রাউজারও রয়েছে। বাইপাস তালিকার অ্যাপগুলি সরাসরি সংযোগ "
+"করে, Sukot-এর সুরক্ষা ছাড়া। যেসব দেশে নির্দিষ্ট ওয়েবসাইট ব্লক করা হয়, "
+"সেখানে কিছু সাইট লোড হওয়া বন্ধ হয়ে যাবে।"
+
+msgid "add_all_except_browsers"
+msgstr "ব্রাউজার ছাড়া সব যোগ করুন"
+
+msgid "add_all_anyway"
+msgstr "তবুও সব যোগ করুন"
+
+msgid "bypass_app_first_time_title"
+msgstr "এই অ্যাপের জন্য VPN বাইপাস করবেন?"
+
+msgid "bypass_app_first_time_body"
+msgstr ""
+"%s সরাসরি সংযোগ করবে, Sukot-এর সুরক্ষা ছাড়া। এটি আপনার দেশে ব্লক করা "
+"থাকলে, এটি কাজ করা বন্ধ করে দিতে পারে।"
+
+msgid "bypass_website_first_time_title"
+msgstr "এই ওয়েবসাইটের জন্য VPN বাইপাস করবেন?"
+
+msgid "bypass_website_first_time_body"
+msgstr ""
+"%s সরাসরি সংযোগ করবে, Sukot-এর সুরক্ষা ছাড়া। এটি আপনার দেশে ব্লক করা "
+"থাকলে, এটি কাজ করা বন্ধ করে দিতে পারে।"
+
+msgid "upsell_upgrade_suffix"
+msgstr "আরও দ্রুত, সীমাহীন ডেটা!"
+
+msgid "upsell_expired_suffix"
+msgstr "আপনার Pro সময় শেষ হয়ে গেছে"
+
+msgid "pro_expires_days_left"
+msgstr "Pro-এর মেয়াদ %s-এ শেষ, %s দিন বাকি"
+
+msgid "pro_expires_one_day_left"
+msgstr "Pro-এর মেয়াদ %s-এ শেষ, 1 দিন বাকি"
+
+msgid "renewing_adds_time"
+msgstr "নবায়ন করলে আপনার বর্তমান শেষ তারিখে সময় যোগ হয়"
+
+msgid "pro_ends_today"
+msgstr "Pro সময় আজ শেষ হচ্ছে, %s"
+
+msgid "renew_now_keep_data"
+msgstr "সীমাহীন ডেটা ও Pro ফিচার রাখতে এখনই নবায়ন করুন"
+
+msgid "pro_expired_on"
+msgstr "আপনার Pro সময় %s-এ শেষ হয়ে গেছে"
+
+msgid "renew_now_get_back_data"
+msgstr "সীমাহীন ডেটা ফিরে পেতে এখনই নবায়ন করুন"
+
+msgid "days_left"
+msgstr "%s দিন বাকি"
+
+msgid "one_day_left"
+msgstr "1 দিন বাকি"
+
+msgid "expires_today"
+msgstr "আজ মেয়াদ শেষ"
+
+msgid "pro_time_expired_message"
+msgstr ""
+"Sukot Pro সময় শেষ হয়ে গেছে। সীমাহীন ডেটা ও Pro ফিচার ফিরে পেতে নবায়ন "
+"করুন।"
+
+msgid "pro_expires_today_title"
+msgstr "Pro-এর মেয়াদ আজ শেষ"
+
+msgid "pro_expires_today_popup_message"
+msgstr ""
+"আপনার Pro অ্যাকাউন্ট আজ শেষ হচ্ছে। Sukot Pro-এর অ্যাক্সেস রাখতে এখনই "
+"নবায়ন করুন।"
+
+msgid "renew_now"
+msgstr "এখনই নবায়ন করুন"
+
+msgid "dismiss"
+msgstr "খারিজ করুন"
+
+msgid "unbounded_status_waiting"
+msgstr "শুরুর জন্য অপেক্ষা করা হচ্ছে"

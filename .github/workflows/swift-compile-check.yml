@@ -1,0 +1,248 @@
+name: Swift Compile Check
+
+# Compiles macOS and iOS Swift on PRs. The release builds are workflow_call-only,
+# so without this a Swift break is first caught by the nightly (engineering#3850).
+
+on:
+  workflow_dispatch:
+  # Warm shared caches when native inputs change on main.
+  push:
+    branches: [main]
+  # The planner compares build inputs for each platform. Keep the trigger
+  # unfiltered so every PR gets an explicit skipped or completed native check.
+  pull_request:
+
+concurrency:
+  # A Dart-only main push can skip both jobs. Let the previous native push
+  # finish warming its caches instead of cancelling it with that skipped run.
+  group: swift-compile-check-${{ github.event_name == 'push' && github.sha || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  plan:
+    name: Plan Swift checks
+    permissions:
+      contents: "read"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      ios_needed: ${{ steps.plan.outputs.ios_needed }}
+      macos_needed: ${{ steps.plan.outputs.macos_needed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Fetch PR base tree
+        if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --depth=1 origin "$BASE_SHA"
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+
+      - name: Fetch push base tree
+        if: github.event_name == 'push' && github.event.before != '' && github.event.before != '0000000000000000000000000000000000000000'
+        run: git fetch --no-tags --depth=1 origin "$BASE_SHA"
+        env:
+          BASE_SHA: ${{ github.event.before }}
+
+      # Test the planner before allowing it to skip native checks.
+      - name: Test native input selection
+        run: python3 -m unittest discover -s .github/scripts -p 'test_swift*.py'
+
+      - name: Compare native inputs against the base tree
+        id: plan
+        run: python3 .github/scripts/swift_ci.py plan
+
+  macos-compile-check:
+    needs: plan
+    # Run unless a successful planner explicitly skips this platform.
+    if: ${{ !cancelled() && (needs.plan.result != 'success' || needs.plan.outputs.macos_needed != 'false') }}
+    name: macOS (Runner + PacketTunnel + RunnerTests)
+    permissions:
+      contents: "read"
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      # Use stable CI metadata and build only the runner's architecture.
+      SWIFT_CHECK: "1"
+      GOWORK: "off"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "26.3"
+
+      - name: Select check architecture
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$(uname -m)" in
+            arm64) arch=arm64 ;;
+            x86_64) arch=amd64 ;;
+            *) echo "Unsupported runner architecture" >&2; exit 1 ;;
+          esac
+          echo "SWIFT_CHECK_ARCH=$arch" >> "$GITHUB_ENV"
+
+      - name: Set up Go
+        uses: ./.github/actions/setup-go
+        with:
+          cache-scope: macos-check
+          gomobile-cache: "true"
+
+      - name: Install Flutter
+        uses: ./.github/actions/setup-flutter
+
+      - name: Fingerprint framework and Pods inputs
+        id: cache-inputs
+        run: python3 .github/scripts/swift_framework_cache.py --platform macos --arch "$SWIFT_CHECK_ARCH"
+
+      - name: Cache CocoaPods dependencies
+        uses: actions/cache@v4
+        timeout-minutes: 10
+        continue-on-error: true
+        env:
+          SEGMENT_DOWNLOAD_TIMEOUT_MINS: "5"
+        with:
+          path: |
+            macos/Pods
+            ~/Library/Caches/CocoaPods
+            ~/.cocoapods/repos
+          key: ${{ steps.cache-inputs.outputs.pods_key }}
+          restore-keys: |
+            ${{ steps.cache-inputs.outputs.pods_prefix }}
+
+      - name: Cache compile-only Liblantern.xcframework
+        id: framework-cache
+        uses: actions/cache@v4
+        timeout-minutes: 5
+        continue-on-error: true
+        env:
+          SEGMENT_DOWNLOAD_TIMEOUT_MINS: "5"
+        with:
+          path: macos/Frameworks/Liblantern.xcframework
+          key: ${{ steps.cache-inputs.outputs.framework_key }}
+
+      # Make needs the restored framework to be newer than checked-out sources.
+      - name: Mark restored xcframework fresh
+        if: steps.framework-cache.outputs.cache-hit == 'true'
+        shell: bash
+        run: |
+          test -d macos/Frameworks/Liblantern.xcframework
+          find macos/Frameworks/Liblantern.xcframework -exec touch {} +
+
+      - name: Install gomobile
+        if: steps.framework-cache.outputs.cache-hit != 'true'
+        run: make install-gomobile
+
+      - name: Flutter pub get + codegen
+        run: |
+          make pubget
+          make gen
+
+      - name: Create placeholder app.env
+        run: touch app.env
+
+      - name: Build native targets and run RunnerTests
+        run: make macos-unit-tests
+
+  ios-compile-check:
+    needs: plan
+    # Run unless a successful planner explicitly skips this platform.
+    if: ${{ !cancelled() && (needs.plan.result != 'success' || needs.plan.outputs.ios_needed != 'false') }}
+    name: iOS (Runner + Tunnel, simulator)
+    permissions:
+      contents: "read"
+    runs-on: macos-26
+    timeout-minutes: 60
+    env:
+      # Use stable CI metadata and build only the runner's architecture.
+      SWIFT_CHECK: "1"
+      GOWORK: "off"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "26.6"
+
+      - name: Select check architecture
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$(uname -m)" in
+            arm64) arch=arm64 ;;
+            x86_64) arch=amd64 ;;
+            *) echo "Unsupported runner architecture" >&2; exit 1 ;;
+          esac
+          echo "SWIFT_CHECK_ARCH=$arch" >> "$GITHUB_ENV"
+
+      - name: Set up Go
+        uses: ./.github/actions/setup-go
+        with:
+          cache-scope: ios-check
+          gomobile-cache: "true"
+
+      - name: Install Flutter
+        uses: ./.github/actions/setup-flutter
+
+      - name: Fingerprint framework and Pods inputs
+        id: cache-inputs
+        run: python3 .github/scripts/swift_framework_cache.py --platform ios --arch "$SWIFT_CHECK_ARCH"
+
+      - name: Cache CocoaPods dependencies
+        uses: actions/cache@v4
+        timeout-minutes: 10
+        continue-on-error: true
+        env:
+          SEGMENT_DOWNLOAD_TIMEOUT_MINS: "5"
+        with:
+          path: |
+            ios/Pods
+            ~/Library/Caches/CocoaPods
+            ~/.cocoapods/repos
+          key: ${{ steps.cache-inputs.outputs.pods_key }}
+          restore-keys: |
+            ${{ steps.cache-inputs.outputs.pods_prefix }}
+
+      - name: Cache compile-only Liblantern.xcframework
+        id: framework-cache
+        uses: actions/cache@v4
+        timeout-minutes: 5
+        continue-on-error: true
+        env:
+          SEGMENT_DOWNLOAD_TIMEOUT_MINS: "5"
+        with:
+          path: ios/Frameworks/Liblantern.xcframework
+          key: ${{ steps.cache-inputs.outputs.framework_key }}
+
+      # Make needs the restored framework to be newer than checked-out sources.
+      - name: Mark restored xcframework fresh
+        if: steps.framework-cache.outputs.cache-hit == 'true'
+        shell: bash
+        run: |
+          test -d ios/Frameworks/Liblantern.xcframework
+          find ios/Frameworks/Liblantern.xcframework -exec touch {} +
+
+      - name: Install gomobile
+        if: steps.framework-cache.outputs.cache-hit != 'true'
+        run: make install-gomobile
+
+      - name: Flutter pub get + codegen
+        run: |
+          make pubget
+          make gen
+
+      - name: Create placeholder app.env
+        run: touch app.env
+
+      - name: Build native targets (simulator)
+        run: make ios-compile-check

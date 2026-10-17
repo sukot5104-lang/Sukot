@@ -1,0 +1,176 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Version management script
+#
+# Usage:
+#   version.sh validate <version>    - Validate fails on semver violations
+#   version.sh generate <build-type> - Generate next version (nightly|beta)
+#   version.sh extract <version>     - Extract base semver (strips suffixes)
+#
+# All commands work with version strings (no 'v' prefix), but accept 'v' and strip it.
+#
+# Examples:
+#   version.sh validate v1.2.3          → 1.2.3
+#   version.sh validate v1.2.3-beta     → 1.2.3-beta
+#   version.sh generate nightly         → 1.2.4-abc123-20260206T120000Z
+#   version.sh extract 1.2.3-beta       → 1.2.3
+
+COMMAND="${1:?Command required: validate, generate, or extract}"
+shift
+
+# strip v prefix, keep suffix
+strip_v() {
+  echo "$1" | sed -E 's/^v//'
+}
+
+# extract base semver from version string (strips v prefix and suffixes)
+extract_basever() {
+  echo "$1" | sed -E 's/^v?([0-9]+\.[0-9]+\.[0-9]+).*$/\1/'
+}
+
+# format "X.Y.Z", no v or suffixes
+validate_semver() {
+  [[ "$1" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+}
+
+get_latest_version() {
+  local type="$1"
+  local tag=""
+
+  case "$type" in
+  production)
+    # Match v9.0.11, v9.0.11-macos, etc. (but not v9.0.11-beta)
+    tag=$(
+      git tag -l 'v[0-9]*\.[0-9]*\.[0-9]*' 'v[0-9]*\.[0-9]*\.[0-9]*-*' \
+      | awk '!/-beta/ && !/T.*Z/' \
+      | sort -V \
+      | tail -1
+    )
+    ;;
+  beta)
+    # Match v9.0.11-beta, v9.0.11-beta-macos, etc. (but not nightly with timestamps)
+    tag=$(
+      git tag -l 'v[0-9]*\.[0-9]*\.[0-9]*-beta' 'v[0-9]*\.[0-9]*\.[0-9]*-beta-*' \
+      | awk '!/T.*Z/' \
+      | sort -V \
+      | tail -1
+    )
+    ;;
+  *)
+    echo "Error: Unknown type '$type'" >&2
+    return 1
+    ;;
+  esac
+
+  if [[ -n "$tag" ]]; then
+    extract_basever "$tag"
+  fi
+
+  return 0
+}
+
+increment_patch() {
+  echo "$1" | awk -F'.' -v OFS='.' '{ $NF = $NF + 1; print }'
+}
+
+max_semver() {
+  printf "%s\n%s\n" "$1" "$2" | sort -V | tail -1
+}
+
+case "$COMMAND" in
+validate)
+  INPUT="${1:?Version required}"
+  VERSION=$(strip_v "$INPUT")
+  BASE=$(extract_basever "$VERSION")
+
+  if ! validate_semver "$BASE"; then
+    echo "Error: Version '$INPUT' is not valid semver" >&2
+    echo "Error: Expected format: X.Y.Z (e.g., 1.2.3, v1.2.3-beta)" >&2
+    exit 1
+  fi
+
+  # Get highest base version across all types
+  PROD=$(get_latest_version production)
+  BETA=$(get_latest_version beta)
+
+  HIGHEST="0.0.0"
+  [[ -n "$PROD" ]] && HIGHEST=$(max_semver "$HIGHEST" "$PROD")
+  [[ -n "$BETA" ]] && HIGHEST=$(max_semver "$HIGHEST" "$BETA")
+
+  # Validate new version is >= highest
+  if [[ "$HIGHEST" != "0.0.0" ]]; then
+    HIGHER=$(max_semver "$BASE" "$HIGHEST")
+
+    if [[ "$HIGHER" == "$HIGHEST" && "$BASE" != "$HIGHEST" ]]; then
+      echo "Error: Version '$BASE' is less than highest existing version '$HIGHEST'" >&2
+      echo "Error: Version '$INPUT' would go backwards" >&2
+      exit 1
+    fi
+  fi
+
+  echo "$VERSION"
+  ;;
+
+generate)
+  BUILD_TYPE="${1:?Build type required: nightly or beta}"
+
+  case "$BUILD_TYPE" in
+  nightly)
+    PROD=$(get_latest_version production)
+    BETA=$(get_latest_version beta)
+
+    if [[ -z "$PROD" && -z "$BETA" ]]; then
+      echo "Error: No production or beta tags found" >&2
+      echo "Error: Create an initial tag (e.g., v1.0.0)" >&2
+      exit 1
+    fi
+
+    BASELINE=$(max_semver "${PROD:-0.0.0}" "${BETA:-0.0.0}")
+    NEXT=$(increment_patch "$BASELINE")
+    SHA=$(git rev-parse --short=7 HEAD)
+    TIMESTAMP=$(date -u +%Y%m%dT%H%M%SZ)
+
+    echo "${NEXT}-${SHA}-${TIMESTAMP}"
+    ;;
+
+  beta)
+    BETA=$(get_latest_version beta)
+    PROD=$(get_latest_version production)
+
+    if [[ -z "$BETA" && -z "$PROD" ]]; then
+      echo "Error: No tags found" >&2
+      exit 1
+    fi
+
+    BASELINE=$(max_semver "${BETA:-0.0.0}" "${PROD:-0.0.0}")
+    NEXT=$(increment_patch "$BASELINE")
+    echo "${NEXT}-beta"
+    ;;
+
+  *)
+    echo "Error: Invalid build type '$BUILD_TYPE'" >&2
+    echo "Usage: version.sh generate <nightly|beta>" >&2
+    exit 1
+    ;;
+  esac
+  ;;
+
+extract)
+  VERSION="${1:?Version required}"
+  BASE=$(extract_basever "$VERSION")
+
+  if ! validate_semver "$BASE"; then
+    echo "Error: Version '$VERSION' does not contain valid semver" >&2
+    exit 1
+  fi
+
+  echo "$BASE"
+  ;;
+
+*)
+  echo "Error: Invalid command '$COMMAND'" >&2
+  echo "Usage: version.sh <validate|generate|extract> [args]" >&2
+  exit 1
+  ;;
+esac
