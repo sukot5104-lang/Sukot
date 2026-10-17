@@ -1,0 +1,87 @@
+name: Sukot APK Build
+
+# Builds an installable debug APK of the rebranded Sukot app and uploads it as
+# an artifact (sukot-installer.apk). Mirrors android-compile-check.yml exactly
+# (proven to build with zero secrets) but uploads the APK instead of only
+# compiling it. This workflow is additive — it does not modify any existing
+# workflow or build configuration.
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: sukot-apk-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-sukot-apk:
+    permissions:
+      contents: "read"
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: ./.github/actions/setup-go
+        with:
+          cache-scope: sukot-apk
+          gomobile-cache: "true"
+
+      - name: Set up Android
+        uses: ./.github/actions/setup-android
+
+      - name: Install Flutter
+        uses: ./.github/actions/setup-flutter
+
+      - name: Cache Android AAR
+        id: android-aar-cache
+        uses: actions/cache@v4
+        timeout-minutes: 5
+        continue-on-error: true
+        with:
+          path: |
+            bin/android/liblantern.aar
+            android/app/libs/liblantern.aar
+          key: ${{ runner.os }}-android-aar-${{ hashFiles('go.mod', 'go.sum', 'Makefile', '**/*.go', '.github/actions/setup-android/**', '.github/actions/setup-flutter/**', '.github/actions/setup-go/**') }}
+
+      - name: Mark restored Android AAR fresh
+        if: steps.android-aar-cache.outputs.cache-hit == 'true'
+        run: |
+          test -s bin/android/liblantern.aar
+          test -s android/app/libs/liblantern.aar
+          touch bin/android/liblantern.aar android/app/libs/liblantern.aar
+
+      - name: Install dependencies (gomobile)
+        if: steps.android-aar-cache.outputs.cache-hit != 'true'
+        run: make install-android-deps
+        env:
+          GOMOBILECACHE: ${{ env.GOMOBILECACHE }}
+
+      - name: Flutter pub get + codegen
+        run: |
+          make pubget
+          make gen
+
+      - name: Create placeholder app.env
+        run: touch app.env
+
+      - name: Build debug APK
+        run: make android-debug-ci
+        env:
+          GOMOBILECACHE: ${{ env.GOMOBILECACHE }}
+
+      - name: Rename APK to sukot-installer
+        run: |
+          SRC="build/app/outputs/flutter-apk/app-debug.apk"
+          test -s "$SRC"
+          cp "$SRC" sukot-installer.apk
+          ls -lh sukot-installer.apk
+
+      - name: Upload Sukot APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: sukot-installer-apk
+          path: sukot-installer.apk
+          retention-days: 30
+          if-no-files-found: error
