@@ -86,17 +86,7 @@ class Account extends HookConsumerWidget {
             ),
           ),
           SizedBox(height: defaultSize),
-          if (isExpired)
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Text(
-                'pro_account_expiration'.i18n,
-                style: theme.labelLarge!.copyWith(
-                  color: buildContext.textSecondary,
-                ),
-              ),
-            )
-          else if (isPro)
+          if (isPro)
             Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Text(
