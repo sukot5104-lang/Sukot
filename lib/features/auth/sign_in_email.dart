@@ -86,17 +86,6 @@ class SignInEmail extends HookConsumerWidget {
                 onResult: (token) =>
                     onOAuthResult(token, context, ref, SignUpMethodType.apple),
               ),
-              SizedBox(height: defaultSize),
-              DividerSpace(),
-              SizedBox(height: 32),
-              AppRichText(
-                texts: '${'new_to_lantern_pro'.i18n} ',
-                boldTexts: 'create_an_account'.i18n,
-                boldUnderline: true,
-                boldOnPressed: () {
-                  appRouter.push(Plans());
-                },
-              ),
             ],
           ),
         ),

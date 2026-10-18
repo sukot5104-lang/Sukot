@@ -43,40 +43,15 @@ class Account extends HookConsumerWidget {
 
   Widget _buildBody(BuildContext buildContext, WidgetRef ref) {
     final user = ref.watch(homeProvider).value;
-    final isExpired = ref.watch(isUserExpiredProvider);
     final isPro = ref.watch(isUserProProvider);
     final email = ref.watch(userEmailProvider);
-    final isUserFree = !isExpired && !isPro;
+    final isUserFree = !isPro;
     final theme = TextTheme.of(buildContext);
     final isOAuthLogin = ref.watch(isOAuthLoginProvider).value ?? false;
     return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          if (isUserFree)
-            ProButton(
-              onPressed: () {
-                appRouter.push(Plans());
-              },
-            ),
-          if (isExpired) ...{
-            InfoRow(
-              minTileHeight: 40,
-              backgroundColor: buildContext.statusErrorBg,
-              borderColor: buildContext.statusErrorBorder,
-              textStyle: theme.labelLarge!.copyWith(
-                color: buildContext.statusErrorText,
-              ),
-              text: 'pro_time_expired_message'.i18n,
-            ),
-            SizedBox(height: defaultSize),
-            ProButton(
-              label: 'renew_pro'.i18n,
-              onPressed: () {
-                appRouter.push(Plans());
-              },
-            ),
-          },
           SizedBox(height: defaultSize),
           Padding(
             padding: const EdgeInsets.only(left: 16),

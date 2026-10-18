@@ -49,7 +49,7 @@ class AppBuildInfo {
 
   static const String stealthSessionName = String.fromEnvironment(
     'STEALTH_SESSION_NAME',
-    defaultValue: 'LanternVpn',
+    defaultValue: 'Sukot',
   );
 
   static const int stealthDenylistVersion = int.fromEnvironment(

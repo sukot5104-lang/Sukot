@@ -294,15 +294,6 @@ class SystemTrayNotifier extends _$SystemTrayNotifier with TrayListener {
             ],
           ),
         ),
-        if (!_isUserPro)
-          MenuItem(
-            key: 'upgrade_to_pro',
-            label: 'upgrade_to_pro'.i18n,
-            onClick: (_) {
-              ref.read(windowProvider.notifier).open(focus: true);
-              appRouter.push(Plans());
-            },
-          ),
         MenuItem.separator(),
         MenuItem(
           key: 'join_server',
