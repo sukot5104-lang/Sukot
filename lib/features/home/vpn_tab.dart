@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lantern/core/models/available_servers.dart';
 import 'package:lantern/core/models/server_location.dart';
+import 'package:lantern/core/widgets/app_text.dart';
 import 'package:lantern/core/widgets/info_row.dart';
 import 'package:lantern/core/widgets/ping_chip.dart';
 import 'package:lantern/core/widgets/setting_tile.dart';
@@ -13,6 +14,10 @@ import 'package:lantern/features/home/provider/radiance_settings_providers.dart'
 import 'package:lantern/features/vpn/provider/available_servers_notifier.dart';
 import 'package:lantern/features/vpn/provider/server_location_notifier.dart';
 import 'package:lantern/features/vpn/provider/vpn_notifier.dart';
+// Prefixed: router.gr already exposes a `ServerSelection` route class, and an
+// unprefixed import of this file once made that name ambiguous (see 62b579b).
+import 'package:lantern/features/vpn/server_selection.dart'
+    as server_selection;
 import 'package:lantern/features/vpn/vpn_status.dart';
 import 'package:lantern/features/vpn/vpn_switch.dart';
 
@@ -45,6 +50,8 @@ class VpnTab extends ConsumerWidget {
                   const _HeroStatus(),
                   SizedBox(height: 16.h),
                   _ServerLocationCard(location: serverLocation),
+                  SizedBox(height: 16.h),
+                  const _ServersSection(),
                   SizedBox(height: 12.h),
                   if (serverType == ServerLocationType.privateServer)
                     InfoRow(text: 'private_server_usage_message'.i18n)
@@ -408,6 +415,46 @@ class _ServerLocationCard extends ConsumerWidget {
       lastSuccessDelayMs: server.selectionHistory?.lastSuccessDelayMs,
       isProbedUnreachable: server.isProbedUnreachable,
       isAwaitingProbe: server.isAwaitingProbe,
+    );
+  }
+}
+
+/// Full list of available servers grouped by country, embedded straight on
+/// the home screen so every server, its country flag and its real ping are
+/// visible at a glance — without having to open the ServerSelection screen.
+/// Tapping a row connects through the exact same flow as that screen.
+class _ServersSection extends ConsumerWidget {
+  const _ServersSection();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 4, right: 4),
+          child: HeaderText('server_locations'.i18n),
+        ),
+        SizedBox(height: 8.h),
+        Container(
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.shadowColor,
+                blurRadius: 32,
+                offset: Offset(0, 4),
+                spreadRadius: 0,
+              ),
+            ],
+          ),
+          child: Card(
+            elevation: 0,
+            margin: EdgeInsets.zero,
+            clipBehavior: Clip.antiAlias,
+            child: server_selection.ServerLocationsInlineList(),
+          ),
+        ),
+      ],
     );
   }
 }

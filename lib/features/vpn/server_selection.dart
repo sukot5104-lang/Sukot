@@ -28,6 +28,96 @@ class ServerSelection extends StatefulHookConsumerWidget {
   ConsumerState<ServerSelection> createState() => _ServerSelectionState();
 }
 
+/// Shared "pick a server and connect" flow used by the full ServerSelection
+/// screen and by the inline server list embedded on the home screen
+/// ([ServerLocationsInlineList]). Keeping it in one place guarantees both
+/// entry points behave identically: macOS extension gate, connect call,
+/// VPN-conflict dialog, location bookkeeping.
+mixin ServerConnectFlow<T extends StatefulWidget> on ConsumerState<T> {
+  Future<void> onServerSelected(Server selectedServer) async {
+    if (PlatformUtils.isMacOS) {
+      /// Check for if extension permission is granted before connecting to server, if not show the permission dialog first
+      final macosExtensionStatus = ref.read(macosExtensionProvider);
+      if (!macosExtensionStatus.isReady) {
+        appRouter.push(const MacOSExtensionDialog());
+        return;
+      }
+    }
+
+    await _connectToServer(selectedServer);
+  }
+
+  Future<void> _connectToServer(Server selectedServer) async {
+    final result = await ref
+        .read(vpnProvider.notifier)
+        .connectToServer(
+          ServerLocationType.lanternLocation,
+          selectedServer.tag,
+        );
+
+    result.fold(
+      (failure) {
+        if (failure is VpnConflictFailure) {
+          AppDialog.vpnConflictDialog(
+            context: context,
+            onConnectAnyway: () async {
+              appRouter.maybePop();
+              final retryResult = await ref
+                  .read(vpnProvider.notifier)
+                  .connectToServer(
+                    ServerLocationType.lanternLocation,
+                    selectedServer.tag,
+                    skipConflictCheck: true,
+                  );
+              retryResult.fold(
+                (failure) =>
+                    context.showSnackBar(failure.localizedErrorMessage),
+                (_) {
+                  ref
+                      .read(serverLocationProvider.notifier)
+                      .updateServerLocation(
+                        ServerLocation.fromServer(server: selectedServer),
+                      );
+                  appRouter.popUntilRoot();
+                },
+              );
+            },
+          );
+        } else {
+          context.showSnackBar(failure.localizedErrorMessage);
+        }
+      },
+      (_) async {
+        final vpnStatus = ref.read(vpnProvider);
+
+        void syncAndPop() {
+          ref
+              .read(serverLocationProvider.notifier)
+              .updateServerLocation(
+                ServerLocation.fromServer(server: selectedServer),
+              );
+          appRouter.popUntilRoot();
+        }
+
+        if (vpnStatus == VPNStatus.connected) {
+          syncAndPop();
+          return;
+        }
+
+        ref.listenManual<AsyncValue<LanternStatus>>(vPNStatusProvider, (
+          previous,
+          next,
+        ) {
+          if (next is AsyncData<LanternStatus> &&
+              next.value.status == VPNStatus.connected) {
+            syncAndPop();
+          }
+        });
+      },
+    );
+  }
+}
+
 class _ServerSelectionState extends ConsumerState<ServerSelection> {
   TextTheme? _textTheme;
 
@@ -322,7 +412,8 @@ class ServerLocationListView extends StatefulHookConsumerWidget {
 }
 
 class _ServerLocationListViewState
-    extends ConsumerState<ServerLocationListView> {
+    extends ConsumerState<ServerLocationListView>
+    with ServerConnectFlow<ServerLocationListView> {
   @override
   Widget build(BuildContext context) {
     final availableServers = ref.watch(availableServersProvider);
@@ -431,88 +522,6 @@ class _ServerLocationListViewState
     return children;
   }
 
-  Future<void> onServerSelected(Server selectedServer) async {
-    if (PlatformUtils.isMacOS) {
-      /// Check for if extension permission is granted before connecting to server, if not show the permission dialog first
-      final macosExtensionStatus = ref.read(macosExtensionProvider);
-      if (!macosExtensionStatus.isReady) {
-        appRouter.push(const MacOSExtensionDialog());
-        return;
-      }
-    }
-
-    await _connectToServer(selectedServer);
-  }
-
-  Future<void> _connectToServer(Server selectedServer) async {
-    final result = await ref
-        .read(vpnProvider.notifier)
-        .connectToServer(
-          ServerLocationType.lanternLocation,
-          selectedServer.tag,
-        );
-
-    result.fold(
-      (failure) {
-        if (failure is VpnConflictFailure) {
-          AppDialog.vpnConflictDialog(
-            context: context,
-            onConnectAnyway: () async {
-              appRouter.maybePop();
-              final retryResult = await ref
-                  .read(vpnProvider.notifier)
-                  .connectToServer(
-                    ServerLocationType.lanternLocation,
-                    selectedServer.tag,
-                    skipConflictCheck: true,
-                  );
-              retryResult.fold(
-                (failure) =>
-                    context.showSnackBar(failure.localizedErrorMessage),
-                (_) {
-                  ref
-                      .read(serverLocationProvider.notifier)
-                      .updateServerLocation(
-                        ServerLocation.fromServer(server: selectedServer),
-                      );
-                  appRouter.popUntilRoot();
-                },
-              );
-            },
-          );
-        } else {
-          context.showSnackBar(failure.localizedErrorMessage);
-        }
-      },
-      (_) async {
-        final vpnStatus = ref.read(vpnProvider);
-
-        void syncAndPop() {
-          ref
-              .read(serverLocationProvider.notifier)
-              .updateServerLocation(
-                ServerLocation.fromServer(server: selectedServer),
-              );
-          appRouter.popUntilRoot();
-        }
-
-        if (vpnStatus == VPNStatus.connected) {
-          syncAndPop();
-          return;
-        }
-
-        ref.listenManual<AsyncValue<LanternStatus>>(vPNStatusProvider, (
-          previous,
-          next,
-        ) {
-          if (next is AsyncData<LanternStatus> &&
-              next.value.status == VPNStatus.connected) {
-            syncAndPop();
-          }
-        });
-      },
-    );
-  }
 }
 
 class _CountryCityListView extends StatefulWidget {
@@ -861,4 +870,91 @@ Map<String, List<Server>> _groupLocationsByCountry(List<Server> servers) {
     result.putIfAbsent(server.location.country, () => <Server>[]).add(server);
   }
   return result;
+}
+
+/// Compact, non-scrollable rendering of every available Lantern server,
+/// grouped by country exactly like [ServerLocationListView] — but laid out
+/// in a plain [Column] so it can be embedded inside the home screen's own
+/// scroll view. Country rows keep their flags, city rows keep their type
+/// subtitles, every row keeps its real probe ping chip, and tapping a
+/// server runs the exact same connect flow as the full ServerSelection
+/// screen (shared via [ServerConnectFlow]).
+class ServerLocationsInlineList extends ConsumerStatefulWidget {
+  const ServerLocationsInlineList({super.key});
+
+  @override
+  ConsumerState<ServerLocationsInlineList> createState() =>
+      _ServerLocationsInlineListState();
+}
+
+class _ServerLocationsInlineListState
+    extends ConsumerState<ServerLocationsInlineList>
+    with ServerConnectFlow<ServerLocationsInlineList> {
+  @override
+  Widget build(BuildContext context) {
+    final availableServers = ref.watch(availableServersProvider);
+    final selectedTag = ref.watch(serverLocationProvider).serverName;
+
+    return availableServers.when(
+      data: (data) {
+        final allLocations = data.lanternServerLocations;
+        if (allLocations.isEmpty) {
+          return const SizedBox.shrink();
+        }
+
+        final grouped = _groupLocationsByCountry(allLocations);
+        final countryEntries = grouped.entries.toList()
+          ..sort((a, b) => a.key.compareTo(b.key));
+
+        final tiles = countryEntries.map((entry) {
+          final countryLocations = entry.value;
+
+          if (countryLocations.length == 1) {
+            final serverData = countryLocations.first;
+            return SingleCityServerView(
+              key: ValueKey(serverData.tag),
+              onServerSelected: onServerSelected,
+              server: serverData,
+              isSelected: selectedTag == serverData.tag,
+            );
+          }
+
+          return _CountryCityListView(
+            country: entry.key,
+            locations: countryLocations,
+            selectedServerTag: selectedTag,
+            onServerSelected: onServerSelected,
+          );
+        }).toList();
+
+        final children = <Widget>[];
+        for (var i = 0; i < tiles.length; i++) {
+          children.add(tiles[i]);
+          if (i < tiles.length - 1) {
+            children.add(const DividerSpace());
+          }
+        }
+
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: children,
+        );
+      },
+      loading: () => const Padding(
+        padding: EdgeInsets.symmetric(vertical: 24),
+        child: Center(child: Spinner()),
+      ),
+      error: (error, _) => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+        child: Text(
+          error.localizedDescription,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: context.textTertiary,
+              ),
+        ),
+      ),
+    );
+  }
 }
