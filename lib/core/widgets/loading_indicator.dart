@@ -34,7 +34,7 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
     final badgeTop = isDark ? AppColors.blue5 : AppColors.blue6;
     final badgeBottom = isDark ? AppColors.blue8 : AppColors.blue10;
     final ringColor = isDark ? AppColors.blue4 : AppColors.blue6;
-    final labelColor = isDark ? AppColors.blue2 : AppColors.blue7;
+    final labelColor = isDark ? AppColors.blue5 : AppColors.blue6;
 
     return AnimatedBuilder(
       animation: _controller,

@@ -242,7 +242,7 @@ class Home extends HookConsumerWidget {
                 'unbounded'.i18n,
                 style: Theme.of(context).textTheme.titleLarge,
               )
-            : LanternLogo(isPro: isUserPro, color: context.textPrimary),
+            : LanternLogo(isPro: isUserPro, color: AppColors.blue6),
         // bg/elevated (white in light mode) per the Figma spec — the Home
         // shell's app bar + tab strip render on a white surface, distinct
         // from every other screen's app bar which uses the app-wide
