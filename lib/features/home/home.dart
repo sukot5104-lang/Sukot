@@ -91,9 +91,6 @@ class Home extends HookConsumerWidget {
       return () => tabController.removeListener(sync);
     }, [tabController]);
     final isUserPro = ref.watch(isUserProProvider);
-    final userLoggedIn = ref.watch(
-      appSettingProvider.select((s) => s.userLoggedIn),
-    );
     final unboundedHidden = ref.watch(
       appSettingProvider.select((s) => s.unboundedHidden),
     );
@@ -270,11 +267,6 @@ class Home extends HookConsumerWidget {
                   userLoggedIn: userSignedIn,
                 );
               },
-            )
-          else if (!userLoggedIn)
-            AppTextButton(
-              label: 'sign_in'.i18n,
-              onPressed: () => appRouter.push(const SignInEmail()),
             ),
         ],
         // Tab strip collapses when Unbounded is unavailable — either the
