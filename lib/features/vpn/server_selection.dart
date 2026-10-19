@@ -33,7 +33,7 @@ class ServerSelection extends StatefulHookConsumerWidget {
 /// ([ServerLocationsInlineList]). Keeping it in one place guarantees both
 /// entry points behave identically: macOS extension gate, connect call,
 /// VPN-conflict dialog, location bookkeeping.
-mixin ServerConnectFlow<T extends StatefulWidget> on ConsumerState<T> {
+mixin ServerConnectFlow<T extends ConsumerStatefulWidget> on ConsumerState<T> {
   Future<void> onServerSelected(Server selectedServer) async {
     if (PlatformUtils.isMacOS) {
       /// Check for if extension permission is granted before connecting to server, if not show the permission dialog first
