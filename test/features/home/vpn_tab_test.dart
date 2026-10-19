@@ -19,8 +19,8 @@ import 'package:lantern/features/vpn/provider/vpn_notifier.dart';
 import 'package:lantern/lantern/lantern_service.dart';
 import 'package:lantern/lantern/lantern_service_notifier.dart';
 
-const _windowsSmokeTestTabViewport = Size(374, 569);
-const _shortTabViewport = Size(374, 300);
+const _windowsSmokeTestViewport = Size(374, 569);
+const _shortViewport = Size(374, 300);
 
 class _FakeLanternService implements LanternService {
   @override
@@ -71,13 +71,13 @@ void main() {
   for (final viewport in [
     (
       name: 'Windows smoke-test viewport',
-      size: _windowsSmokeTestTabViewport,
+      size: _windowsSmokeTestViewport,
       mustScroll: false,
     ),
-    (name: 'short viewport', size: _shortTabViewport, mustScroll: true),
+    (name: 'short viewport', size: _shortViewport, mustScroll: true),
   ]) {
     for (final isPro in [false, true]) {
-      testWidgets('keeps ${isPro ? 'Pro renewal' : 'free-user'} controls accessible '
+      testWidgets('keeps ${isPro ? 'Pro' : 'free-user'} controls accessible '
           'at the ${viewport.name}', (tester) async {
         // MediaQuery and ScreenUtil should see the full application window. The
         // smaller box below represents the tab area left after the Windows chrome.
@@ -139,11 +139,9 @@ void main() {
         await tester.pump(const Duration(milliseconds: 500));
 
         expect(tester.takeException(), isNull);
-        expect(find.byType(ProBanner), findsOneWidget);
-        final bannerAction = find.text(
-          (isPro ? 'renew_pro' : 'upgrade_to_pro').i18n,
-        );
-        expect(bannerAction.hitTestable(), findsOneWidget);
+
+        // Sukot: everything is free — the Pro banner is gone from the tab.
+        expect(find.byType(ProBanner), findsNothing);
 
         // Linux omits the split-tunneling row, so content may fit at the
         // smoke-test size. The shorter viewport must scroll on every platform.

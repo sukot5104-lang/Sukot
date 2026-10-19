@@ -21,7 +21,6 @@ class VPNSetting extends HookConsumerWidget {
 
   Widget _buildBody(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context).textTheme;
-    final isUserPro = ref.watch(isUserProProvider);
     final isPrivateServerFound = ref.watch(isPrivateServerFoundProvider);
     final splitTunnelingEnabled = ref.watch(
       radianceSettingsProvider.select((s) => s.splitTunneling),
@@ -96,21 +95,14 @@ class VPNSetting extends HookConsumerWidget {
             icon: AppImagePaths.blockAds,
             trailing: SwitchButton(
               value: blockAds,
+              // Block-ads is free for everyone in Sukot — no Pro gating.
               onChanged: (bool? value) {
-                if (!isUserPro) {
-                  appRouter.push(Plans());
-                  return;
-                }
                 ref
                     .read(radianceSettingsProvider.notifier)
                     .setBlockAds(value ?? false);
               },
             ),
             onPressed: () {
-              if (!isUserPro) {
-                appRouter.push(Plans());
-                return;
-              }
               ref
                   .read(radianceSettingsProvider.notifier)
                   .setBlockAds(!blockAds);

@@ -10,6 +10,7 @@ import 'package:lantern/core/models/lantern_status.dart';
 import 'package:lantern/core/models/server_location.dart';
 import 'package:lantern/core/widgets/app_text.dart';
 import 'package:lantern/core/widgets/expansion_chevron.dart';
+import 'package:lantern/core/widgets/ping_chip.dart';
 import 'package:lantern/core/widgets/spinner.dart';
 import 'package:lantern/features/macos_extension/provider/macos_extension_notifier.dart';
 import 'package:lantern/features/vpn/provider/available_servers_notifier.dart';
@@ -335,10 +336,6 @@ class _ServerLocationListViewState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (!widget.userPro) ...[
-            ProBanner(topMargin: 0),
-            const SizedBox(height: verticalSpacing),
-          ],
           Flexible(
             child: availableServers.when(
               data: (data) {
@@ -352,28 +349,16 @@ class _ServerLocationListViewState
                   _sectionCard(_locationTiles(allLocations, selectedTag)),
                 ];
 
-                return Stack(
-                  children: [
-                    ScrollConfiguration(
-                      behavior: ScrollConfiguration.of(
-                        context,
-                      ).copyWith(scrollbars: false),
-                      child: ListView(
-                        padding: EdgeInsets.zero,
-                        children: sections,
-                      ),
-                    ),
-                    if (!ref.watch(canSelectServerProvider))
-                      Positioned.fill(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.bgElevated.withValues(alpha: 0.72),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          alignment: Alignment.center,
-                        ),
-                      ),
-                  ],
+                // Server picking is free for everyone in Sukot — no gating
+                // overlay is drawn over the list anymore.
+                return ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(
+                    context,
+                  ).copyWith(scrollbars: false),
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    children: sections,
+                  ),
                 );
               },
               loading: () => const Center(child: Spinner()),
@@ -596,6 +581,12 @@ class _CountryCityListViewState extends State<_CountryCityListView> {
               tileTextStyle: Theme.of(
                 context,
               ).textTheme.bodyMedium!.copyWith(color: context.textPrimary),
+              trailing: pingChipFor(
+                context: context,
+                lastSuccessDelayMs: server.selectionHistory?.lastSuccessDelayMs,
+                isProbedUnreachable: server.isProbedUnreachable,
+                isAwaitingProbe: server.isAwaitingProbe,
+              ),
               onPressed: () => _onLocationSelected(context, server),
             );
           }).toList(),
@@ -606,13 +597,40 @@ class _CountryCityListViewState extends State<_CountryCityListView> {
     return AppTile(
       icon: Flag(countryCode: countryCode),
       label: widget.country,
-      trailing: AppImage(
-        path: AppImagePaths.arrowForward,
-        height: 20.0,
-        color: context.textPrimary,
+      // Fastest known ping among the country's cities, then the chevron.
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _countryPingChip(context) ?? const SizedBox.shrink(),
+          const SizedBox(width: 8),
+          AppImage(
+            path: AppImagePaths.arrowForward,
+            height: 20.0,
+            color: context.textPrimary,
+          ),
+        ],
       ),
       onPressed: () => _showCountryBottomSheet(context),
     );
+  }
+
+  /// Lowest successful probe delay across the country's locations.
+  PingChip? _countryPingChip(BuildContext context) {
+    int? best;
+    var anyUnreachable = widget.locations.isNotEmpty;
+    for (final server in widget.locations) {
+      final delay = server.selectionHistory?.lastSuccessDelayMs ?? 0;
+      if (delay > 0 && (best == null || delay < best)) {
+        best = delay;
+      }
+      if (!server.isProbedUnreachable) {
+        anyUnreachable = false;
+      }
+    }
+    if (best != null) {
+      return PingChip(delayMs: best);
+    }
+    return anyUnreachable ? PingChip(delayMs: null, unreachable: true) : null;
   }
 
   void _onLocationSelected(BuildContext context, Server server) {

@@ -83,50 +83,8 @@ class VPNSwitch extends HookConsumerWidget {
     );
   }
 
-  Future<void> onVPNStateChange(WidgetRef ref, BuildContext context) async {
-    if (PlatformUtils.isMacOS) {
-      final systemExtensionStatus = ref.read(macosExtensionProvider);
-      if (!systemExtensionStatus.isReady) {
-        final value = await appRouter.push(const MacOSExtensionDialog());
-        if (!context.mounted) return;
-        appLogger.info(
-          'Returned from MacOS Extension Dialog with value: $value',
-        );
-        if (value is bool && value) {
-          appLogger.info(
-            'Retrying VPN state change after MacOS Extension setup',
-          );
-          return onVPNStateChange(ref, context);
-        }
-        return;
-      }
-    }
-
-    final result = await ref.read(vpnProvider.notifier).onVPNStateChange();
-
-    if (!context.mounted) return;
-    result.fold((failure) {
-      if (failure is VpnConflictFailure) {
-        AppDialog.vpnConflictDialog(
-          context: context,
-          onConnectAnyway: () async {
-            appRouter.maybePop();
-            final retryResult = await ref
-                .read(vpnProvider.notifier)
-                .startVPN(skipConflictCheck: true);
-            if (!context.mounted) return;
-            retryResult.fold((failure) {
-              context.showSnackBar(failure.localizedErrorMessage);
-              appLogger.error("Error changing VPN state: ${failure.error}");
-            }, (_) => null);
-          },
-        );
-      } else {
-        context.showSnackBar(failure.localizedErrorMessage);
-        appLogger.error("Error changing VPN state: ${failure.error}");
-      }
-    }, (_) => null);
-  }
+  Future<void> onVPNStateChange(WidgetRef ref, BuildContext context) =>
+      handleVPNStateChange(ref, context);
 
   Color _wrapperColor(VPNStatus vpnStatus, BuildContext context) {
     switch (vpnStatus) {
@@ -143,4 +101,52 @@ class VPNSwitch extends HookConsumerWidget {
         return context.textTertiary;
     }
   }
+}
+
+/// Shared connect/disconnect entry point used by both the classic toggle
+/// switch and the Sukot home power button. Handles the macOS system
+/// extension gate and the VPN-conflict dialog exactly as before.
+Future<void> handleVPNStateChange(WidgetRef ref, BuildContext context) async {
+  if (PlatformUtils.isMacOS) {
+    final systemExtensionStatus = ref.read(macosExtensionProvider);
+    if (!systemExtensionStatus.isReady) {
+      final value = await appRouter.push(const MacOSExtensionDialog());
+      if (!context.mounted) return;
+      appLogger.info(
+        'Returned from MacOS Extension Dialog with value: $value',
+      );
+      if (value is bool && value) {
+        appLogger.info(
+          'Retrying VPN state change after MacOS Extension setup',
+        );
+        return handleVPNStateChange(ref, context);
+      }
+      return;
+    }
+  }
+
+  final result = await ref.read(vpnProvider.notifier).onVPNStateChange();
+
+  if (!context.mounted) return;
+  result.fold((failure) {
+    if (failure is VpnConflictFailure) {
+      AppDialog.vpnConflictDialog(
+        context: context,
+        onConnectAnyway: () async {
+          appRouter.maybePop();
+          final retryResult = await ref
+              .read(vpnProvider.notifier)
+              .startVPN(skipConflictCheck: true);
+          if (!context.mounted) return;
+          retryResult.fold((failure) {
+            context.showSnackBar(failure.localizedErrorMessage);
+            appLogger.error("Error changing VPN state: ${failure.error}");
+          }, (_) => null);
+        },
+      );
+    } else {
+      context.showSnackBar(failure.localizedErrorMessage);
+      appLogger.error("Error changing VPN state: ${failure.error}");
+    }
+  }, (_) => null);
 }

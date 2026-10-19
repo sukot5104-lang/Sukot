@@ -1,10 +1,14 @@
-name: Sukot APK Build
+name: Sukot APK Builds
 
-# Builds an installable debug APK of the rebranded Sukot app and uploads it as
-# an artifact (sukot-installer.apk). Mirrors android-compile-check.yml exactly
-# (proven to build with zero secrets) but uploads the APK instead of only
-# compiling it. This workflow is additive — it does not modify any existing
-# workflow or build configuration.
+# Builds two installable debug APKs of the rebranded Sukot app and uploads
+# them as separate artifacts:
+#   - Sukot-Samsung-APK  (vpn.sukot.samsung, arm64 — Samsung/Modern devices)
+#   - Sukot-Xiaomi-APK   (vpn.sukot.xiaomi, arm64 + armeabi-v7a — covers old
+#                         32-bit Xiaomi/Redmi models too)
+# The distinct applicationIds mean these APKs install cleanly even when the
+# original Lantern app (org.getlantern.lantern) or another Sukot sideload is
+# already present (no signature conflict).
+# Mirrors android-compile-check.yml (proven to build with zero secrets).
 
 on:
   workflow_dispatch:
@@ -14,7 +18,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-sukot-apk:
+  build-sukot-samsung:
+    name: Sukot APK (Samsung)
     permissions:
       contents: "read"
     runs-on: ubuntu-24.04
@@ -66,22 +71,151 @@ jobs:
       - name: Create placeholder app.env
         run: touch app.env
 
-      - name: Build debug APK
-        run: make android-debug-ci
+      - name: Build Samsung debug APK
+        run: make android-debug-ci ANDROID_IDENTITY_PROFILE=scripts/stealth/identity/sukot-samsung.properties
         env:
           GOMOBILECACHE: ${{ env.GOMOBILECACHE }}
 
-      - name: Rename APK to sukot-installer
+      - name: Rename APK
         run: |
           SRC="build/app/outputs/flutter-apk/app-debug.apk"
           test -s "$SRC"
-          cp "$SRC" sukot-installer.apk
-          ls -lh sukot-installer.apk
+          cp "$SRC" Sukot-Samsung.apk
+          ls -lh Sukot-Samsung.apk
 
-      - name: Upload Sukot APK
+      - name: Upload Sukot Samsung APK
         uses: actions/upload-artifact@v4
         with:
-          name: sukot-installer-apk
-          path: sukot-installer.apk
+          name: Sukot-Samsung-APK
+          path: Sukot-Samsung.apk
           retention-days: 30
           if-no-files-found: error
+
+  build-sukot-xiaomi:
+    name: Sukot APK (Xiaomi)
+    permissions:
+      contents: "read"
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: ./.github/actions/setup-go
+        with:
+          cache-scope: sukot-apk
+          gomobile-cache: "true"
+
+      - name: Set up Android
+        uses: ./.github/actions/setup-android
+
+      - name: Install Flutter
+        uses: ./.github/actions/setup-flutter
+
+      - name: Cache Android AAR
+        id: android-aar-cache
+        uses: actions/cache@v4
+        timeout-minutes: 5
+        continue-on-error: true
+        with:
+          path: |
+            bin/android/liblantern.aar
+            android/app/libs/liblantern.aar
+          key: ${{ runner.os }}-android-aar-${{ hashFiles('go.mod', 'go.sum', 'Makefile', '**/*.go', '.github/actions/setup-android/**', '.github/actions/setup-flutter/**', '.github/actions/setup-go/**') }}
+
+      - name: Mark restored Android AAR fresh
+        if: steps.android-aar-cache.outputs.cache-hit == 'true'
+        run: |
+          test -s bin/android/liblantern.aar
+          test -s android/app/libs/liblantern.aar
+          touch bin/android/liblantern.aar android/app/libs/liblantern.aar
+
+      - name: Install dependencies (gomobile)
+        if: steps.android-aar-cache.outputs.cache-hit != 'true'
+        run: make install-android-deps
+        env:
+          GOMOBILECACHE: ${{ env.GOMOBILECACHE }}
+
+      - name: Flutter pub get + codegen
+        run: |
+          make pubget
+          make gen
+
+      - name: Create placeholder app.env
+        run: touch app.env
+
+      # Xiaomi variant: build android-arm (32-bit) too and widen the Gradle
+      # abiFilters so the APK installs on ALL Xiaomi/Redmi models, including
+      # older 32-bit devices.
+      - name: Build Xiaomi debug APK
+        run: >-
+          make android-debug-ci
+          ANDROID_IDENTITY_PROFILE=scripts/stealth/identity/sukot-xiaomi.properties
+          ANDROID_APK_TARGET_PLATFORMS="android-arm,android-arm64"
+          ANDROID_GRADLE_EXTRA_PROPS="-Plantern.abiFilters=arm64-v8a,armeabi-v7a"
+        env:
+          GOMOBILECACHE: ${{ env.GOMOBILECACHE }}
+
+      - name: Rename APK
+        run: |
+          SRC="build/app/outputs/flutter-apk/app-debug.apk"
+          test -s "$SRC"
+          cp "$SRC" Sukot-Xiaomi.apk
+          ls -lh Sukot-Xiaomi.apk
+
+      - name: Upload Sukot Xiaomi APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sukot-Xiaomi-APK
+          path: Sukot-Xiaomi.apk
+          retention-days: 30
+          if-no-files-found: error
+
+  release-apks:
+    name: Publish APKs to Releases
+    needs: [build-sukot-samsung, build-sukot-xiaomi]
+    permissions:
+      contents: "write"
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Read app version
+        id: version
+        run: |
+          RAW=$(grep '^version:' pubspec.yaml | awk '{print $2}')
+          TAG="sukot-v${RAW/+/-}-build${{ github.run_number }}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$RAW" >> "$GITHUB_OUTPUT"
+
+      - name: Download both APKs
+        uses: actions/download-artifact@v4
+        with:
+          path: apks
+          merge-multiple: true
+
+      - name: List APKs
+        run: ls -lh apks/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Sukot VPN ${{ steps.version.outputs.version }} (build ${{ github.run_number }})
+          body: |
+            دو نسخه APK برنامه **Sukot VPN**:
+
+            - **Sukot-Samsung.apk** — مخصوص گوشی‌های سامسونگ
+            - **Sukot-Xiaomi.apk** — مخصوص گوشی‌های شیائومی / ردمی (همه مدل‌ها، شامل گوشی‌های قدیمی ۳۲ بیتی)
+
+            ⚠️ قبل از نصب، نسخه قبلی Lantern یا Sukot را حذف (uninstall) کنید.
+
+            ---
+            Two installable APKs of **Sukot VPN**: `Sukot-Samsung.apk` for Samsung phones and
+            `Sukot-Xiaomi.apk` for Xiaomi/Redmi phones of all models (includes 32-bit ABIs).
+            Uninstall any previous Lantern/Sukot build before installing.
+          files: |
+            apks/Sukot-Samsung.apk
+            apks/Sukot-Xiaomi.apk
+          make_latest: true

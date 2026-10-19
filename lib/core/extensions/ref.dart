@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lantern/core/extensions/user_data.dart';
 import 'package:lantern/core/models/pro_renewal.dart';
-import 'package:lantern/features/home/provider/data_cap_info_provider.dart';
 import 'package:lantern/features/home/provider/home_notifier.dart';
 import 'package:lantern/features/vpn/provider/available_servers_notifier.dart';
 
@@ -13,16 +12,11 @@ final isUserProProvider = Provider<bool>((ref) {
   );
 });
 
-/// Free users may pick a server location when no data cap applies to them.
-/// Until the data cap state loads (or if fetching it fails) the picker stays
-/// Pro-only.
+/// Server picking is free for everyone in Sukot — every feature that used to
+/// be Pro-gated is now available to all users. The provider stays so existing
+/// call sites (server list overlay, desktop tray menu) keep compiling.
 final canSelectServerProvider = Provider<bool>((ref) {
-  if (ref.watch(isUserProProvider)) return true;
-  final dataCap = ref.watch(dataCapInfoProvider);
-  // AsyncValue.value keeps the previous result while refetching or after an
-  // error, which may predate a Pro-to-free downgrade.
-  if (dataCap.isLoading || dataCap.hasError) return false;
-  return dataCap.value?.enabled == false;
+  return true;
 });
 
 final isUserExpiredProvider = Provider<bool>((ref) {

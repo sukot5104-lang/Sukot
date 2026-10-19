@@ -221,6 +221,10 @@ ANDROID_GENERATE_IDENTITY_PROFILE ?= $(ANDROID_STEALTH_IDENTITY)
 ANDROID_GENERATED_IDENTITY_PROFILE := $(BUILD_DIR)/stealth/android-identity.properties
 ANDROID_IDENTITY_PROFILE ?= $(if $(filter 1 true yes,$(ANDROID_GENERATE_IDENTITY_PROFILE)),$(ANDROID_GENERATED_IDENTITY_PROFILE),)
 ANDROID_IDENTITY_ENV = $(if $(strip $(ANDROID_IDENTITY_PROFILE)),ANDROID_IDENTITY_PROFILE="$(abspath $(ANDROID_IDENTITY_PROFILE))",)
+# Extra -P gradle properties forwarded verbatim to `flutter build apk`.
+# Used by the device-specific Sukot variants (e.g. the Xiaomi build
+# widens abiFilters via -Plantern.abiFilters=arm64-v8a,armeabi-v7a).
+ANDROID_GRADLE_EXTRA_PROPS ?=
 ANDROID_AUTH_SCHEME = $(strip $(if $(ANDROID_IDENTITY_PROFILE),$(shell sed -n 's/^appAuthScheme=//p' "$(ANDROID_IDENTITY_PROFILE)" 2>/dev/null | tail -n 1),))
 ANDROID_IDENTITY_DART_DEFINES = $(if $(STEALTH_ENABLED),,$(if $(ANDROID_AUTH_SCHEME),--dart-define=APP_AUTH_SCHEME=$(ANDROID_AUTH_SCHEME)))
 PLAY_STORE_DART_DEFINE = $(if $(STEALTH_ACTIVE),,--dart-define=PLAY_STORE_BUILD=true)
@@ -1078,7 +1082,7 @@ android-debug-ci: $(ANDROID_DEBUG_BUILD)
 
 $(ANDROID_DEBUG_BUILD): $(ANDROID_LIB_BUILD) $(MAYBE_STEALTH_PROFILE)
 	$(MAKE) android-identity-profile
-	$(STEALTH_PROFILE_ENV) $(ANDROID_IDENTITY_ENV) $(STEALTH_FLUTTER_PREFIX) flutter build apk --target-platform $(ANDROID_APK_TARGET_PLATFORMS) $(ANDROID_DEBUG_FLUTTER_FLAGS) --build-name=$(APP_VERSION_PUBSPEC) --debug $(STEALTH_FLUTTER_TARGET) $(FLUTTER_DART_DEFINES) $(STEALTH_DART_DEFINES) $(ANDROID_IDENTITY_DART_DEFINES) -Plantern.sideloadUpdates=true
+	$(STEALTH_PROFILE_ENV) $(ANDROID_IDENTITY_ENV) $(STEALTH_FLUTTER_PREFIX) flutter build apk --target-platform $(ANDROID_APK_TARGET_PLATFORMS) $(ANDROID_DEBUG_FLUTTER_FLAGS) --build-name=$(APP_VERSION_PUBSPEC) --debug $(STEALTH_FLUTTER_TARGET) $(FLUTTER_DART_DEFINES) $(STEALTH_DART_DEFINES) $(ANDROID_IDENTITY_DART_DEFINES) -Plantern.sideloadUpdates=true $(ANDROID_GRADLE_EXTRA_PROPS)
 
 # Runs the Android integration test on a connected device (the FTL
 # instrumentation path). Override the entrypoint with ANDROID_INTEGRATION_TARGET.

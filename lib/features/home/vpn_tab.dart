@@ -1,26 +1,32 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:lantern/core/models/available_servers.dart';
+import 'package:lantern/core/models/server_location.dart';
 import 'package:lantern/core/widgets/info_row.dart';
+import 'package:lantern/core/widgets/ping_chip.dart';
 import 'package:lantern/core/widgets/setting_tile.dart';
+import 'package:lantern/core/widgets/vpn_status_indicator.dart';
 import 'package:lantern/features/home/provider/radiance_settings_providers.dart';
-import 'package:lantern/features/vpn/location_setting.dart';
+import 'package:lantern/features/vpn/provider/available_servers_notifier.dart';
 import 'package:lantern/features/vpn/provider/server_location_notifier.dart';
+import 'package:lantern/features/vpn/server_selection.dart';
 import 'package:lantern/features/vpn/vpn_status.dart';
 import 'package:lantern/features/vpn/vpn_switch.dart';
 
 import '../../core/common/common.dart';
 
-/// VPN tab body — the connect toggle, data usage, location, routing and
-/// split-tunnel rows. Originally the body of the Home screen; lifted out
-/// when Home was refactored into a two-tab shell (VPN + Unbounded). No
-/// Scaffold or AppBar — the shell provides that chrome.
+/// VPN tab body — the Sukot home screen. Hero section with a big power
+/// button and live status, then a server card (name, protocol, real ping)
+/// and the settings card (data usage, VPN status, routing, split tunneling).
+/// No Scaffold or AppBar — the shell provides that chrome.
 class VpnTab extends ConsumerWidget {
   const VpnTab({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isUserPro = ref.watch(isUserProProvider);
     final serverLocation = ref.watch(serverLocationProvider);
     final serverType = serverLocation.serverType.toServerLocationType;
     return SafeArea(
@@ -34,31 +40,374 @@ class VpnTab extends ConsumerWidget {
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  const ProBanner(),
-                  const VPNSwitch(),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      if (!isUserPro) ...{
-                        if (serverType == ServerLocationType.privateServer)
-                          InfoRow(text: 'private_server_usage_message'.i18n)
-                        else if (!PlatformUtils.isIOS &&
-                            !isSmallScreen(context))
-                          const DataUsage(),
-                      },
-                      const SizedBox(height: 8),
-                      _SettingCard(),
-                      SizedBox(height: 10.h),
-                    ],
-                  ),
+                  SizedBox(height: 8.h),
+                  const _HeroStatus(),
+                  SizedBox(height: 16.h),
+                  _ServerLocationCard(location: serverLocation),
+                  SizedBox(height: 12.h),
+                  if (serverType == ServerLocationType.privateServer)
+                    InfoRow(text: 'private_server_usage_message'.i18n)
+                  else if (!PlatformUtils.isIOS)
+                    const DataUsage(),
+                  const SizedBox(height: 8),
+                  _SettingCard(),
+                  SizedBox(height: 10.h),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Big circular power button + status headline. Tapping it toggles the VPN
+/// through the exact same handler the old toggle switch used. The wrapper
+/// keeps the `vpn.switch.<status>` key and the tap target keeps
+/// `vpn.toggle` so tests and the smoke harness keep working.
+class _HeroStatus extends HookConsumerWidget {
+  const _HeroStatus();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final vpnStatus = ref.watch(vpnProvider);
+    final textTheme = Theme.of(context).textTheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final connecting =
+        vpnStatus == VPNStatus.connecting ||
+        vpnStatus == VPNStatus.disconnecting;
+
+    final ringColor = switch (vpnStatus) {
+      VPNStatus.connected => context.statusSuccessBgDot,
+      VPNStatus.connecting => AppColors.blue5,
+      VPNStatus.disconnecting => context.textTertiary,
+      VPNStatus.error => context.borderError,
+      _ => isDark ? AppColors.blue8 : AppColors.blue3,
+    };
+
+    return Container(
+      key: Key('vpn.switch.${vpnStatus.name}'),
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(vertical: 12.h),
+      child: Column(
+        children: [
+          GestureDetector(
+            key: const Key('vpn.toggle'),
+            onTap: () {
+              appLogger.info('VPN power button tapped');
+              handleVPNStateChange(ref, context);
+            },
+            child: _PowerButton(
+              status: vpnStatus,
+              ringColor: ringColor,
+              isDark: isDark,
+            ),
+          ),
+          SizedBox(height: 14.h),
+          Text(
+            // Same wording the status row uses everywhere else.
+            vpnStatus.name.capitalize,
+            style: textTheme.headlineSmall!.copyWith(
+              color: vpnStatus == VPNStatus.connected
+                  ? context.statusSuccessText
+                  : context.textPrimary,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            connecting
+                ? '...'
+                : (vpnStatus == VPNStatus.connected
+                    ? 'disconnect'.i18n
+                    : 'connect'.i18n),
+            style: textTheme.bodyMedium!.copyWith(
+              color: context.textTertiary,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The big round button itself. Filled brand-blue when connected, soft
+/// surface when off, spinning arc while connecting, gentle breathing glow
+/// while the tunnel is up.
+class _PowerButton extends StatefulWidget {
+  final VPNStatus status;
+  final Color ringColor;
+  final bool isDark;
+
+  const _PowerButton({
+    required this.status,
+    required this.ringColor,
+    required this.isDark,
+  });
+
+  @override
+  State<_PowerButton> createState() => _PowerButtonState();
+}
+
+class _PowerButtonState extends State<_PowerButton>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _breath = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 2200),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _syncAnimation();
+  }
+
+  @override
+  void didUpdateWidget(covariant _PowerButton oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.status != widget.status) {
+      _syncAnimation();
+    }
+  }
+
+  void _syncAnimation() {
+    // Breathe only while the tunnel is up or being established.
+    if (widget.status == VPNStatus.connected ||
+        widget.status == VPNStatus.connecting ||
+        widget.status == VPNStatus.disconnecting) {
+      _breath.repeat(reverse: true);
+    } else {
+      _breath.stop();
+      _breath.value = 0.0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _breath.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final connected = widget.status == VPNStatus.connected;
+    final connecting =
+        widget.status == VPNStatus.connecting ||
+        widget.status == VPNStatus.disconnecting;
+    final size = 150.0.r;
+
+    return AnimatedBuilder(
+      animation: _breath,
+      builder: (context, child) {
+        final breath = 0.5 - 0.5 * math.cos(2 * math.pi * _breath.value);
+        return Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: connected
+                ? const LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [AppColors.blue5, AppColors.blue10],
+                  )
+                : null,
+            color: connected
+                ? null
+                : (widget.isDark ? AppColors.gray850 : context.bgSurface),
+            border: Border.all(
+              color: connected
+                  ? Colors.transparent
+                  : widget.ringColor.withValues(alpha: 0.55),
+              width: 2.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: (connected ? AppColors.blue6 : widget.ringColor)
+                    .withValues(alpha: 0.16 + 0.22 * breath),
+                blurRadius: 26 + 18 * breath,
+                spreadRadius: 1 + 2 * breath,
+                offset: const Offset(0, 6),
+              ),
+            ],
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              if (connecting)
+                SizedBox(
+                  width: size + 14.r,
+                  height: size + 14.r,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 3.5.r,
+                    valueColor:
+                        AlwaysStoppedAnimation(context.actionToggleKnobBg),
+                  ),
+                ),
+              Icon(
+                Icons.power_settings_new,
+                size: 56.r,
+                color: connected
+                    ? AppColors.white
+                    : (widget.isDark ? AppColors.blue3 : AppColors.blue6),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// Prominent server card on the home screen: flag, smart/selected location,
+/// protocol and the live ping badge — tappable, opens server selection.
+/// Keeps the `home.location_setting` key used by tests and the smoke harness.
+class _ServerLocationCard extends ConsumerWidget {
+  final ServerLocation location;
+
+  const _ServerLocationCard({required this.location});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final textTheme = Theme.of(context).textTheme;
+    final serverType = location.serverType.toServerLocationType;
+
+    String title;
+    String value;
+    String flag;
+    String protocol;
+
+    switch (serverType) {
+      case ServerLocationType.auto:
+        title = 'smart_location'.i18n;
+        final autoLoc = location.autoLocation;
+        value = autoLoc != null && autoLoc.displayName.isNotEmpty
+            ? autoLoc.displayName
+            : 'fastest_server'.i18n;
+        flag = autoLoc?.countryCode ?? '';
+        protocol = autoLoc?.protocol ?? '';
+        break;
+
+      case ServerLocationType.lanternLocation:
+        title = 'selected_location'.i18n;
+        value = location.displayName;
+        flag = location.countryCode;
+        protocol = location.protocol;
+        break;
+
+      case ServerLocationType.privateServer:
+        title = location.serverName;
+        value = location.displayName;
+        flag = location.countryCode;
+        protocol = location.protocol;
+        break;
+    }
+
+    final ping = _pingChip(context, ref);
+
+    return Container(
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadowColor,
+            blurRadius: 32,
+            offset: Offset(0, 4),
+            spreadRadius: 0,
+          ),
+        ],
+      ),
+      child: Card(
+        elevation: 0,
+        margin: EdgeInsets.zero,
+        child: InkWell(
+          key: const Key('home.location_setting'),
+          borderRadius: BorderRadius.circular(16),
+          onTap: () => appRouter.push(const ServerSelection()),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 40,
+                  child: flag.isEmpty
+                      ? AppImage(path: AppImagePaths.location)
+                      : Flag(countryCode: flag),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: textTheme.labelLarge!.copyWith(
+                          color: context.textSecondary,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        value.i18n,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: textTheme.titleMedium!.copyWith(
+                          color: context.textPrimary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      if (protocol.isNotEmpty) ...[
+                        const SizedBox(height: 2),
+                        Text(
+                          protocol.capitalize,
+                          maxLines: 1,
+                          style: textTheme.labelMedium!.copyWith(
+                            color: context.textTertiary,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                if (ping != null) ...[
+                  const SizedBox(width: 8),
+                  ping,
+                ],
+                const SizedBox(width: 8),
+                if (!isSmallScreen(context))
+                  const AppImage(path: AppImagePaths.arrowForward),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Real ping for the currently selected server, straight from the probe
+  /// history the core already maintains. Smart Location resolves through its
+  /// auto tag; manual selection through the server name.
+  PingChip? _pingChip(BuildContext context, WidgetRef ref) {
+    final servers = ref.watch(availableServersProvider).value;
+    if (servers == null) return null;
+
+    final Server? server;
+    if (location.serverType.toServerLocationType == ServerLocationType.auto) {
+      final tag = location.autoLocation?.tag;
+      server = tag == null || tag.isEmpty ? null : servers.serverByTag(tag);
+    } else {
+      server = servers.serverByTag(location.serverName);
+    }
+    if (server == null) return null;
+
+    return pingChipFor(
+      context: context,
+      lastSuccessDelayMs: server.selectionHistory?.lastSuccessDelayMs,
+      isProbedUnreachable: server.isProbedUnreachable,
+      isAwaitingProbe: server.isAwaitingProbe,
     );
   }
 }
@@ -72,19 +421,16 @@ class _SettingCard extends ConsumerWidget {
     final isSplitTunnelingOn = ref.watch(
       radianceSettingsProvider.select((s) => s.splitTunneling),
     );
-    final isUserPro = ref.watch(isUserProProvider);
     final serverType = ref
         .watch(serverLocationProvider)
         .serverType
         .toServerLocationType;
 
-    // Small screens only (engineering#3046); regular screens show the
-    // standalone DataUsage card in VpnTab instead. Same visibility rules:
-    // free users, not iOS, not private servers.
+    // Data usage is surfaced by the standalone card above now; inside the
+    // settings card it only appears on small screens where space is tight.
     final smallScreen = isSmallScreen(context);
     final showDataUsage =
         smallScreen &&
-        !isUserPro &&
         serverType != ServerLocationType.privateServer &&
         !PlatformUtils.isIOS;
     final showRoutingMode = !PlatformUtils.isIOS;
@@ -134,28 +480,28 @@ class _SettingCard extends ConsumerWidget {
             if (showDataUsage) const DataUsage(insideCard: true),
             const VpnStatus(),
             const DividerSpace(),
-            const LocationSetting(),
-            if (showRoutingMode || showSplitTunneling) const DividerSpace(),
-            // Small screens: Routing Mode | Split Tunneling share one row;
-            // otherwise stacked full-width rows.
-            if (showRoutingMode && showSplitTunneling && smallScreen)
-              Row(
-                children: [
-                  Expanded(child: routingTile),
-                  SizedBox(
-                    height: 40,
-                    child: VerticalDivider(
-                      width: 1,
-                      color: Theme.of(context).dividerTheme.color,
+            if (showRoutingMode || showSplitTunneling) ...[
+              // Small screens: Routing Mode | Split Tunneling share one row;
+              // otherwise stacked full-width rows.
+              if (showRoutingMode && showSplitTunneling && smallScreen)
+                Row(
+                  children: [
+                    Expanded(child: routingTile),
+                    SizedBox(
+                      height: 40,
+                      child: VerticalDivider(
+                        width: 1,
+                        color: Theme.of(context).dividerTheme.color,
+                      ),
                     ),
-                  ),
-                  Expanded(child: splitTunnelingTile),
-                ],
-              )
-            else ...[
-              if (showRoutingMode) routingTile,
-              if (showRoutingMode && showSplitTunneling) const DividerSpace(),
-              if (showSplitTunneling) splitTunnelingTile,
+                    Expanded(child: splitTunnelingTile),
+                  ],
+                )
+              else ...[
+                if (showRoutingMode) routingTile,
+                if (showRoutingMode && showSplitTunneling) const DividerSpace(),
+                if (showSplitTunneling) splitTunnelingTile,
+              ],
             ],
           ],
         ),

@@ -8,10 +8,8 @@ import 'package:lantern/core/utils/pro_utils.dart';
 import 'package:lantern/core/widgets/subscription_tags.dart';
 import 'package:lantern/core/models/feature_flags.dart';
 import 'package:lantern/features/home/provider/app_setting_notifier.dart';
-import 'package:lantern/features/home/provider/country_code_notifier.dart';
 import 'package:lantern/features/home/provider/feature_flag_notifier.dart';
 import 'package:lantern/features/home/provider/home_notifier.dart';
-import 'package:lantern/features/plans/restore_purchase_mixin.dart';
 import 'package:lantern/features/setting/appearance.dart'
     show appearanceModeLabel, showAppearanceBottomSheet;
 import 'package:lantern/features/setting/widget_sheet.dart';
@@ -21,17 +19,14 @@ import '../../core/services/injection_container.dart';
 enum _SettingType {
   account,
   signIn,
-  authorizeDevice,
   vpnSetting,
   actionModeSetting,
   language,
   widget,
   appearance,
   support,
-  getPro,
   checkForUpdates,
   browserUnbounded,
-  restorePurchase,
 }
 
 @RoutePage(name: 'Setting')
@@ -42,8 +37,7 @@ class Setting extends StatefulHookConsumerWidget {
   ConsumerState<Setting> createState() => _SettingState();
 }
 
-class _SettingState extends ConsumerState<Setting>
-    with RestorePurchaseMixin<Setting> {
+class _SettingState extends ConsumerState<Setting> {
   late final Future<bool> _canCheckForUpdates = _canCheckForUpdatesSafely();
 
   Future<bool> _canCheckForUpdatesSafely() async {
@@ -61,8 +55,6 @@ class _SettingState extends ConsumerState<Setting>
 
   @override
   Widget build(BuildContext context) {
-    // Keep store actions in sync with country-based billing availability.
-    ref.watch(countryCodeProvider);
     final isExpired = ref.watch(isUserExpiredProvider);
     final user = ref.watch(homeProvider).value;
     final isUserPro = ref.watch(isUserProProvider);
@@ -90,19 +82,6 @@ class _SettingState extends ConsumerState<Setting>
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: defaultSize),
         children: <Widget>[
-          if (!isUserPro)
-            Padding(
-              padding: const EdgeInsets.only(top: 16),
-              child: ProButton(
-                key: const Key('setting.upgrade_pro_button'),
-                label: isExpired
-                    ? 'renew_pro_subscription'.i18n
-                    : 'upgrade_to_pro'.i18n,
-                onPressed: () {
-                  appRouter.push(Plans());
-                },
-              ),
-            ),
           const SizedBox(height: defaultSize),
           if (userLoggedIn || isUserPro)
             AppCard(
@@ -136,27 +115,14 @@ class _SettingState extends ConsumerState<Setting>
               ),
             ),
           const SizedBox(height: defaultSize),
-          if (!isAuthenticated)
+          if (!userLoggedIn)
             AppCard(
               padding: EdgeInsets.zero,
-              child: Column(
-                children: [
-                  AppTile(
-                    tileKey: const Key('setting.sign_in_tile'),
-                    label: 'sign_in'.i18n,
-                    icon: AppImagePaths.signIn,
-                    onPressed: () => settingMenuTap(_SettingType.signIn),
-                  ),
-                  DividerSpace(),
-                  // Pre-v10 users look for the old device link code here.
-                  AppTile(
-                    tileKey: const Key('setting.authorize_device_tile'),
-                    label: 'authorize_device_for_pro'.i18n,
-                    icon: AppImagePaths.connectDevice,
-                    onPressed: () =>
-                        settingMenuTap(_SettingType.authorizeDevice),
-                  ),
-                ],
+              child: AppTile(
+                tileKey: const Key('setting.sign_in_tile'),
+                label: 'sign_in'.i18n,
+                icon: AppImagePaths.signIn,
+                onPressed: () => settingMenuTap(_SettingType.signIn),
               ),
             ),
           const SizedBox(height: defaultSize),
@@ -253,23 +219,6 @@ class _SettingState extends ConsumerState<Setting>
                     );
                   },
                 ),
-                if (!isStoreVersion()) ...[
-                  DividerSpace(),
-                  AppTile(
-                    label: 'get_30_days_of_pro_free'.i18n,
-                    icon: AppImagePaths.star,
-                    onPressed: () => settingMenuTap(_SettingType.getPro),
-                  ),
-                ],
-                if (canUseStoreBilling() && !isUserPro) ...[
-                  DividerSpace(),
-                  AppTile(
-                    label: 'restore_purchase'.i18n,
-                    icon: AppImagePaths.restorePurchase,
-                    onPressed: () =>
-                        settingMenuTap(_SettingType.restorePurchase),
-                  ),
-                ],
               ],
             ),
           ),
@@ -296,16 +245,6 @@ class _SettingState extends ConsumerState<Setting>
       case _SettingType.signIn:
         appRouter.push(const SignInEmail());
         break;
-      case _SettingType.authorizeDevice:
-        final email = ref.read(userEmailProvider);
-        AppDialog.deviceLinkingReplacedDialog(
-          context: context,
-          onAddPassword: () => appRouter.push(
-            ResetPasswordEmail(email: email.isEmpty ? null : email),
-          ),
-          onSignIn: () => appRouter.push(const SignInEmail()),
-        );
-        break;
       case _SettingType.language:
         appRouter.push(Language());
         return;
@@ -323,9 +262,6 @@ class _SettingState extends ConsumerState<Setting>
         appRouter.push(Support());
         break;
 
-      case _SettingType.getPro:
-        appRouter.push(InviteFriends());
-        break;
       case _SettingType.checkForUpdates:
         await checkForUpdates();
         break;
@@ -348,9 +284,6 @@ class _SettingState extends ConsumerState<Setting>
       case _SettingType.browserUnbounded:
         // TODO: Handle this case.
         throw UnimplementedError();
-      case _SettingType.restorePurchase:
-        restorePurchaseFlow();
-        break;
     }
   }
 
