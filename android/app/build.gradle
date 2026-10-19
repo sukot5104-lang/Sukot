@@ -395,7 +395,12 @@ android {
         // Runs Flutter integration_test/ suites as instrumentation tests
         // (locally and on Firebase Test Lab); see MainActivityTest.
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        versionCode = code
+        // Sukot sideload builds: prefer the pubspec build number so the
+        // in-app Build row matches it (e.g. 1.0.0 build 10). Fall back to
+        // the epoch-based code for bare Gradle builds without Flutter props.
+        versionCode = project.findProperty("flutter.versionCode")
+                ? project.property("flutter.versionCode").toString().toInteger()
+                : code
         // Direct Gradle test builds do not refresh Flutter's local.properties.
         versionName = project.findProperty("lantern.versionName") ?: flutter.versionName
         buildConfigField "String", "SIDELOAD_SIGNING_CERTIFICATE_SHA256", "\"${sideloadSigningCertificateSha256}\""

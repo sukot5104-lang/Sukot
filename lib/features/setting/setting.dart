@@ -115,17 +115,6 @@ class _SettingState extends ConsumerState<Setting> {
               ),
             ),
           const SizedBox(height: defaultSize),
-          if (!userLoggedIn)
-            AppCard(
-              padding: EdgeInsets.zero,
-              child: AppTile(
-                tileKey: const Key('setting.sign_in_tile'),
-                label: 'sign_in'.i18n,
-                icon: AppImagePaths.signIn,
-                onPressed: () => settingMenuTap(_SettingType.signIn),
-              ),
-            ),
-          const SizedBox(height: defaultSize),
           AppCard(
             padding: EdgeInsets.zero,
             child: Column(
