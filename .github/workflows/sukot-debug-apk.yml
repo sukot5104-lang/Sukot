@@ -121,7 +121,7 @@ jobs:
           path: |
             bin/android/liblantern.aar
             android/app/libs/liblantern.aar
-          key: ${{ runner.os }}-android-aar-${{ hashFiles('go.mod', 'go.sum', 'Makefile', '**/*.go', '.github/actions/setup-android/**', '.github/actions/setup-flutter/**', '.github/actions/setup-go/**') }}
+          key: ${{ runner.os }}-android-aar-2abi-${{ hashFiles('go.mod', 'go.sum', 'Makefile', '**/*.go', '.github/actions/setup-android/**', '.github/actions/setup-flutter/**', '.github/actions/setup-go/**') }}
 
       - name: Mark restored Android AAR fresh
         if: steps.android-aar-cache.outputs.cache-hit == 'true'
@@ -144,15 +144,17 @@ jobs:
       - name: Create placeholder app.env
         run: touch app.env
 
-      # Xiaomi variant: build android-arm (32-bit) too and widen the Gradle
-      # abiFilters so the APK installs on ALL Xiaomi/Redmi models, including
-      # older 32-bit devices.
+      # Xiaomi variant: build android-arm (32-bit) too — BOTH the Go AAR
+      # (separate cache key + GOMOBILE_ANDROID_TARGET) and the Gradle
+      # abiFilters — so the APK installs on ALL Xiaomi/Redmi models,
+      # including older 32-bit devices.
       - name: Build Xiaomi debug APK
         run: >-
           make android-debug-ci
           ANDROID_IDENTITY_PROFILE=scripts/stealth/identity/sukot-xiaomi.properties
           ANDROID_APK_TARGET_PLATFORMS="android-arm,android-arm64"
           ANDROID_GRADLE_EXTRA_PROPS="-Plantern.abiFilters=arm64-v8a,armeabi-v7a"
+          GOMOBILE_ANDROID_TARGET="android/arm64,android/arm"
         env:
           GOMOBILECACHE: ${{ env.GOMOBILECACHE }}
 
