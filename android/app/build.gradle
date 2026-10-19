@@ -19,6 +19,20 @@ def sideloadUpdates = project.findProperty("lantern.sideloadUpdates") == "true"
 def sideloadManifestPath = "$buildDir/generated/lantern/sideload/AndroidManifest.xml"
 // Play AAB passes false; sideload builds keep cleartext for the Alipay gateway.
 def cleartextTraffic = (project.findProperty("lantern.cleartextTraffic") ?: "true").toString()
+
+// ABIs packaged into this build. Default: arm64-only (armeabi-v7a was
+// dropped because Go >=1.23.2 trips Android 8-10 seccomp on 32-bit,
+// golang/go#70495). The Sukot Xiaomi variant widens coverage with
+// -Plantern.abiFilters=arm64-v8a,armeabi-v7a (the Flutter build must then
+// also target android-arm).
+def requestedAbis = (project.findProperty("lantern.abiFilters") ?: "arm64-v8a")
+        .toString()
+        .split(",")
+        .collect { it.trim() }
+        .findAll { !it.isEmpty() }
+if (requestedAbis.isEmpty()) {
+    requestedAbis = ["arm64-v8a"]
+}
 def generateSideloadManifest = tasks.register("generateSideloadManifest") {
     def sourceManifest = file("src/main/AndroidManifest.xml")
     def permissionAnchor = '    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />'
@@ -361,15 +375,15 @@ android {
             // libbarhopper_v3.so + 1.2 MB libc++_shared.so + 0.7 MB
             // libnative-imagetranscoder.so under lib/x86_64/ in
             // v9.1.9-beta. Explicit excludes here strip them at packaging
-            // time. armeabi-v7a is stripped too — we ship arm64 only.
-            def abiExcludes = [
-                "lib/x86/**",
-                "lib/x86_64/**",
-                "lib/armeabi/**",
-                "lib/armeabi-v7a/**",
-                "lib/mips/**",
-                "lib/mips64/**",
-            ]
+            // time. Which ABIs survive is now driven by requestedAbis (see top of file).
+            // Excludes are computed from the requested ABIs so a build that
+            // widens abiFilters (Sukot Xiaomi variant: arm64-v8a + armeabi-v7a)
+            // actually keeps those libs in the APK — the old hardcoded list
+            // always stripped armeabi-v7a at packaging time.
+            def allAbiDirs = ["arm64-v8a", "armeabi-v7a", "armeabi", "x86", "x86_64", "mips", "mips64"]
+            def abiExcludes = allAbiDirs
+                    .findAll { !requestedAbis.contains(it) }
+                    .collect { "lib/${it}/**" }
             excludes += abiExcludes
         }
     }
@@ -403,17 +417,8 @@ android {
         resValue "string", "app_name", androidIdentity.appLabel
 
         ndk {
-            // Default: arm64 only (APK + AAB) — armeabi-v7a dropped, see the
-            // comment above defaultConfig (golang/go#70495 SIGSYS on 32-bit).
-            // A build can widen device coverage (e.g. the Sukot Xiaomi
-            // variant, which must install on older 32-bit Redmi/Mi models)
-            // by passing -Plantern.abiFilters=arm64-v8a,armeabi-v7a — the
-            // Flutter build must then also target android-arm.
-            def requestedAbis = (project.findProperty("lantern.abiFilters") ?: "arm64-v8a")
-                    .toString()
-                    .split(",")
-                    .collect { it.trim() }
-                    .findAll { !it.isEmpty() }
+            // Uses the file-scope requestedAbis (see top of file): arm64-only
+            // by default, widened per-build via -Plantern.abiFilters.
             abiFilters = requestedAbis
             debugSymbolLevel 'FULL'
         }
